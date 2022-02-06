@@ -8,9 +8,10 @@
 
 	export let numberBoxMargin = '0';
 	export let operatorBoxMargin = '0';
+	export let questionContainerMargin = '';
 </script>
 
-<div class="questionContainer" style="--fontSize:{fontSize}">
+<div class="questionContainer" style="--fontSize:{fontSize};--questionContainerMargin:{questionContainerMargin}">
 	<div class="numberBox" style="--height:{height};--width:{width};--numberBoxMargin:{numberBoxMargin}">
 		{firstNumber}
 	</div>
@@ -32,6 +33,7 @@
 		font-stretch: expanded;
 		text-align: center;
 		font-size: var(--fontSize);
+		margin: var(--questionContainerMargin);
 	}
 	div.numberBox {
 		width: var(--width);

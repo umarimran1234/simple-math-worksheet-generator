@@ -2,6 +2,8 @@
 
 This is a simple program to generate simple math worksheets (Plus/Minus/Multiply/Divide two numbers) in printable format. It is written in svelte, using svelte-kit.
 
+![Sample worksheet screnshot](sample-screenshot.JPG "Sample worksheet screenshot")
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

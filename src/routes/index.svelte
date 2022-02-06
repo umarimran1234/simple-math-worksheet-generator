@@ -15,6 +15,7 @@
 	let questionFontSize = '50px';
 	let numberBoxMargin = '20px 1px 5px 1px';
 	let operatorBoxMargin = '20px 1px 5px 1px';
+    let questionContainerMargin = '0px 0px 0px 0px';
 
 	let pageContentContainerHeight = '276mm';
 
@@ -74,6 +75,7 @@
 							fontSize={questionFontSize}
 							{numberBoxMargin}
 							{operatorBoxMargin}
+                            {questionContainerMargin}
 						/>
 					{/if}
 				{/each}
@@ -105,6 +107,11 @@
         <div class="settingsRow">
             <label for="questionOperationBoxMarginInput" class="label">Question Operation box margin: {operatorBoxMargin}</label>
             <input id="questionOperationBoxMarginInput" bind:value={operatorBoxMargin} />
+        </div>
+
+        <div class="settingsRow">
+            <label for="questionOperationBoxMarginInput" class="label">Question container margin: {questionContainerMargin}</label>
+            <input id="questionOperationBoxMarginInput" bind:value={questionContainerMargin} />
         </div>
 
         <div class="settingsRow">
