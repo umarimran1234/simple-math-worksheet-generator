@@ -1,5 +1,11 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+
+    import {
+        AppConstants, QuestionTypes, MathOperators, WorkSheetSize, 
+        FlexDirectionOptions, FlexWrapOptions, FlexJustifyContentOptions
+    } from '$utils/app-constants';
+    
 	import Page from '$components/page.svelte';
 	import TwoNumbersQuestion from '$components/two-numbers-question.svelte';
     import {WorkSheetType, SimpleMathQuestionUtils} from '$utils/simple-math-question-utils';
@@ -12,20 +18,12 @@
 
 	let pageContentContainerHeight = '276mm';
 
-	let flexDirectionOptions = ['row', 'row-reverse', 'column', 'column-reverse'];
-	let flexWrapOptions = ['nowrap', 'wrap', 'wrap-reverse'];
-	let flexJustifyContentOptions = [
-		'flex-start',
-		'flex-end',
-		'center',
-		'space-between',
-		'space-around',
-		'space-evenly'
-	];
+	let pageContentContainerFlexDirection = FlexDirectionOptions.COLUMN;
+	let pageContentContainerFlexWrap = FlexWrapOptions.WRAP;
+	let pageContentContainerJustifyContent = FlexJustifyContentOptions.FLEX_START;
 
-	let pageContentContainerFlexDirection = 'column';
-	let pageContentContainerFlexWrap = 'wrap';
-	let pageContentContainerJustifyContent = 'flex-start';
+    let worksheetSize = WorkSheetSize.A4;
+    let questionsPerWorksheet: number = AppConstants.DEFAULT_QUESTIONS_PER_PAGE;
 
 	let worksheetsTextAreaStr = '';
 	let worksheets = [];
@@ -34,14 +32,25 @@
 		worksheets = JSON.parse(worksheetsTextAreaStr);
 	}
 
-    let range: number = 10;
+    let rangeForMinus: number = 10;
     let descOrder: boolean = true;
-    let questionsPerPage: number = 20;
+    
+    let firstNumberRange: number = 10;
+    let secondNumberRange: number = 10;
+    let questionOperator: string = MathOperators.PLUS;
+
+    function handleGenerateTwoNumbersWorksheetsSubmit() {
+        worksheetsTextAreaStr = JSON.stringify(SimpleMathQuestionUtils.generateTwoNumbersQuestions(firstNumberRange, secondNumberRange, questionOperator, questionsPerWorksheet, worksheetSize), null, 2);
+        handleTextAreaSubmit();
+    }
+
+    function handleGenerateMinusTwoNumbersWorksheetsSubmit() {
+        worksheetsTextAreaStr = JSON.stringify(SimpleMathQuestionUtils.generateMinusTwoNumbersQuestions(rangeForMinus, descOrder, questionsPerWorksheet, worksheetSize), null, 2);
+        handleTextAreaSubmit();
+    }
 
     onMount(async () => {
-		const defaultPageJsonStr = JSON.stringify(SimpleMathQuestionUtils.generateTwoNumbersQuestionsWorksheetsJson(range, descOrder, questionsPerPage));
-        worksheetsTextAreaStr = defaultPageJsonStr;
-        handleTextAreaSubmit();
+        handleGenerateMinusTwoNumbersWorksheetsSubmit();
 	});
 
 
@@ -55,11 +64,11 @@
 				style="--pageContentContainerHeight:{pageContentContainerHeight}; --pageContentContainerFlexDirection:{pageContentContainerFlexDirection}; --pageContentContainerFlexWrap:{pageContentContainerFlexWrap}; --pageContentContainerJustifyContent:{pageContentContainerJustifyContent}"
 			>
 				{#each page.questions as question}
-					{#if question.questionType === 'twoNumbers'}
+					{#if question.questionType === QuestionTypes.TWO_NUMBERS}
 						<TwoNumbersQuestion
 							firstNumber={question.num1}
 							secondNumber={question.num2}
-							operator="{question.operator};"
+							operator="{question.operator}"
 							width={questionBoxWidth}
 							height={questionBoxHeight}
 							fontSize={questionFontSize}
@@ -105,7 +114,7 @@
 
         <div class="settingsRow">
             <div class="label">Page Content flex direction: {pageContentContainerFlexDirection}</div>
-            {#each flexDirectionOptions as flexDirectionOption}
+            {#each AppConstants.FLEX_DIRECTION_OPTIONS as flexDirectionOption}
                 <label>
                     <input
                         type="radio"
@@ -119,7 +128,7 @@
 
         <div class="settingsRow">
             <div class="label">Page Content flex wrap: {pageContentContainerFlexWrap}</div>
-            {#each flexWrapOptions as flexWrapOption}
+            {#each AppConstants.FLEX_WRAP_OPTIONS as flexWrapOption}
                 <label>
                     <input type="radio" bind:group={pageContentContainerFlexWrap} value={flexWrapOption} />
                     {flexWrapOption}
@@ -129,7 +138,7 @@
 
         <div class="settingsRow">
             <div class="label">Page Content flex justify content: {pageContentContainerJustifyContent}</div>
-            {#each flexJustifyContentOptions as flexJustifyContentOption}
+            {#each AppConstants.FLEX_JUSTIFY_CONTENT_OPTIONS as flexJustifyContentOption}
                 <label>
                     <input
                         type="radio"
@@ -142,6 +151,67 @@
         </div>
 
         <div class="settingsRow">
+            <label for="worksheetSizeInput" class="label">Worksheet size</label>
+            {#each AppConstants.WORKSHEET_SIZE_OPTIONS as worksheetSizeOption}
+                <label>
+                    <input
+                        type="radio"
+                        bind:group={worksheetSize}
+                        value={worksheetSizeOption}
+                    />
+                    {worksheetSizeOption}
+                </label>
+            {/each}
+        </div>
+
+        <div class="settingsRow">
+            <label for="questionsPerWorksheetInput" class="label">Questions per worksheet</label>
+            <input id="questionsPerWorksheetInput" bind:value={questionsPerWorksheet} />
+        </div>
+
+        <div class="settingsRow">
+            <div class="label">Generate Minus 2 numbers worksheets</div>
+            <br/>
+            <form on:submit|preventDefault={handleGenerateMinusTwoNumbersWorksheetsSubmit}>
+                <label for="rangeForMinusInput" class="label">Range For Minus Question</label>
+                <input id="rangeForMinusInput" bind:value={rangeForMinus} />
+                <br/>
+                <label>
+                    <input type=checkbox bind:checked={descOrder}>
+	                Questions in descending order:
+                </label>
+                <br/>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="settingsRow">
+            <div class="label">Generate Add 2 numbers worksheets</div>
+            <br/>
+            <form on:submit|preventDefault={handleGenerateTwoNumbersWorksheetsSubmit}>
+                <label for="firstNumberRangeInput" class="label">1st number range</label>
+                <input id="firstNumberRangeInput" bind:value={firstNumberRange} />
+                <br/>
+                <label for="secondNumberRangeInput" class="label">2nd number range</label>
+                <input id="secondNumberRangeInput" bind:value={secondNumberRange} />
+                <br/>                
+                <label for="questionOperatorInput" class="label">Operator (&plus; / &minus; / &times; / &divide;)</label>
+                {#each AppConstants.OPERATOR_OPTIONS as operatorOption}
+                <label>
+                    <input
+                        type="radio"
+                        bind:group={questionOperator}
+                        value={operatorOption}
+                    />
+                    {@html operatorOption}
+                </label>
+                {/each}
+                <br/>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="settingsRow">
             <div class="label">Questions set in json</div>
             <form on:submit|preventDefault={handleTextAreaSubmit}>
                 <textarea bind:value={worksheetsTextAreaStr} class="worksheetJsonTextArea"/>
@@ -149,6 +219,7 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
+
 	</div>
 </main>
 
@@ -184,8 +255,8 @@
     }
 
     .worksheetJsonTextArea {
-        width: 300px;
-        height: 100px;
+        width: 100%;
+        height: 200px;
     }
 
     .label {
