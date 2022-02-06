@@ -32,11 +32,11 @@
 		worksheets = JSON.parse(worksheetsTextAreaStr);
 	}
 
-    let rangeForMinus: number = 10;
+    let rangeForMinus: string = '1-10';
     let descOrder: boolean = true;
     
-    let firstNumberRange: number = 10;
-    let secondNumberRange: number = 10;
+    let firstNumberRange: string = '1-10';
+    let secondNumberRange: string = '1-10';
     let questionOperator: string = MathOperators.PLUS;
 
     function handleGenerateTwoNumbersWorksheetsSubmit() {

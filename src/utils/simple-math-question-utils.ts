@@ -1,5 +1,6 @@
 // import { isMinusToken } from "typescript";
 import { QuestionTypes, MathOperators } from './app-constants';
+import { parseRangeStr } from './number-range-parser';
 
 export type TwoNumbersQuestionType = {
     questionType: string;
@@ -15,10 +16,13 @@ export type WorkSheetType = {
 
 export class SimpleMathQuestionUtils {
 
-    static generateMinusTwoNumbersQuestions(range: number, reverse: boolean, questionsPerPage: number, size: string): WorkSheetType[] {
+    static generateMinusTwoNumbersQuestions(range: string, reverse: boolean, questionsPerPage: number, size: string): WorkSheetType[] {
         let questionArr: TwoNumbersQuestionType[] = [];
 
-        let numArr = this.generateNumArr(range, reverse);
+        let numArr = parseRangeStr(range);
+        if(reverse) {
+            numArr = numArr.reverse();
+        }
         
         numArr.map(num1 => {
             let num2Arr = this.generateNumArr(num1, false);
@@ -30,12 +34,15 @@ export class SimpleMathQuestionUtils {
         return this.generateWorksheets(questionArr, questionsPerPage, size);
     }
 
-    static generateTwoNumbersQuestions(firstNumRange: number, secondNumRange: number, operator: string, questionsPerPage: number, size: string): WorkSheetType[] {
+    static generateTwoNumbersQuestions(firstNumRange: string, secondNumRange: string, operator: string, questionsPerPage: number, size: string): WorkSheetType[] {
 
         let questionArr: TwoNumbersQuestionType[] = [];
 
-        for(let num1 = 1; num1 <= firstNumRange; num1++) {
-            for(let num2 = 1; num2 <= secondNumRange; num2++) {
+        let num1Arr = parseRangeStr(firstNumRange);
+        let num2Arr = parseRangeStr(secondNumRange);
+
+        for (const num1 of num1Arr) {
+            for (const num2 of num2Arr) {
                 questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator));
             }
         }
