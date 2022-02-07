@@ -7,12 +7,25 @@ export type TwoNumbersQuestionType = {
     num1: number;
     num2: number;
     operator: string;
+    answer: number;
 }
 
 export type WorkSheetType = {
     size: string;
     questions: TwoNumbersQuestionType[];
 }
+
+export const addAll = (arr: number[]) => arr.reduce((prev, curr) => prev + curr);
+export const minusAll = (arr: number[]) => arr.reduce((prev, curr) =>  prev - curr);
+export const multiplyAll = (arr: number[]) => arr.reduce((prev, curr) => prev * curr);  
+export const divideAll = (arr: number[]) => arr.reduce((prev, curr) => prev / curr);
+
+export const operationMap = new Map<string, Function>([
+    [MathOperators.PLUS, addAll],
+    [MathOperators.MINUS, minusAll],
+    [MathOperators.TIMES, multiplyAll],
+    [MathOperators.DIVIDE, divideAll],
+]);
 
 export class SimpleMathQuestionUtils {
 
@@ -28,8 +41,9 @@ export class SimpleMathQuestionUtils {
 
         for (const num1 of num1Arr) {
             for (const num2 of num2Arr) {
-                if(!(!allowNegative && this.calculateAnswer(num1, num2, operator) < 0)) {
-                    questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator));
+                let answer = (operationMap.get(operator))([num1, num2]);
+                if(!(!allowNegative && answer < 0)) {
+                    questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator, answer));
                 }
             }
         }
@@ -41,12 +55,13 @@ export class SimpleMathQuestionUtils {
         return this.generateWorksheets(questionArr, questionsPerPage, pageSize);
     }
 
-    private static createTwoNumbersQuestionType(num1: number, num2: number, operator: string): TwoNumbersQuestionType {
+    private static createTwoNumbersQuestionType(num1: number, num2: number, operator: string, answer: number): TwoNumbersQuestionType {
         return <TwoNumbersQuestionType> {
                 questionType: QuestionTypes.TWO_NUMBERS,
                 num1: num1, 
                 num2: num2, 
-                operator: operator
+                operator: operator,
+                answer: answer
         }
     }
 
@@ -76,19 +91,6 @@ export class SimpleMathQuestionUtils {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
-
-    // TODO: refactor this logic not to use if else conditions
-    private static calculateAnswer(num1:number, num2:number, operator: string) {
-        if(MathOperators.PLUS === operator) {
-            return num1 + num2;
-        } else if(MathOperators.MINUS === operator) {
-            return num1 - num2;
-        } else if(MathOperators.TIMES === operator) {
-            return num1 * num2;
-        } else if(MathOperators.DIVIDE === operator) {
-            return num1 / num2;
         }
     }
 

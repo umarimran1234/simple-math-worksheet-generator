@@ -68,7 +68,7 @@
 						<TwoNumbersQuestion
 							firstNumber={question.num1}
 							secondNumber={question.num2}
-							operator="{question.operator}"
+							operator={question.operator}
 							width={questionBoxWidth}
 							height={questionBoxHeight}
 							fontSize={questionFontSize}

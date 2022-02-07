@@ -5,6 +5,7 @@
 	export let firstNumber = '';
 	export let secondNumber = '';
 	export let operator = '';
+	export let answer = '';
 
 	export let numberBoxMargin = '0';
 	export let operatorBoxMargin = '0';
@@ -22,7 +23,9 @@
 		{secondNumber}
 	</div>
 	<div class="operatorBox" style="--height:{height};--operatorBoxMargin:{operatorBoxMargin}">=</div>
-	<div class="numberBox" style="--height:{height};--width:{width};--numberBoxMargin:{numberBoxMargin}" />
+	<div class="numberBox" style="--height:{height};--width:{width};--numberBoxMargin:{numberBoxMargin}">
+		{answer}
+	</div>
 </div>
 
 <style>
