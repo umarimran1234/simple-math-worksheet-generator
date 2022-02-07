@@ -16,38 +16,29 @@ export type WorkSheetType = {
 
 export class SimpleMathQuestionUtils {
 
-    static generateMinusTwoNumbersQuestions(range: string, reverse: boolean, questionsPerPage: number, size: string): WorkSheetType[] {
-        let questionArr: TwoNumbersQuestionType[] = [];
-
-        let numArr = parseRangeStr(range);
-        if(reverse) {
-            numArr = numArr.reverse();
-        }
-        
-        numArr.map(num1 => {
-            let num2Arr = this.generateNumArr(num1, false);
-            num2Arr.forEach(num2 => {
-                questionArr.push(this.createTwoNumbersQuestionType(num1, num2, MathOperators.MINUS));
-            })
-        });
-
-        return this.generateWorksheets(questionArr, questionsPerPage, size);
-    }
-
-    static generateTwoNumbersQuestions(firstNumRange: string, secondNumRange: string, operator: string, questionsPerPage: number, size: string): WorkSheetType[] {
+    static generateTwoNumbersQuestions(
+        firstNumRange: string, firstNumReverse: boolean, secondNumRange: string, secondNumReverse: boolean, operator: string,
+        allowNegative: boolean, randomOrder: boolean, questionsPerPage: number, pageSize: string): WorkSheetType[] {
 
         let questionArr: TwoNumbersQuestionType[] = [];
 
-        let num1Arr = parseRangeStr(firstNumRange);
-        let num2Arr = parseRangeStr(secondNumRange);
+        let num1Arr = this.parseRange(firstNumRange, firstNumReverse);
+        let num2Arr = this.parseRange(secondNumRange, secondNumReverse);
+
 
         for (const num1 of num1Arr) {
             for (const num2 of num2Arr) {
-                questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator));
+                if(!(!allowNegative && this.calculateAnswer(num1, num2, operator) < 0)) {
+                    questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator));
+                }
             }
         }
 
-        return this.generateWorksheets(questionArr, questionsPerPage, size);
+        if (randomOrder) {
+            this.shuffleArray(questionArr);
+        }
+
+        return this.generateWorksheets(questionArr, questionsPerPage, pageSize);
     }
 
     private static createTwoNumbersQuestionType(num1: number, num2: number, operator: string): TwoNumbersQuestionType {
@@ -72,4 +63,33 @@ export class SimpleMathQuestionUtils {
         }
         return numArr;
     }
+
+    private static parseRange(rangeStr: string, reverse: boolean) {
+        let numArr = parseRangeStr(rangeStr);
+        if (reverse) {
+            return numArr.reverse();
+        }
+        return numArr;
+    }
+
+    private static shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // TODO: refactor this logic not to use if else conditions
+    private static calculateAnswer(num1:number, num2:number, operator: string) {
+        if(MathOperators.PLUS === operator) {
+            return num1 + num2;
+        } else if(MathOperators.MINUS === operator) {
+            return num1 - num2;
+        } else if(MathOperators.TIMES === operator) {
+            return num1 * num2;
+        } else if(MathOperators.DIVIDE === operator) {
+            return num1 / num2;
+        }
+    }
+
 }

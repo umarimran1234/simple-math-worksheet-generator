@@ -33,25 +33,24 @@
 		worksheets = JSON.parse(worksheetsTextAreaStr);
 	}
 
-    let rangeForMinus: string = '1-10';
-    let descOrder: boolean = true;
-    
-    let firstNumberRange: string = '1-10';
-    let secondNumberRange: string = '1-10';
+    let firstNumRange: string = '1-10';
+    let firstNumReverse: boolean = true;
+    let secondNumRange: string = '1-10';
+    let secondNumReverse: boolean = true;
+    let allowNegative: boolean = false;
+    let randomOrder: boolean = false;
     let questionOperator: string = MathOperators.PLUS;
 
     function handleGenerateTwoNumbersWorksheetsSubmit() {
-        worksheetsTextAreaStr = JSON.stringify(SimpleMathQuestionUtils.generateTwoNumbersQuestions(firstNumberRange, secondNumberRange, questionOperator, questionsPerWorksheet, worksheetSize), null, 2);
-        handleTextAreaSubmit();
-    }
+        worksheetsTextAreaStr = JSON.stringify(SimpleMathQuestionUtils.generateTwoNumbersQuestions(
+            firstNumRange, firstNumReverse, secondNumRange, secondNumReverse, questionOperator,
+            allowNegative, randomOrder, questionsPerWorksheet, worksheetSize), null, 2);
 
-    function handleGenerateMinusTwoNumbersWorksheetsSubmit() {
-        worksheetsTextAreaStr = JSON.stringify(SimpleMathQuestionUtils.generateMinusTwoNumbersQuestions(rangeForMinus, descOrder, questionsPerWorksheet, worksheetSize), null, 2);
         handleTextAreaSubmit();
     }
 
     onMount(async () => {
-        handleGenerateMinusTwoNumbersWorksheetsSubmit();
+        handleGenerateTwoNumbersWorksheetsSubmit();
 	});
 
 
@@ -177,31 +176,35 @@
         </div>
 
         <div class="settingsRow">
-            <div class="label">Generate Minus 2 numbers worksheets</div>
-            <br/>
-            <form on:submit|preventDefault={handleGenerateMinusTwoNumbersWorksheetsSubmit}>
-                <label for="rangeForMinusInput" class="label">Range For Minus Question</label>
-                <input id="rangeForMinusInput" bind:value={rangeForMinus} />
-                <br/>
-                <label>
-                    <input type=checkbox bind:checked={descOrder}>
-	                Questions in descending order:
-                </label>
-                <br/>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-
-        <div class="settingsRow">
-            <div class="label">Generate Add 2 numbers worksheets</div>
+            <div class="label">Generate 2 numbers worksheets</div>
             <br/>
             <form on:submit|preventDefault={handleGenerateTwoNumbersWorksheetsSubmit}>
-                <label for="firstNumberRangeInput" class="label">1st number range</label>
-                <input id="firstNumberRangeInput" bind:value={firstNumberRange} />
+                <label for="firstNumRangeInput" class="label">1st number range</label>
+                <input id="firstNumRangeInput" bind:value={firstNumRange} />
                 <br/>
-                <label for="secondNumberRangeInput" class="label">2nd number range</label>
-                <input id="secondNumberRangeInput" bind:value={secondNumberRange} />
-                <br/>                
+                <label>
+                    <input type=checkbox bind:checked={firstNumReverse}>
+	                1st number range in descending order:
+                </label>
+                <br/>
+                <label for="secondNumRangeInput" class="label">2nd number range</label>
+                <input id="secondNumRangeInput" bind:value={secondNumRange} />
+                <br/>
+                <label>
+                    <input type=checkbox bind:checked={secondNumReverse}>
+	                2nd number range in descending order:
+                </label>
+                <br/>
+                <label>
+                    <input type=checkbox bind:checked={allowNegative}>
+	                Allow questions with negative answer:
+                </label>
+                <br/>
+                <label>
+                    <input type=checkbox bind:checked={randomOrder}>
+	                Questions in random order:
+                </label>
+                <br/>           
                 <label for="questionOperatorInput" class="label">Operator (&plus; / &minus; / &times; / &divide;)</label>
                 {#each AppConstants.OPERATOR_OPTIONS as operatorOption}
                 <label>
