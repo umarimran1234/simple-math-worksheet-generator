@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="" />
+		<link rel="icon" href="/simple-math-worksheet-generator/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content="">
+	<link rel="stylesheet" href="/simple-math-worksheet-generator/_app/assets/pages/index.svelte-a7722d0a.css">
+	<link rel="modulepreload" href="/simple-math-worksheet-generator/_app/start-7ea2ca7c.js">
+	<link rel="modulepreload" href="/simple-math-worksheet-generator/_app/chunks/vendor-6c6583a5.js">
+	<link rel="modulepreload" href="/simple-math-worksheet-generator/_app/layout.svelte-1edb2156.js">
+	<link rel="modulepreload" href="/simple-math-worksheet-generator/_app/pages/index.svelte-59be1354.js"><script type="module">
+		import { start } from "/simple-math-worksheet-generator/_app/start-7ea2ca7c.js";
+		start({
+			target: document.querySelector("#svelte"),
+			paths: {"base":"/simple-math-worksheet-generator","assets":"/simple-math-worksheet-generator"},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/simple-math-worksheet-generator/_app/layout.svelte-1edb2156.js"),
+						import("/simple-math-worksheet-generator/_app/pages/index.svelte-59be1354.js")
+				],
+				url: new URL("http://sveltekit-prerender/simple-math-worksheet-generator"),
+				params: {}
+			}
+		});
+	</script>
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<main class="svelte-16cv29">
+
+	<div class="container svelte-16cv29"><div class="settingsRow svelte-16cv29"><label for="questionBoxWidthInput" class="label svelte-16cv29">Question Box width: 18mm</label>
+            <input id="questionBoxWidthInput" value="18mm"></div>
+
+        <div class="settingsRow svelte-16cv29"><label for="questionBoxHeightInput" class="label svelte-16cv29">Question Box height: 18mm</label>
+            <input id="questionBoxHeightInput" value="18mm"></div>
+
+        <div class="settingsRow svelte-16cv29"><label for="questionFontSizeInput" class="label svelte-16cv29">Question Font size: 50px</label>
+            <input id="questionFontSizeInput" value="50px"></div>
+            
+        <div class="settingsRow svelte-16cv29"><label for="questionNumberBoxMarginInput" class="label svelte-16cv29">Question Number box margin: 20px 1px 5px 1px</label>
+            <input id="questionNumberBoxMarginInput" value="20px 1px 5px 1px"></div>
+
+        <div class="settingsRow svelte-16cv29"><label for="questionOperationBoxMarginInput" class="label svelte-16cv29">Question Operation box margin: 20px 1px 5px 1px</label>
+            <input id="questionOperationBoxMarginInput" value="20px 1px 5px 1px"></div>
+
+        <div class="settingsRow svelte-16cv29"><label for="questionOperationBoxMarginInput" class="label svelte-16cv29">Question container margin: 0px 0px 0px 0px</label>
+            <input id="questionOperationBoxMarginInput" value="0px 0px 0px 0px"></div>
+
+        <div class="settingsRow svelte-16cv29"><label for="pageContentContainerHeightInput" class="label svelte-16cv29">Page Content flex height</label>
+            <input id="pageContentContainerHeightInput" value="276mm"></div>
+
+        <div class="settingsRow svelte-16cv29"><div class="label svelte-16cv29">Page Content flex direction: column</div>
+            <label><input type="radio" value="row">
+                    row
+                </label><label><input type="radio" value="row-reverse">
+                    row-reverse
+                </label><label><input type="radio" value="column" checked>
+                    column
+                </label><label><input type="radio" value="column-reverse">
+                    column-reverse
+                </label></div>
+
+        <div class="settingsRow svelte-16cv29"><div class="label svelte-16cv29">Page Content flex wrap: wrap</div>
+            <label><input type="radio" value="nowrap">
+                    nowrap
+                </label><label><input type="radio" value="wrap" checked>
+                    wrap
+                </label><label><input type="radio" value="wrap-reverse">
+                    wrap-reverse
+                </label></div>
+
+        <div class="settingsRow svelte-16cv29"><div class="label svelte-16cv29">Page Content flex justify content: flex-start</div>
+            <label><input type="radio" value="flex-start" checked>
+                    flex-start
+                </label><label><input type="radio" value="flex-end">
+                    flex-end
+                </label><label><input type="radio" value="center">
+                    center
+                </label><label><input type="radio" value="space-between">
+                    space-between
+                </label><label><input type="radio" value="space-around">
+                    space-around
+                </label><label><input type="radio" value="space-evenly">
+                    space-evenly
+                </label></div>
+
+        <div class="settingsRow svelte-16cv29"><label for="worksheetSizeInput" class="label svelte-16cv29">Worksheet size</label>
+            <label><input type="radio" value="A4" checked>
+                    A4
+                </label><label><input type="radio" value="A4 landscape">
+                    A4 landscape
+                </label></div>
+
+        <div class="settingsRow svelte-16cv29"><label for="questionsPerWorksheetInput" class="label svelte-16cv29">Questions per worksheet</label>
+            <input id="questionsPerWorksheetInput" value="20"></div>
+
+        <div class="settingsRow svelte-16cv29"><div class="label svelte-16cv29">Generate 2 numbers worksheets</div>
+            <br>
+            <form><label for="firstNumRangeInput" class="label svelte-16cv29">1st number range</label>
+                <input id="firstNumRangeInput" value="1-10">
+                <br>
+                <label><input type="checkbox" checked>
+	                1st number range in descending order:
+                </label>
+                <br>
+                <label for="secondNumRangeInput" class="label svelte-16cv29">2nd number range</label>
+                <input id="secondNumRangeInput" value="1-10">
+                <br>
+                <label><input type="checkbox" checked>
+	                2nd number range in descending order:
+                </label>
+                <br>
+                <label><input type="checkbox">
+	                Allow questions with negative answer:
+                </label>
+                <br>
+                <label><input type="checkbox">
+	                Questions in random order:
+                </label>
+                <br>           
+                <label for="questionOperatorInput" class="label svelte-16cv29">Operator (+ / − / × / ÷)</label>
+                <label><input type="radio" value="&amp;plus;" checked>
+                    <!-- HTML_TAG_START -->&plus;<!-- HTML_TAG_END -->
+                </label><label><input type="radio" value="&amp;minus;">
+                    <!-- HTML_TAG_START -->&minus;<!-- HTML_TAG_END -->
+                </label><label><input type="radio" value="&amp;times;">
+                    <!-- HTML_TAG_START -->&times;<!-- HTML_TAG_END -->
+                </label><label><input type="radio" value="&amp;divide;">
+                    <!-- HTML_TAG_START -->&divide;<!-- HTML_TAG_END -->
+                </label>
+                <br>
+                <button type="submit">Submit</button></form></div>
+
+        <div class="settingsRow svelte-16cv29"><div class="label svelte-16cv29">Questions set in json</div>
+            <form><textarea class="worksheetJsonTextArea svelte-16cv29"></textarea>
+
+                <button type="submit">Submit</button></form></div></div>
+</main>
+
+</div>
+	</body>
+</html>
