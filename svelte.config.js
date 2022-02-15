@@ -41,7 +41,7 @@ const config = {
 					$utils: path.resolve('./src/utils')
 				}
 			},
-			plugins: [isProdEnv && optimizeCss()]
+			plugins: [/*isProdEnv && optimizeCss()*/]
 		}
 	}
 };
