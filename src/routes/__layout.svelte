@@ -6,9 +6,10 @@
     
     // import controls components
     import TwoNumbersWorksheetGeneratorForm  from '$components/config/two-numbers-worksheet-generator-form.svelte';
-    
+        
     import PageConfigControlPanel from '$components/config/page-config-control-panel.svelte';
     import WorksheetDataJsonDisplay from '$components/worksheet/worksheet-data-json-display.svelte';
+    import WorksheetQuestionCountDisplay from '$components/worksheet/worksheet-question-count-display.svelte';
 </script>
 
 <body>
@@ -27,6 +28,7 @@
             <div class="main-content-wrapper">
                 <div class="main-content-page-layout">
                     <PageConfigControlPanel />
+                    <WorksheetQuestionCountDisplay />
                 </div>
 
                 <!-- display pages content -->

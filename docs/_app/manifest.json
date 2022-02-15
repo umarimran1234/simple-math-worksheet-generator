@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-124fbf4c.js",
+    "file": "start-9e514ae1.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -13,13 +13,13 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-29f66a9d.js",
+    "file": "pages/__layout.svelte-9edcf153.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-77a62d45.js",
-      "_two-numbers-question-style-stores-51561bdc.js"
+      "_two-numbers-question-style-stores-873c6ecb.js"
     ],
     "css": [
       "assets/pages/__layout.svelte-f973a81d.css"
@@ -35,13 +35,13 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-7d249e12.js",
+    "file": "pages/index.svelte-cb18ea80.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-77a62d45.js",
-      "_two-numbers-question-style-stores-51561bdc.js"
+      "_two-numbers-question-style-stores-873c6ecb.js"
     ],
     "css": [
       "assets/pages/index.svelte-1b87d4bd.css"
@@ -50,8 +50,8 @@
   "_vendor-77a62d45.js": {
     "file": "chunks/vendor-77a62d45.js"
   },
-  "_two-numbers-question-style-stores-51561bdc.js": {
-    "file": "chunks/two-numbers-question-style-stores-51561bdc.js",
+  "_two-numbers-question-style-stores-873c6ecb.js": {
+    "file": "chunks/two-numbers-question-style-stores-873c6ecb.js",
     "imports": [
       "_vendor-77a62d45.js"
     ]

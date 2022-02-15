@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 
     // import carbon components
     import { Form, FluidForm, TextInput } from "carbon-components-svelte";

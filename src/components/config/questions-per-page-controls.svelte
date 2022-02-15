@@ -5,4 +5,7 @@
     import { questionsPerPageStore } from '$stores/questions-per-page-stores';
 </script>
 
-<NumberInput label="Questions per page" placeholder="" bind:value={$questionsPerPageStore} />
+<NumberInput label="Questions per page" placeholder=""
+    min={1}  
+    bind:value={$questionsPerPageStore} 
+/>
