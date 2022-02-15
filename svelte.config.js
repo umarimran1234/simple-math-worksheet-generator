@@ -4,18 +4,20 @@
 
 // import adapter from '@sveltejs/adapter-auto';
 import adapter from "@sveltejs/adapter-static";
+import { optimizeImports, optimizeCss } from "carbon-preprocess-svelte";
 
 import preprocess from 'svelte-preprocess';
 import path from 'path';
 
 
-const dev = process.env.NODE_ENV === 'development';
+const isDevEnv = process.env.NODE_ENV === 'development';
+const isProdEnv = process.env.NODE_ENV === 'production';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: [preprocess(), optimizeImports()],
 
 	kit: {
 		// configure for github pages, set to produce static files under "docs" folder 
@@ -26,7 +28,7 @@ const config = {
 		}),
 		paths: {
 			// change below to your repo name
-			base: dev ? '' : '/simple-math-worksheet-generator',
+			base: isDevEnv ? '' : '/simple-math-worksheet-generator',
 		},
 
 		// hydrate the <div id="svelte"> element in src/app.html
@@ -35,9 +37,11 @@ const config = {
 			resolve: {
 				alias: {
 					$components: path.resolve('./src/components'),
+					$stores: path.resolve('./src/stores'),
 					$utils: path.resolve('./src/utils')
 				}
-			}
+			},
+			plugins: [isProdEnv && optimizeCss()]
 		}
 	}
 };

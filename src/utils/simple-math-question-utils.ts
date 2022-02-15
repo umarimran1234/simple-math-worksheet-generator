@@ -1,5 +1,6 @@
 // import { isMinusToken } from "typescript";
 import { QuestionTypes, MathOperators } from './app-constants';
+import type { TwoNumbersQuestionGeneratorConfig, WorkSheetSize } from 'src/utils/app-constants';
 import { parseRangeStr } from './number-range-parser';
 
 export type TwoNumbersQuestionType = {
@@ -11,7 +12,7 @@ export type TwoNumbersQuestionType = {
 }
 
 export type WorkSheetType = {
-    size: string;
+    // size: string;
     questions: TwoNumbersQuestionType[];
 }
 
@@ -29,7 +30,28 @@ export const operationMap = new Map<string, Function>([
 
 export class SimpleMathQuestionUtils {
 
-    static generateTwoNumbersQuestions(
+    static generateTwoNumbersQuestions(twoNumbersQuestionGeneratorConfig: TwoNumbersQuestionGeneratorConfig, 
+        questionsPerPage: number, pageSize: WorkSheetSize): WorkSheetType[] {
+
+        console.log('twoNumbersQuestionGeneratorConfig', twoNumbersQuestionGeneratorConfig, 'questionsPerPage', questionsPerPage, 'pageSize', pageSize);
+
+        let worksheetData = this.generateTwoNumbersQuestionsWithParam(
+            twoNumbersQuestionGeneratorConfig.firstNumRange,
+            twoNumbersQuestionGeneratorConfig.firstNumReverse,
+            twoNumbersQuestionGeneratorConfig.secondNumRange,
+            twoNumbersQuestionGeneratorConfig.secondNumReverse,
+            twoNumbersQuestionGeneratorConfig.questionOperator,
+            twoNumbersQuestionGeneratorConfig.allowNegative,
+            twoNumbersQuestionGeneratorConfig.randomOrder,
+            questionsPerPage, 
+            pageSize);
+
+        console.log('generateTwoNumbersQuestions worksheetData: ', worksheetData);
+
+        return worksheetData;
+    }
+
+    private static generateTwoNumbersQuestionsWithParam(
         firstNumRange: string, firstNumReverse: boolean, secondNumRange: string, secondNumReverse: boolean, operator: string,
         allowNegative: boolean, randomOrder: boolean, questionsPerPage: number, pageSize: string): WorkSheetType[] {
 
@@ -52,7 +74,8 @@ export class SimpleMathQuestionUtils {
             this.shuffleArray(questionArr);
         }
 
-        return this.generateWorksheets(questionArr, questionsPerPage, pageSize);
+        // return this.generateWorksheets(questionArr, questionsPerPage, pageSize);
+        return  [<WorkSheetType>{ questions: questionArr }];
     }
 
     private static createTwoNumbersQuestionType(num1: number, num2: number, operator: string, answer: number): TwoNumbersQuestionType {
@@ -67,7 +90,8 @@ export class SimpleMathQuestionUtils {
 
     private static generateWorksheets(questionsArr: TwoNumbersQuestionType[], questionsPerPage: number, size: string): WorkSheetType[] {
         return [...Array(Math.ceil(questionsArr.length / questionsPerPage))].map(_ => <WorkSheetType>{
-            size: size, questions: questionsArr.splice(0, questionsPerPage)
+            // size: size, questions: questionsArr.splice(0, questionsPerPage)
+            questions: questionsArr.splice(0, questionsPerPage)
         });
     }
 
