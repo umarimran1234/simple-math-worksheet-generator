@@ -1,10 +1,10 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-9e514ae1.js",
+    "file": "start-83e82c6d.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-77a62d45.js"
+      "_vendor-2842fd56.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
@@ -13,47 +13,47 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-9edcf153.js",
+    "file": "pages/__layout.svelte-19ee2344.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-77a62d45.js",
-      "_two-numbers-question-style-stores-873c6ecb.js"
+      "_vendor-2842fd56.js",
+      "_two-numbers-question-style-stores-4a0c707c.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-f973a81d.css"
+      "assets/pages/__layout.svelte-e29769c2.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-7a7eab21.js",
+    "file": "error.svelte-15b5f8f0.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-77a62d45.js"
+      "_vendor-2842fd56.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-cb18ea80.js",
+    "file": "pages/index.svelte-2226862a.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-77a62d45.js",
-      "_two-numbers-question-style-stores-873c6ecb.js"
+      "_vendor-2842fd56.js",
+      "_two-numbers-question-style-stores-4a0c707c.js"
     ],
     "css": [
       "assets/pages/index.svelte-1b87d4bd.css"
     ]
   },
-  "_vendor-77a62d45.js": {
-    "file": "chunks/vendor-77a62d45.js"
+  "_vendor-2842fd56.js": {
+    "file": "chunks/vendor-2842fd56.js"
   },
-  "_two-numbers-question-style-stores-873c6ecb.js": {
-    "file": "chunks/two-numbers-question-style-stores-873c6ecb.js",
+  "_two-numbers-question-style-stores-4a0c707c.js": {
+    "file": "chunks/two-numbers-question-style-stores-4a0c707c.js",
     "imports": [
-      "_vendor-77a62d45.js"
+      "_vendor-2842fd56.js"
     ]
   }
 }

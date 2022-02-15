@@ -106,7 +106,7 @@ export const AppConstants = {
             questionsPerPage: 20,
             pageConfig: <PageConfig>{                
                 contentContainerHeight: '276mm',
-                flexDirection: FlexDirectionOptions.COLUMN,
+                flexDirection: FlexDirectionOptions.ROW,
                 flexWrap: FlexWrapOptions.WRAP,
                 flexJustifyContent: FlexJustifyContentOptions.FLEX_START
             },
@@ -116,7 +116,7 @@ export const AppConstants = {
                 numberBoxHeight: '18mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
-                questionContainerMargin: '0px 0px 0px 0px'
+                questionContainerMargin: '0px 30px 0px 30px'
             }
         },
         A4_LANDSCAPE: <WorksheetConfig> {
