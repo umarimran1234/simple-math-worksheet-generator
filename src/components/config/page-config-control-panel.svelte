@@ -1,58 +1,46 @@
-<script>
-    // import carbon components
-    import { Button } from "carbon-components-svelte";
-
+<script lang='ts'>    
     // import controls
-    import PageConfigControls from "$components/config/page-config-controls.svelte";
     import QuestionsPerPageControls from "$components/config/questions-per-page-controls.svelte";
     import PageSizeControls from "$components/config/page-size-controls.svelte";
     import TwoNumbersQuestionStyleConfigControls from '$components/config/two-numbers-question-style-config-controls.svelte';
+    import PageSizeResetControls from "$components/config/page-size-reset-controls.svelte";
 
-    // import utils
-    import { AppConstants } from "$utils/app-constants";
-
-    // import stores
-    import { pageConfigStore } from "$stores/page-config-stores";
-    import { pageSizeStore } from "$stores/page-size-stores";
-    import { twoNumbersQuestionStyleConfigStore } from "$stores/two-numbers-question-style-stores";
-    import { questionsPerPageStore } from "$stores/questions-per-page-stores";
-
+    import PageConfigPaddingHeightControls from "$components/config/page-config-padding-height-controls.svelte"; 
+    import PageConfigFlexControls from "$components/config/page-config-flex-controls.svelte";
 </script>
 
-<div class="pagesize-and-questionsperpage-controls-content">
-    <!-- Question per page update questionsPerPageStore -->
-    <QuestionsPerPageControls />
+<div class="page-config-control-panel">
+    <div class="pagesize-and-questionsperpage-controls-content">
+        <PageSizeResetControls />
 
-    <!-- Page Size Config update pageSizeStore -->
-    <PageSizeControls />
+        <!-- Question per page update questionsPerPageStore -->
+        <QuestionsPerPageControls />
 
-    <Button size="small" on:click={(e) => { 
-        e.preventDefault(); 
-        $pageSizeStore = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4.pageSize;
-        $questionsPerPageStore = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4.questionsPerPage;
-        $pageConfigStore = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4.pageConfig;
-        $twoNumbersQuestionStyleConfigStore =  AppConstants.WORKSHEET_DEFAULT_CONFIG.A4.twoNumbersQuestionStyleConfig; }} >
-        A4 default config
-    </Button>
-    
-    <Button size="small" on:click={(e) => { 
-        e.preventDefault(); 
-        $pageSizeStore = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.pageSize;
-        $questionsPerPageStore = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.questionsPerPage;
-        $pageConfigStore = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.pageConfig;
-        $twoNumbersQuestionStyleConfigStore =  AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.twoNumbersQuestionStyleConfig; }} >
-        A4 Landscape default config
-    </Button>
+        <!-- Page config padding and container height settings update pageConfigStore -->
+        <PageConfigPaddingHeightControls />
+
+        <!-- Page Size Config update pageSizeStore -->
+        <PageSizeControls />
+    </div>
+
+    <!-- Page Config flex settings update pageConfigStore -->
+    <PageConfigFlexControls />
+
+    <!-- Two Numbers Question Style Config update twoNumbersQuestionStyleStore-->
+    <TwoNumbersQuestionStyleConfigControls />
 </div>
 
-<!-- Page Config update pageConfigStore -->
-<PageConfigControls />
-
-<!-- Two Numbers Question Style Config update twoNumbersQuestionStyleStore-->
-<TwoNumbersQuestionStyleConfigControls />
-
-
 <style>
+    .page-config-control-panel {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 15px;
+    }
+
     .pagesize-and-questionsperpage-controls-content {
         display: flex;
         flex-direction: row;
@@ -60,5 +48,8 @@
         justify-content: flex-start;
         align-items: flex-start;
         align-content: flex-start;
+        gap: 15px;
     }
+
+    
 </style>

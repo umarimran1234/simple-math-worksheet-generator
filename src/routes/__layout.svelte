@@ -6,7 +6,8 @@
     
     // import controls components
     import TwoNumbersWorksheetGeneratorForm  from '$components/config/two-numbers-worksheet-generator-form.svelte';
-        
+    import PrintButton from '$components/config/print-button.svelte';
+    
     import PageConfigControlPanel from '$components/config/page-config-control-panel.svelte';
     import WorksheetDataJsonDisplay from '$components/worksheet/worksheet-data-json-display.svelte';
     import WorksheetQuestionCountDisplay from '$components/worksheet/worksheet-question-count-display.svelte';
@@ -20,7 +21,8 @@
             <TwoNumbersWorksheetGeneratorForm />
 
             <!-- print button -->
-            <Button on:click={(e) => {e.preventDefault(); window.print()} }>Print Worksheet</Button>
+            <PrintButton />
+            <!-- <Button on:click={(e) => {e.preventDefault(); window.print()} }>Print Worksheet</Button> -->
         </aside>
 
         <!--main content-->

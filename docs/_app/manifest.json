@@ -1,10 +1,10 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-83e82c6d.js",
+    "file": "start-bb3708d4.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-2842fd56.js"
+      "_vendor-e51eec28.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
@@ -13,47 +13,47 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-19ee2344.js",
+    "file": "pages/__layout.svelte-3db248ca.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-2842fd56.js",
-      "_two-numbers-question-style-stores-4a0c707c.js"
+      "_vendor-e51eec28.js",
+      "_page-config-stores-d87d66b5.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-e29769c2.css"
+      "assets/pages/__layout.svelte-34cf097b.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-15b5f8f0.js",
+    "file": "error.svelte-286102b7.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-2842fd56.js"
+      "_vendor-e51eec28.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-2226862a.js",
+    "file": "pages/index.svelte-ac7b30f5.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-2842fd56.js",
-      "_two-numbers-question-style-stores-4a0c707c.js"
+      "_vendor-e51eec28.js",
+      "_page-config-stores-d87d66b5.js"
     ],
     "css": [
-      "assets/pages/index.svelte-1b87d4bd.css"
+      "assets/pages/index.svelte-6f1c0680.css"
     ]
   },
-  "_vendor-2842fd56.js": {
-    "file": "chunks/vendor-2842fd56.js"
+  "_vendor-e51eec28.js": {
+    "file": "chunks/vendor-e51eec28.js"
   },
-  "_two-numbers-question-style-stores-4a0c707c.js": {
-    "file": "chunks/two-numbers-question-style-stores-4a0c707c.js",
+  "_page-config-stores-d87d66b5.js": {
+    "file": "chunks/page-config-stores-d87d66b5.js",
     "imports": [
-      "_vendor-2842fd56.js"
+      "_vendor-e51eec28.js"
     ]
   }
 }

@@ -56,6 +56,7 @@ export type TwoNumbersQuestionStyleConfig = {
 
 export type PageConfig = {    
     contentContainerHeight: string,
+    pagePadding: string,
     flexDirection: FlexDirectionOptions,
     flexWrap: FlexWrapOptions,
     flexJustifyContent: FlexJustifyContentOptions,
@@ -106,6 +107,7 @@ export const AppConstants = {
             questionsPerPage: 20,
             pageConfig: <PageConfig>{                
                 contentContainerHeight: '276mm',
+                pagePadding: '0mm',
                 flexDirection: FlexDirectionOptions.ROW,
                 flexWrap: FlexWrapOptions.WRAP,
                 flexJustifyContent: FlexJustifyContentOptions.FLEX_START
@@ -116,7 +118,7 @@ export const AppConstants = {
                 numberBoxHeight: '18mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
-                questionContainerMargin: '0px 30px 0px 30px'
+                questionContainerMargin: '10px 30px 10px 30px'
             }
         },
         A4_LANDSCAPE: <WorksheetConfig> {
@@ -124,6 +126,7 @@ export const AppConstants = {
             questionsPerPage: 8,
             pageConfig: <PageConfig>{                
                 contentContainerHeight: '200mm',
+                pagePadding: '0mm',
                 flexDirection: FlexDirectionOptions.ROW,
                 flexWrap: FlexWrapOptions.WRAP,
                 flexJustifyContent: FlexJustifyContentOptions.FLEX_START

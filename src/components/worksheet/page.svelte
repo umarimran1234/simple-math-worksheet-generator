@@ -1,11 +1,12 @@
 <script lang='ts'>
-	export let size;
+	export let size: string;
+	export let padding: string;
 </script>
 
 <div class={size}>
 	<!-- Each sheet element should have the class "sheet" -->
 	<!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
-	<section class="sheet padding-10mm">
+	<section class="sheet sheet-padding" style="--pagePadding:{padding}">
 		<slot />
 	</section>
 </div>
@@ -83,6 +84,10 @@
 	}
 	.sheet.padding-25mm {
 		padding: 25mm;
+	}
+
+	.sheet-padding {
+		padding: var(--pagePadding);
 	}
 
 	/** For screen preview **/
