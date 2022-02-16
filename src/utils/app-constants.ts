@@ -76,7 +76,7 @@ export type TwoNumbersQuestionGeneratorConfig = {
     secondNumReverse: boolean,
     allowNegative: boolean,
     randomOrder: boolean,
-    questionOperator: string,
+    questionOperator: string[],
 }
 
 export const AppConstants = {
@@ -98,7 +98,7 @@ export const AppConstants = {
         secondNumReverse: true,
         allowNegative: false,
         randomOrder: false,
-        questionOperator: MathOperators.PLUS,
+        questionOperator: [MathOperators.PLUS],
     },
 
     WORKSHEET_DEFAULT_CONFIG : {

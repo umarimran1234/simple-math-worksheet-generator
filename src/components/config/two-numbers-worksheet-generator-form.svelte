@@ -7,6 +7,7 @@
 
     // import components
     import TagSelect from "$components/common/tag-select.svelte";
+    import TagSelectMulti from "$components/common/tag-select-multi.svelte";
 
     // import stores
     import { twoNumbersQuestionGeneratorConfigStore } from '$stores/two-numbers-question-generator-config-stores';
@@ -35,7 +36,7 @@
     <Checkbox labelText="Allow negative" bind:checked={$twoNumbersQuestionGeneratorConfigStore.allowNegative} />
     <Checkbox labelText="Random order" bind:checked={$twoNumbersQuestionGeneratorConfigStore.randomOrder} />
 
-    <TagSelect labelText="Operator" options={AppConstants.OPERATOR_OPTIONS} 
+    <TagSelectMulti labelText="Operator" options={AppConstants.OPERATOR_OPTIONS} 
         bind:selected={$twoNumbersQuestionGeneratorConfigStore.questionOperator}/>
     
     <Button type="submit">Generate Worksheet</Button>

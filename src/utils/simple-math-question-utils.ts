@@ -52,7 +52,7 @@ export class SimpleMathQuestionUtils {
     }
 
     private static generateTwoNumbersQuestionsWithParam(
-        firstNumRange: string, firstNumReverse: boolean, secondNumRange: string, secondNumReverse: boolean, operator: string,
+        firstNumRange: string, firstNumReverse: boolean, secondNumRange: string, secondNumReverse: boolean, operators: string[],
         allowNegative: boolean, randomOrder: boolean, questionsPerPage: number, pageSize: string): WorkSheetType[] {
 
         let questionArr: TwoNumbersQuestionType[] = [];
@@ -60,12 +60,13 @@ export class SimpleMathQuestionUtils {
         let num1Arr = this.parseRange(firstNumRange, firstNumReverse);
         let num2Arr = this.parseRange(secondNumRange, secondNumReverse);
 
-
-        for (const num1 of num1Arr) {
-            for (const num2 of num2Arr) {
-                let answer = (operationMap.get(operator))([num1, num2]);
-                if(!(!allowNegative && answer < 0)) {
-                    questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator, answer));
+        for(const operator of operators) {
+            for (const num1 of num1Arr) {
+                for (const num2 of num2Arr) {
+                    let answer = (operationMap.get(operator))([num1, num2]);
+                    if(!(!allowNegative && answer < 0)) {
+                        questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator, answer));
+                    }
                 }
             }
         }
