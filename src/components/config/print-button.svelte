@@ -40,5 +40,5 @@
 </script>
 
 <!-- print button -->
-<Button on:click={(e) => {e.preventDefault(); triggerPrint()} }>Print</Button>
+<Button on:click={(e) => {e.preventDefault(); triggerPrint()} }>Print Worksheet</Button>
 
