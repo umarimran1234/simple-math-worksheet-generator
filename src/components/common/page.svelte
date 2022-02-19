@@ -1,13 +1,25 @@
 <script lang='ts'>
 	export let size: string;
 	export let padding: string;
+
+	export let contentHeight;
+	export let contentFlexDirection;
+	export let contentFlexWrap;
+	export let contentJustifyContent;
 </script>
 
 <div class={size}>
 	<!-- Each sheet element should have the class "sheet" -->
 	<!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
 	<section class="sheet sheet-padding" style="--pagePadding:{padding}">
-		<slot />
+		<div
+			class="pageContentContainer"
+			style="--pageContentContainerHeight:{contentHeight}; 
+			--pageContentContainerFlexDirection:{contentFlexDirection}; 
+			--pageContentContainerFlexWrap:{contentFlexWrap}; 
+			--pageContentContainerJustifyContent:{contentJustifyContent}">
+			<slot />
+		</div>
 	</section>
 </div>
 
@@ -128,5 +140,14 @@
 		div.legal.landscape {
 			width: 357mm;
 		}
+	}
+
+	.pageContentContainer {
+		display: flex;
+		flex-direction: var(--pageContentContainerFlexDirection);
+		flex-wrap: var(--pageContentContainerFlexWrap);
+		justify-content: var(--pageContentContainerJustifyContent);
+		height: var(--pageContentContainerHeight);
+        align-content: center;
 	}
 </style>

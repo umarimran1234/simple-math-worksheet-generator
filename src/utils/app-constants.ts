@@ -66,6 +66,7 @@ export type WorksheetConfig = {
     pageSize : WorkSheetSize,
     questionsPerPage: number,
     pageConfig: PageConfig,
+    twoNumbersQuestionsPerPage: number,
     twoNumbersQuestionStyleConfig: TwoNumbersQuestionStyleConfig
 }
 
@@ -74,7 +75,9 @@ export type TwoNumbersQuestionGeneratorConfig = {
     firstNumReverse: boolean,
     secondNumRange: string,
     secondNumReverse: boolean,
+    resultMax: number,
     allowNegative: boolean,
+    allowRemainder: boolean,
     randomOrder: boolean,
     questionOperator: string[],
 }
@@ -92,13 +95,15 @@ export const AppConstants = {
     DEFAULT_QUESTIONS_PER_PAGE: 20,
 
     DEFAULT_TWO_NUMBERS_QUESTION_GENERATOR_CONFIG: <TwoNumbersQuestionGeneratorConfig>{
-        firstNumRange: '2 - 5',
+        firstNumRange: '2 - 9',
         firstNumReverse: true,
         secondNumRange: '1 - 5',
         secondNumReverse: true,
+        resultMax: null,
         allowNegative: false,
+        allowRemainder: false,
         randomOrder: false,
-        questionOperator: [MathOperators.PLUS],
+        questionOperator: [MathOperators.PLUS, MathOperators.MINUS],
     },
 
     WORKSHEET_DEFAULT_CONFIG : {
@@ -112,6 +117,7 @@ export const AppConstants = {
                 flexWrap: FlexWrapOptions.WRAP,
                 flexJustifyContent: FlexJustifyContentOptions.FLEX_START
             },
+            twoNumbersQuestionsPerPage: 20,
             twoNumbersQuestionStyleConfig: <TwoNumbersQuestionStyleConfig> {
                 fontSize: '50px',
                 numberBoxWidth: '18mm',
@@ -131,10 +137,11 @@ export const AppConstants = {
                 flexWrap: FlexWrapOptions.WRAP,
                 flexJustifyContent: FlexJustifyContentOptions.FLEX_START
             },
+            twoNumbersQuestionsPerPage: 10,
             twoNumbersQuestionStyleConfig: <TwoNumbersQuestionStyleConfig>{
-                fontSize: '50px',
-                numberBoxWidth: '17mm',
-                numberBoxHeight: '17mm',
+                fontSize: '60px',
+                numberBoxWidth: '20mm',
+                numberBoxHeight: '20mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
                 questionContainerMargin: '30px 90px 30px 90px'

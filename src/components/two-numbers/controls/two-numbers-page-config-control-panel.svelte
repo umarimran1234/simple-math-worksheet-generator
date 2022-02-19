@@ -1,8 +1,9 @@
 <script lang='ts'>    
     // import controls
-    import QuestionsPerPageControls from "$components/config/questions-per-page-controls.svelte";
+    import TwoNumbersQuestionsPerPageControls from "./two-numbers-questions-per-page-controls.svelte";
+    import TwoNumbersQuestionStyleConfigControls from './two-numbers-question-style-config-controls.svelte';
+    
     import PageSizeControls from "$components/config/page-size-controls.svelte";
-    import TwoNumbersQuestionStyleConfigControls from '$components/config/two-numbers-question-style-config-controls.svelte';
     import PageSizeResetControls from "$components/config/page-size-reset-controls.svelte";
 
     import PageConfigPaddingHeightControls from "$components/config/page-config-padding-height-controls.svelte"; 
@@ -14,7 +15,7 @@
         <PageSizeResetControls />
 
         <!-- Question per page update questionsPerPageStore -->
-        <QuestionsPerPageControls />
+        <TwoNumbersQuestionsPerPageControls />
 
         <!-- Page config padding and container height settings update pageConfigStore -->
         <PageConfigPaddingHeightControls />

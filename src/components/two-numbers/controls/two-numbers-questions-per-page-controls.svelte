@@ -2,10 +2,10 @@
     import { NumberInput } from "carbon-components-svelte";
 
     // import stores
-    import { questionsPerPageStore } from '$stores/questions-per-page-stores';
+    import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers/two-numbers-questions-per-page-stores';
 </script>
 
 <NumberInput label="Questions per page" placeholder=""
     min={1}  
-    bind:value={$questionsPerPageStore} 
+    bind:value={$twoNumbersQuestionsPerPageStore} 
 />

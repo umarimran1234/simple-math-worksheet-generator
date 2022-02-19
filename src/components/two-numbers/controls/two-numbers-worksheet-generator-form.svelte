@@ -1,27 +1,26 @@
 <script lang="ts">
     
     // import carbon components
-    import { Form, TextInput } from "carbon-components-svelte";
+    import { Form, NumberInput, TextInput } from "carbon-components-svelte";
     import { Checkbox } from "carbon-components-svelte";
     import { Button } from "carbon-components-svelte";
 
     // import components
-    import TagSelect from "$components/common/tag-select.svelte";
     import TagSelectMulti from "$components/common/tag-select-multi.svelte";
 
     // import stores
-    import { twoNumbersQuestionGeneratorConfigStore } from '$stores/two-numbers-question-generator-config-stores';
-    import { questionsPerPageStore } from '$stores/questions-per-page-stores';
+    import { twoNumbersQuestionGeneratorConfigStore } from '$stores/two-numbers/two-numbers-question-generator-config-stores';
+    import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers/two-numbers-questions-per-page-stores';
     import { pageSizeStore } from '$stores/page-size-stores';
-    import { worksheetDataStore } from '$stores/worksheet-data-stores';
+    import { twoNumbersWorksheetDataStore } from '$stores/two-numbers/two-numbers-worksheet-data-stores';
 
     // import utils
     import { AppConstants } from '$utils/app-constants';
     import { SimpleMathQuestionUtils } from '$utils/simple-math-question-utils';
 
     function handleGenerateTwoNumbersWorksheetsSubmit() {
-        worksheetDataStore.update((worksheetData) => SimpleMathQuestionUtils.generateTwoNumbersQuestions(
-            $twoNumbersQuestionGeneratorConfigStore, $questionsPerPageStore, $pageSizeStore));
+        twoNumbersWorksheetDataStore.update((worksheetData) => SimpleMathQuestionUtils.generateTwoNumbersQuestions(
+            $twoNumbersQuestionGeneratorConfigStore, $twoNumbersQuestionsPerPageStore, $pageSizeStore));
     }
 
 </script>
@@ -33,7 +32,12 @@
     <TextInput labelText="2nd number range" placeholder="" bind:value={$twoNumbersQuestionGeneratorConfigStore.secondNumRange} />
     <Checkbox labelText="Reverse" bind:checked={$twoNumbersQuestionGeneratorConfigStore.secondNumReverse} />
 
+    <NumberInput label="Result max value" placeholder="" allowEmpty
+        bind:value={$twoNumbersQuestionGeneratorConfigStore.resultMax} 
+    />
+
     <Checkbox labelText="Allow negative" bind:checked={$twoNumbersQuestionGeneratorConfigStore.allowNegative} />
+    <Checkbox labelText="Allow remainder" bind:checked={$twoNumbersQuestionGeneratorConfigStore.allowRemainder} />
     <Checkbox labelText="Random order" bind:checked={$twoNumbersQuestionGeneratorConfigStore.randomOrder} />
 
     <TagSelectMulti labelText="Operator" options={AppConstants.OPERATOR_OPTIONS} 
