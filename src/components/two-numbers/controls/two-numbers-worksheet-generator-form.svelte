@@ -3,10 +3,12 @@
     // import carbon components
     import { Form, NumberInput, TextInput } from "carbon-components-svelte";
     import { Checkbox } from "carbon-components-svelte";
-    import { Button } from "carbon-components-svelte";
+    import { ButtonSet, Button } from "carbon-components-svelte";
 
     // import components
-    import TagSelectMulti from "$components/common/tag-select-multi.svelte";
+    import { TagSelectMulti } from "$components/common";
+
+    import { PrintButton } from "$components/config";
 
     // import stores
     import { twoNumbersQuestionGeneratorConfigStore } from '$stores/two-numbers/two-numbers-question-generator-config-stores';
@@ -43,5 +45,8 @@
     <TagSelectMulti labelText="Operator" options={AppConstants.OPERATOR_OPTIONS} 
         bind:selected={$twoNumbersQuestionGeneratorConfigStore.questionOperator}/>
     
-    <Button type="submit">Generate Worksheet</Button>
+    <ButtonSet stacked>
+        <Button type="submit">Generate Worksheet</Button>
+        <PrintButton />
+    </ButtonSet>
 </Form>

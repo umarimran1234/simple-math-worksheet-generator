@@ -2,15 +2,7 @@
     import "carbon-components-svelte/css/g10.css";
 
     import { Accordion, AccordionItem } from "carbon-components-svelte";
-    
-    // import controls components
-    import PrintButton from '$components/config/print-button.svelte';
-    
-    // import TwoNumbersWorksheetGeneratorForm  from '$components/two-numbers/controls/two-numbers-worksheet-generator-form.svelte';
-    // import TwoNumbersPageConfigControlPanel from '$components/two-numbers/controls/two-numbers-page-config-control-panel.svelte';
-    // import TwoNumbersWorksheetDataJsonDisplay from '$components/two-numbers/controls/two-numbers-worksheet-data-json-display.svelte';
-    // import TwoNumbersWorksheetQuestionCountDisplay from '$components/two-numbers/controls/two-numbers-worksheet-question-count-display.svelte';
-
+        
     import { 
         TwoNumbersWorksheetGeneratorForm,
         TwoNumbersPageConfigControlPanel,
@@ -25,10 +17,6 @@
         <aside class="sideNav">
             <!-- worksheet generator form -->
             <TwoNumbersWorksheetGeneratorForm />
-
-            <!-- print button -->
-            <PrintButton />
-            <!-- <Button on:click={(e) => {e.preventDefault(); window.print()} }>Print Worksheet</Button> -->
         </aside>
 
         <!--main content-->
