@@ -1,59 +1,84 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-d0c0ab4a.js",
+    "file": "start-e7242ffc.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-e51eec28.js"
+      "_vendor-e7df1fc9.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
       ".svelte-kit/runtime/components/error.svelte",
-      "src/routes/index.svelte"
+      "src/routes/index.svelte",
+      "src/routes/two-numbers/__layout.svelte",
+      "src/routes/two-numbers/index.svelte"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-ca1b390e.js",
+    "file": "pages/__layout.svelte-d5508326.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-e51eec28.js",
-      "_page-config-stores-bb3ab1f1.js"
+      "_vendor-e7df1fc9.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-34cf097b.css"
+      "assets/pages/__layout.svelte-389ebe35.css",
+      "assets/g10-6d84f867.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-286102b7.js",
+    "file": "error.svelte-1d1379a8.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-e51eec28.js"
+      "_vendor-e7df1fc9.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-a6e2b29c.js",
+    "file": "pages/index.svelte-6324a38c.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-e51eec28.js",
-      "_page-config-stores-bb3ab1f1.js"
-    ],
-    "css": [
-      "assets/pages/index.svelte-6f1c0680.css"
+      "_vendor-e7df1fc9.js"
     ]
   },
-  "_vendor-e51eec28.js": {
-    "file": "chunks/vendor-e51eec28.js"
-  },
-  "_page-config-stores-bb3ab1f1.js": {
-    "file": "chunks/page-config-stores-bb3ab1f1.js",
+  "src/routes/two-numbers/__layout.svelte": {
+    "file": "pages/two-numbers/__layout.svelte-6a11b50a.js",
+    "src": "src/routes/two-numbers/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
     "imports": [
-      "_vendor-e51eec28.js"
+      "_vendor-e7df1fc9.js",
+      "_simple-math-question-utils-5752ea16.js"
+    ],
+    "css": [
+      "assets/pages/two-numbers/__layout.svelte-058fd7e7.css",
+      "assets/g10-6d84f867.css"
+    ]
+  },
+  "src/routes/two-numbers/index.svelte": {
+    "file": "pages/two-numbers/index.svelte-c451e0cf.js",
+    "src": "src/routes/two-numbers/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-e7df1fc9.js",
+      "_simple-math-question-utils-5752ea16.js"
+    ]
+  },
+  "_vendor-e7df1fc9.js": {
+    "file": "chunks/vendor-e7df1fc9.js"
+  },
+  "_simple-math-question-utils-5752ea16.js": {
+    "file": "chunks/simple-math-question-utils-5752ea16.js",
+    "imports": [
+      "_vendor-e7df1fc9.js"
+    ],
+    "css": [
+      "assets/simple-math-question-utils-4bd014da.css"
     ]
   }
 }
