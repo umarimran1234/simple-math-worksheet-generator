@@ -3,6 +3,7 @@
 
     import Page from '$components/common/page.svelte';
 	import TwoNumbersQuestion from './two-numbers-question.svelte';
+	import TwoNumbersQuestionVertical from './two-numbers-question-vertical.svelte';
 
     export let worksheets = [];
     
