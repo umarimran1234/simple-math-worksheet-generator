@@ -5,7 +5,8 @@
 
     import { 
         NumberSequenceWorksheetGeneratorForm,
-        NumberSequencePageConfigControlPanel 
+        NumberSequencePageConfigControlPanel,
+        NumberSequenceQuestionStyleConfigControlPanel 
     } from "$components/number-sequence/controls";
 </script>
 
@@ -22,6 +23,7 @@
             <div class="main-content-wrapper">
                 <div class="main-content-page-layout">
                     <NumberSequencePageConfigControlPanel />
+                    <NumberSequenceQuestionStyleConfigControlPanel />
                 </div>
 
                 <!-- display pages content -->

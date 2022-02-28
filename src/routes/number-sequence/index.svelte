@@ -42,7 +42,8 @@
 <SequenceQuestionGridContainer 
     questions={$numberSequenceWorksheetDataStore} 
     numOfCols={$numberSequenceQuestionGeneratorConfigStore.numOfCols} 
-    cellMinWidth={cellMinWidth} fontSize={fontSize} 
+    cellMinWidth={$numberSequenceQuestionGeneratorConfigStore.cellMinWidth} 
+    fontSize={$numberSequenceQuestionGeneratorConfigStore.fontSize} 
     pageSize={$pageSizeStore} 
     pageConfig={$pageConfigStore}
 />

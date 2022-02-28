@@ -140,6 +140,21 @@
 		div.legal.landscape {
 			width: 357mm;
 		}
+
+		.sheet {
+			background: white;
+			/* box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3); */
+			margin: 0;
+		}
+
+		.pageContentContainer {
+			display: block;
+			flex-direction: var(--pageContentContainerFlexDirection);
+			flex-wrap: var(--pageContentContainerFlexWrap);
+			justify-content: var(--pageContentContainerJustifyContent);
+			height: var(--pageContentContainerHeight);
+			align-content: flex-start;
+		}
 	}
 
 	.pageContentContainer {
@@ -148,6 +163,6 @@
 		flex-wrap: var(--pageContentContainerFlexWrap);
 		justify-content: var(--pageContentContainerJustifyContent);
 		height: var(--pageContentContainerHeight);
-        align-content: center;
+        align-content: flex-start;
 	}
 </style>

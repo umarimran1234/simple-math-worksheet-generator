@@ -18,7 +18,7 @@
 
 <Page size={pageSize} 
 		padding={pageConfig.pagePadding} 
-		contentHeight={pageConfig.pageContentContainerHeight} 
+		contentHeight={pageConfig.contentContainerHeight} 
 		contentFlexDirection={pageConfig.flexDirection}
 		contentFlexWrap={pageConfig.flexWrap}
 		contentJustifyContent={pageConfig.flexJustifyContent} >

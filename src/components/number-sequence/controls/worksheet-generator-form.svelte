@@ -1,7 +1,7 @@
 <script lang="ts">
     
     // import carbon components
-    import { Form, NumberInput } from "carbon-components-svelte";
+    import { Form, NumberInput, TextInput } from "carbon-components-svelte";
     import { Checkbox } from "carbon-components-svelte";
     import { ButtonSet, Button } from "carbon-components-svelte";
 
@@ -39,9 +39,11 @@
 
     <Checkbox labelText="Reverse" bind:checked={$numberSequenceQuestionGeneratorConfigStore.reverse} />
 
-    <NumberInput label="No. of columns per row" placeholder=""  min={1}
+    <!-- <NumberInput label="No. of columns per row" placeholder=""  min={1}
         bind:value={$numberSequenceQuestionGeneratorConfigStore.numOfCols} 
     />
+
+    <TextInput labelText="Font size" placeholder="" bind:value={$numberSequenceQuestionGeneratorConfigStore.fontSize} /> -->
 
     <ButtonSet stacked>
         <Button type="submit">Generate Worksheet</Button>

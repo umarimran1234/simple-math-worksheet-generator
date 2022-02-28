@@ -88,6 +88,8 @@ export type NumberSequenceQuestionGeneratorConfig = {
     noOfEmptyBoxes: number;
     reverse: boolean;
     numOfCols: number;
+    fontSize: string;
+    cellMinWidth: string;
 }
 
 export const AppConstants = {
@@ -120,6 +122,8 @@ export const AppConstants = {
         noOfEmptyBoxes: 55,
         reverse: false,
         numOfCols: 10,
+        fontSize: '55px',
+        cellMinWidth: '29.2mm'
     },
 
     WORKSHEET_DEFAULT_CONFIG : {
