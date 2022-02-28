@@ -35,7 +35,7 @@ export class SimpleMathQuestionUtils {
     static generateTwoNumbersQuestions(twoNumbersQuestionGeneratorConfig: TwoNumbersQuestionGeneratorConfig, 
         questionsPerPage: number, pageSize: WorkSheetSize): WorkSheetType[] {
 
-        console.log('twoNumbersQuestionGeneratorConfig', twoNumbersQuestionGeneratorConfig);
+        // console.log('twoNumbersQuestionGeneratorConfig', twoNumbersQuestionGeneratorConfig);
 
         let worksheetData = this.generateTwoNumbersQuestionsWithParam(
             twoNumbersQuestionGeneratorConfig.firstNumRange,
@@ -48,7 +48,7 @@ export class SimpleMathQuestionUtils {
             twoNumbersQuestionGeneratorConfig.allowRemainder,
             twoNumbersQuestionGeneratorConfig.randomOrder);
 
-        console.log('generateTwoNumbersQuestions worksheetData: ', worksheetData);
+        // console.log('generateTwoNumbersQuestions worksheetData: ', worksheetData);
 
         return worksheetData;
     }

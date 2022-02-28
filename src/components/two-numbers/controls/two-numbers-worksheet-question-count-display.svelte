@@ -1,7 +1,7 @@
 <script>
     // import stores
-    import { twoNumbersWorksheetDataCountStore } from '$stores/two-numbers/two-numbers-worksheet-data-stores'; 
-    import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers/two-numbers-questions-per-page-stores';
+    import { twoNumbersWorksheetDataCountStore } from '$stores/two-numbers'; 
+    import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers';
 
     let totalPages = 0;
     $ : {

@@ -8,8 +8,8 @@
     // import stores
     import { pageConfigStore } from "$stores/page-config-stores";
     import { pageSizeStore } from "$stores/page-size-stores";
-    import { twoNumbersQuestionStyleConfigStore } from "$stores/two-numbers/two-numbers-question-style-stores";
-    import { twoNumbersQuestionsPerPageStore } from "$stores/two-numbers/two-numbers-questions-per-page-stores";
+    import { twoNumbersQuestionStyleConfigStore } from "$stores/two-numbers";
+    import { twoNumbersQuestionsPerPageStore } from "$stores/two-numbers";
 </script>
 
 

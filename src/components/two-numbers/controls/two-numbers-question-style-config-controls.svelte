@@ -3,7 +3,7 @@
     import { TextInput } from "carbon-components-svelte";
 
     // import stores
-    import { twoNumbersQuestionStyleConfigStore } from '$stores/two-numbers/two-numbers-question-style-stores';
+    import { twoNumbersQuestionStyleConfigStore } from '$stores/two-numbers';
 </script>
 
 <div class="two-numbers-question-style-config-controls-content">

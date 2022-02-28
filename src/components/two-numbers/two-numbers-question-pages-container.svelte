@@ -1,14 +1,12 @@
 <script lang='ts'>
     import { QuestionTypes, AppConstants } from '$utils/app-constants';
 
-    import Page from '$components/common/page.svelte';
+    import { Page } from '$components/common';
 	import TwoNumbersQuestion from './two-numbers-question.svelte';
-	import TwoNumbersQuestionVertical from './two-numbers-question-vertical.svelte';
-
+	
     export let worksheets = [];
     
 	export let pageSize = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.pageSize;
-
 	export let pageConfig = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.pageConfig;
 	export let twoNumbersQuestionStyleConfig = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.twoNumbersQuestionStyleConfig;
  

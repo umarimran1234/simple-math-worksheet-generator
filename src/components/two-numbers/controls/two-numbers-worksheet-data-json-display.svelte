@@ -1,6 +1,6 @@
 <script lang='ts'>
     // import stores
-    import { twoNumbersWorksheetDataJsonStore } from '$stores/two-numbers/two-numbers-worksheet-data-stores';
+    import { twoNumbersWorksheetDataJsonStore } from '$stores/two-numbers';
 </script>
 
 <textarea bind:value={$twoNumbersWorksheetDataJsonStore} class="worksheetJsonTextArea" />

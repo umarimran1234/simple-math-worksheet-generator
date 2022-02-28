@@ -1,6 +1,6 @@
 import { derived } from 'svelte/store';
-import { twoNumbersWorksheetDataStore } from '$stores/two-numbers/two-numbers-worksheet-data-stores';
-import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers/two-numbers-questions-per-page-stores';
+import { twoNumbersWorksheetDataStore } from './worksheet-data-stores';
+import { twoNumbersQuestionsPerPageStore } from './questions-per-page-stores';
 
 export const twoNumbersWorksheetDataWithPageSplitStore = derived(
     [twoNumbersWorksheetDataStore, twoNumbersQuestionsPerPageStore],

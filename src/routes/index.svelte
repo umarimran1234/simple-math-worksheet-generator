@@ -3,8 +3,7 @@
 </script>
 
     
-<ClickableTile href="./two-numbers">
-  Two numbers worksheet Generator
-</ClickableTile>
+<ClickableTile href="./two-numbers">Two numbers</ClickableTile>
+<ClickableTile href="./number-sequence">Number Sequence</ClickableTile>
 
 

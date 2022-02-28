@@ -82,6 +82,14 @@ export type TwoNumbersQuestionGeneratorConfig = {
     questionOperator: string[],
 }
 
+export type NumberSequenceQuestionGeneratorConfig = {
+    start: number;
+    end: number;
+    noOfEmptyBoxes: number;
+    reverse: boolean;
+    numOfCols: number;
+}
+
 export const AppConstants = {
 
     FLEX_DIRECTION_OPTIONS: Object.values(FlexDirectionOptions),
@@ -106,10 +114,17 @@ export const AppConstants = {
         questionOperator: [MathOperators.PLUS, MathOperators.MINUS],
     },
 
+    DEFAULT_NUM_SEQUENCE_QUESTION_GENERATOR_CONFIG: <NumberSequenceQuestionGeneratorConfig> {
+        start: 1,
+        end: 100,
+        noOfEmptyBoxes: 55,
+        reverse: false,
+        numOfCols: 10,
+    },
+
     WORKSHEET_DEFAULT_CONFIG : {
         A4: <WorksheetConfig> {
             pageSize: WorkSheetSize.A4,
-            questionsPerPage: 20,
             pageConfig: <PageConfig>{                
                 contentContainerHeight: '276mm',
                 pagePadding: '0mm',
@@ -129,7 +144,6 @@ export const AppConstants = {
         },
         A4_LANDSCAPE: <WorksheetConfig> {
             pageSize: WorkSheetSize.A4_LANDSCAPE,
-            questionsPerPage: 8,
             pageConfig: <PageConfig>{                
                 contentContainerHeight: '200mm',
                 pagePadding: '0mm',

@@ -2,7 +2,7 @@
     import { NumberInput } from "carbon-components-svelte";
 
     // import stores
-    import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers/two-numbers-questions-per-page-stores';
+    import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers';
 </script>
 
 <NumberInput label="Questions per page" placeholder=""

@@ -11,10 +11,10 @@
     import { PrintButton } from "$components/config";
 
     // import stores
-    import { twoNumbersQuestionGeneratorConfigStore } from '$stores/two-numbers/two-numbers-question-generator-config-stores';
-    import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers/two-numbers-questions-per-page-stores';
+    import { twoNumbersQuestionGeneratorConfigStore } from '$stores/two-numbers';
+    import { twoNumbersQuestionsPerPageStore } from '$stores/two-numbers';
     import { pageSizeStore } from '$stores/page-size-stores';
-    import { twoNumbersWorksheetDataStore } from '$stores/two-numbers/two-numbers-worksheet-data-stores';
+    import { twoNumbersWorksheetDataStore } from '$stores/two-numbers';
 
     // import utils
     import { AppConstants } from '$utils/app-constants';
