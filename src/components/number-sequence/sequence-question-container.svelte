@@ -1,10 +1,13 @@
 <script lang="ts">
 
     import SquareLetterBox from './square-letter-box.svelte';
+    import CircLetterBox from './circle-letter-box.svelte';
     import SequenceQuestionRow from "./sequence-question-row.svelte"; 
+    import CircleLetterBox from './circle-letter-box.svelte';
 
-    export let questionChunks;
-
+    // export let questionChunks;
+    export let questions: Array<Array<LetterSequenceType>>;
+    
     export let sequenceQuestionContainerMargin: string = '0';
     export let fontSize: string = '30px';
     export let letterBoxWidth = '25mm';
@@ -13,15 +16,24 @@
 </script>
 
 <div class="sequenceQuestionContainer" style="--sequenceQuestionContainerMargin:{sequenceQuestionContainerMargin};--gap={gap}">
-{#each questionChunks as chunk, i}
-    <SequenceQuestionRow>
-        {#each chunk as record}
-            <div class="letterBoxContainer">
-                <SquareLetterBox letter={record.emptyBoxFlag ? '' : record.letter} fontSize={fontSize} width={letterBoxWidth} height={letterBoxHeight} />
-            </div>
-        {/each}
-    </SequenceQuestionRow>
-{/each}
+<!-- {#each questionChunks as chunk, i} -->
+{#if questions }
+    {#each questions as question}
+        <SequenceQuestionRow>
+            {#each question as box}
+                <div class="letterBoxContainer">
+                    
+                    <CircleLetterBox letter={box.emptyBoxFlag ? '' : box.letter}
+                        fontSize={fontSize} size={letterBoxWidth} borderRadius="50%" />
+
+                    <!-- <SquareLetterBox letter={box.emptyBoxFlag ? '' : box.letter} 
+                        fontSize={fontSize} width={letterBoxWidth} height={letterBoxHeight} /> -->
+                </div>
+            {/each}
+        </SequenceQuestionRow>
+    {/each}
+{/if}
+<!-- {/each} -->
 </div>
 
 <style>
@@ -38,6 +50,6 @@
 
     .letterBoxContainer {
         /* margin: 2mm; */
-        margin: 0mm;
+        margin: 1mm;
     }
 </style>

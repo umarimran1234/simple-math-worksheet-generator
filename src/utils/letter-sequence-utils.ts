@@ -5,6 +5,14 @@ export type LetterSequenceType = {
 
 export class LetterSequenceUtils {
     
+    public static generateNumberRangeQuestions(start: number = 1, end: number = 100, numEmptyBoxes: number = 55, reverse: boolean = false, numberOfQuestions: number): Array<Array<LetterSequenceType>> {
+        let questions = [];
+        for(let i=0; i<numberOfQuestions; i++) {
+            questions.push(this.generateNumberRangeQuestion(start, end, numEmptyBoxes, reverse));
+        }
+        return questions;
+    }
+
     public static generateNumberRangeQuestion(start: number = 1, end: number = 100, numEmptyBoxes: number = 55, reverse: boolean = false): Array<LetterSequenceType> {
         let arr = this.randomEmptyBoxes(this.numberRange(start, end), numEmptyBoxes);
         if (reverse) {

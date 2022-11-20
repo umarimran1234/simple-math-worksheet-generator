@@ -3,6 +3,8 @@
     
     import { Accordion, AccordionItem } from "carbon-components-svelte";
 
+    import { NavBar } from "$components/navigation";
+
     import { 
         NumberSequenceWorksheetGeneratorForm,
         NumberSequencePageConfigControlPanel,
@@ -32,10 +34,11 @@
                 </div>
 
                 <div class="main-content-worksheet-in-json">
+                    <!--
                     <Accordion>
-                        <AccordionItem title="Worksheet in Json">
-                        </AccordionItem>
+                        <AccordionItem title="Worksheet in Json" />
                     </Accordion>
+                -->
                 </div>
             </div>
         </main>
@@ -67,10 +70,11 @@
         margin-left: 10mm;
     }
 
-    @media print {
-        
+    @media print {        
         .sideNav {
             visibility: hidden;
+            width: 0%;
+            height: 0%;
         }
 
         .main-content-page-layout{
@@ -88,7 +92,13 @@
         }
 
         .main-content-wrapper {
-            margin: 0mm;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-content-printable-area {
+            margin: 0;
+            padding: 0;
         }
     }
 </style>

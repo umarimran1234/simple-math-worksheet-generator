@@ -25,7 +25,7 @@
 <style>
     .verticalQuestionOutlineContainer {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         border: 1px solid;
         margin: 3mm;
@@ -41,6 +41,7 @@
 
     .questionIndex {
         font-size: 5mm;
+        width: 12mm;
     }
 
     .questionRow {
@@ -55,6 +56,7 @@
         flex-direction: row;
         height: 15mm;
         width: 30mm;
+        justify-content: flex-end;
     }
 
     .questionOperatorColumn {
@@ -71,7 +73,7 @@
     }
 
     .questionNumber {
-        width: 20mm;
+        width: 24mm;
         text-align: right;
     }
 </style>

@@ -1,9 +1,8 @@
 <script lang="ts">
-    import { ClickableTile } from "carbon-components-svelte";
+    import { ButtonSet, Button } from "carbon-components-svelte";
 </script>
 
-    
-<ClickableTile href="./two-numbers">Two numbers</ClickableTile>
-<ClickableTile href="./number-sequence">Number Sequence</ClickableTile>
-
-
+<ButtonSet stacked>
+    <Button href="./two-numbers">Two numbers</Button>
+    <Button href="./number-sequence">Number Sequence</Button>
+</ButtonSet>

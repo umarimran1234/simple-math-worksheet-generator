@@ -30,16 +30,17 @@
 
     // initial generate the number sequence worksheet using default values
     onMount(() => {
-        numberSequenceWorksheetDataStore.update((worksheetData) => LetterSequenceUtils.generateNumberRangeQuestion(
+        numberSequenceWorksheetDataStore.update((worksheetData) => LetterSequenceUtils.generateNumberRangeQuestions(
             $numberSequenceQuestionGeneratorConfigStore.start, 
             $numberSequenceQuestionGeneratorConfigStore.end, 
             $numberSequenceQuestionGeneratorConfigStore.noOfEmptyBoxes,
-            $numberSequenceQuestionGeneratorConfigStore.reverse));
+            $numberSequenceQuestionGeneratorConfigStore.reverse,
+            $numberSequenceQuestionGeneratorConfigStore.numberOfQuestions));
     });
 
 </script>
 
-<SequenceQuestionGridContainer 
+<SequenceQuestionContainer 
     questions={$numberSequenceWorksheetDataStore} 
     numOfCols={$numberSequenceQuestionGeneratorConfigStore.numOfCols} 
     cellMinWidth={$numberSequenceQuestionGeneratorConfigStore.cellMinWidth} 
@@ -47,3 +48,12 @@
     pageSize={$pageSizeStore} 
     pageConfig={$pageConfigStore}
 />
+
+<!-- <SequenceQuestionGridContainer 
+    questions={$numberSequenceWorksheetDataStore} 
+    numOfCols={$numberSequenceQuestionGeneratorConfigStore.numOfCols} 
+    cellMinWidth={$numberSequenceQuestionGeneratorConfigStore.cellMinWidth} 
+    fontSize={$numberSequenceQuestionGeneratorConfigStore.fontSize} 
+    pageSize={$pageSizeStore} 
+    pageConfig={$pageConfigStore}
+/> -->

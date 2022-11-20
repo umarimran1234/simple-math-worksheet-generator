@@ -6,6 +6,7 @@
 	export let contentFlexDirection;
 	export let contentFlexWrap;
 	export let contentJustifyContent;
+	export let contentAlignContent;
 </script>
 
 <div class={size}>
@@ -17,7 +18,8 @@
 			style="--pageContentContainerHeight:{contentHeight}; 
 			--pageContentContainerFlexDirection:{contentFlexDirection}; 
 			--pageContentContainerFlexWrap:{contentFlexWrap}; 
-			--pageContentContainerJustifyContent:{contentJustifyContent}">
+			--pageContentContainerJustifyContent:{contentJustifyContent};
+			--pageContentAlignContent:{contentAlignContent}" >
 			<slot />
 		</div>
 	</section>
@@ -148,12 +150,13 @@
 		}
 
 		.pageContentContainer {
-			display: block;
+			/* display: block;
 			flex-direction: var(--pageContentContainerFlexDirection);
 			flex-wrap: var(--pageContentContainerFlexWrap);
 			justify-content: var(--pageContentContainerJustifyContent);
 			height: var(--pageContentContainerHeight);
-			align-content: flex-start;
+			align-content: flex-start; */
+			margin:0;
 		}
 	}
 
@@ -163,6 +166,6 @@
 		flex-wrap: var(--pageContentContainerFlexWrap);
 		justify-content: var(--pageContentContainerJustifyContent);
 		height: var(--pageContentContainerHeight);
-        align-content: flex-start;
+        align-content: var(--pageContentAlignContent);
 	}
 </style>

@@ -4,7 +4,7 @@
 
     import { Page } from '$components/common';
 
-    export let questions: LetterSequenceType[];
+    export let questions: Array<Array<LetterSequenceType>>;
 
     export let fontSize: string = '25px';
 
@@ -24,15 +24,17 @@
 		contentJustifyContent={pageConfig.flexJustifyContent} >
 
     {#if questions }
+        {#each questions as question}
         <div class="sequence-question-grid-container" style="--numOfCols:{numOfCols};--cellMinWidth:{cellMinWidth};--fontSize:{fontSize}">
-            {#each questions as question}
+            {#each question as box}
                 <div class="item">
-                    {#if !(question.emptyBoxFlag)}
-                        {@html question.letter}
+                    {#if !(box.emptyBoxFlag)}
+                        {@html box.letter}
                     {/if}
                 </div>
             {/each}
         </div>
+        {/each}
     {/if}
 </Page>
 

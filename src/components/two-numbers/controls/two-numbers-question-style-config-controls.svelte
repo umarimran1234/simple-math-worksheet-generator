@@ -1,12 +1,16 @@
 <script lang='ts'>
     // import carbon components
-    import { TextInput } from "carbon-components-svelte";
+    import { TextInput, Checkbox } from "carbon-components-svelte";
+
+    
 
     // import stores
     import { twoNumbersQuestionStyleConfigStore } from '$stores/two-numbers';
 </script>
 
 <div class="two-numbers-question-style-config-controls-content">
+    <Checkbox labelText="Vertical display" bind:checked={$twoNumbersQuestionStyleConfigStore.verticalDisplay} />
+    <Checkbox labelText="Show Answers" bind:checked={$twoNumbersQuestionStyleConfigStore.showAnswers} />
     <TextInput labelText="Number Box Width" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxWidth} />
     <TextInput labelText="Number Box Height" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxHeight} />
     <TextInput labelText="Question Font size" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.fontSize} />

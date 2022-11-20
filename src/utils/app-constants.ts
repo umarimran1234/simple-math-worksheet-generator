@@ -51,7 +51,9 @@ export type TwoNumbersQuestionStyleConfig = {
     numberBoxHeight: string,
     numberBoxMargin: string,
     operatorBoxMargin: string,
-    questionContainerMargin: string
+    questionContainerMargin: string,
+    verticalDisplay: boolean,
+    showAnswers: boolean
 }
 
 export type PageConfig = {    
@@ -90,6 +92,8 @@ export type NumberSequenceQuestionGeneratorConfig = {
     numOfCols: number;
     fontSize: string;
     cellMinWidth: string;
+    numberOfQuestions: number;
+    questionsPerPage: number;
 }
 
 export const AppConstants = {
@@ -105,14 +109,14 @@ export const AppConstants = {
     DEFAULT_QUESTIONS_PER_PAGE: 20,
 
     DEFAULT_TWO_NUMBERS_QUESTION_GENERATOR_CONFIG: <TwoNumbersQuestionGeneratorConfig>{
-        firstNumRange: '2 - 9',
+        firstNumRange: '2 - 20',
         firstNumReverse: true,
-        secondNumRange: '1 - 5',
+        secondNumRange: '1 - 10',
         secondNumReverse: true,
-        resultMax: null,
+        resultMax: 17,
         allowNegative: false,
         allowRemainder: false,
-        randomOrder: false,
+        randomOrder: true,
         questionOperator: [MathOperators.PLUS, MathOperators.MINUS],
     },
 
@@ -123,7 +127,9 @@ export const AppConstants = {
         reverse: false,
         numOfCols: 10,
         fontSize: '55px',
-        cellMinWidth: '29.2mm'
+        cellMinWidth: '29.2mm',
+        numberOfQuestions: 1,
+        questionsPerPage : 1
     },
 
     WORKSHEET_DEFAULT_CONFIG : {
@@ -134,7 +140,8 @@ export const AppConstants = {
                 pagePadding: '0mm',
                 flexDirection: FlexDirectionOptions.ROW,
                 flexWrap: FlexWrapOptions.WRAP,
-                flexJustifyContent: FlexJustifyContentOptions.FLEX_START
+                flexJustifyContent: FlexJustifyContentOptions.FLEX_START,
+                contentAlignContent: 'center'
             },
             twoNumbersQuestionsPerPage: 20,
             twoNumbersQuestionStyleConfig: <TwoNumbersQuestionStyleConfig> {
@@ -143,7 +150,9 @@ export const AppConstants = {
                 numberBoxHeight: '18mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
-                questionContainerMargin: '10px 30px 10px 30px'
+                questionContainerMargin: '10px 30px 10px 30px',
+                verticalDisplay: true,
+                showAnswers: false
             }
         },
         A4_LANDSCAPE: <WorksheetConfig> {
@@ -153,16 +162,19 @@ export const AppConstants = {
                 pagePadding: '0mm',
                 flexDirection: FlexDirectionOptions.ROW,
                 flexWrap: FlexWrapOptions.WRAP,
-                flexJustifyContent: FlexJustifyContentOptions.FLEX_START
+                flexJustifyContent: FlexJustifyContentOptions.FLEX_START,
+                contentAlignContent: 'center'
             },
-            twoNumbersQuestionsPerPage: 10,
+            twoNumbersQuestionsPerPage: 12,
             twoNumbersQuestionStyleConfig: <TwoNumbersQuestionStyleConfig>{
-                fontSize: '60px',
-                numberBoxWidth: '20mm',
-                numberBoxHeight: '20mm',
+                fontSize: '56px',
+                numberBoxWidth: '19mm',
+                numberBoxHeight: '19mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
-                questionContainerMargin: '30px 90px 30px 90px'
+                questionContainerMargin: '20px 90px 15px 90px',
+                verticalDisplay: false,
+                showAnswers: false
             }            
         }
     }
