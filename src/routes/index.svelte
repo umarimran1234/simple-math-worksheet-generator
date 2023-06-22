@@ -1,8 +1,18 @@
 <script lang="ts">
-    import { ButtonSet, Button } from "carbon-components-svelte";
+
+    // stores import
+    import { twoNumbersQuestionStyleConfigStore, twoNumbersWorksheetDataWithPageSplitStore } from '$stores/two-numbers';
+    import { pageConfigStore } from '$stores/page-config-stores';
+    import { pageSizeStore } from '$stores/page-size-stores';
+    
+    // import components
+    import { TwoNumbersQuestionPagesContainer } from '$components/two-numbers';
+    
 </script>
 
-<ButtonSet stacked>
-    <Button href="./two-numbers">Two numbers</Button>
-    <Button href="./number-sequence">Number Sequence</Button>
-</ButtonSet>
+    
+<TwoNumbersQuestionPagesContainer 
+    worksheets={$twoNumbersWorksheetDataWithPageSplitStore} 
+    pageSize={$pageSizeStore} 
+    pageConfig={$pageConfigStore} 
+    twoNumbersQuestionStyleConfig={$twoNumbersQuestionStyleConfigStore} /> 

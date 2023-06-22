@@ -42,6 +42,7 @@ export class SimpleMathQuestionUtils {
             twoNumbersQuestionGeneratorConfig.firstNumReverse,
             twoNumbersQuestionGeneratorConfig.secondNumRange,
             twoNumbersQuestionGeneratorConfig.secondNumReverse,
+            twoNumbersQuestionGeneratorConfig.resultMin,
             twoNumbersQuestionGeneratorConfig.resultMax,
             twoNumbersQuestionGeneratorConfig.questionOperator,
             twoNumbersQuestionGeneratorConfig.allowNegative,
@@ -54,7 +55,10 @@ export class SimpleMathQuestionUtils {
     }
 
     private static generateTwoNumbersQuestionsWithParam(
-        firstNumRange: string, firstNumReverse: boolean, secondNumRange: string, secondNumReverse: boolean, resultMax: number, operators: string[],
+        firstNumRange: string, firstNumReverse: boolean, 
+        secondNumRange: string, secondNumReverse: boolean, 
+        resultMin: number, resultMax: number, 
+        operators: string[],
         allowNegative: boolean, allowRemainder: boolean, randomOrder: boolean): WorkSheetType[] {
 
         let questionArr: TwoNumbersQuestionType[] = [];
@@ -66,7 +70,8 @@ export class SimpleMathQuestionUtils {
             for (const num1 of num1Arr) {
                 for (const num2 of num2Arr) {
                     let answer = (operationMap.get(operator))([num1, num2]);
-                    if( !(!allowNegative && answer < 0) 
+                    if( !(!allowNegative && answer < 0)
+                        && !(resultMin && resultMin > answer) 
                         && !(resultMax && resultMax < answer) 
                         && !(!allowRemainder && requiresRemainderCheckMap(operator) && (num1 % num2 > 0))  
                     ) {

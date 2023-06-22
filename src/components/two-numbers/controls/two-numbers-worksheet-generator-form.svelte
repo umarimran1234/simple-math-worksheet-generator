@@ -34,6 +34,10 @@
     <TextInput labelText="2nd number range" placeholder="" bind:value={$twoNumbersQuestionGeneratorConfigStore.secondNumRange} />
     <Checkbox labelText="Reverse" bind:checked={$twoNumbersQuestionGeneratorConfigStore.secondNumReverse} />
 
+    <NumberInput label="Result min value" placeholder="" allowEmpty
+        bind:value={$twoNumbersQuestionGeneratorConfigStore.resultMin} 
+    />
+
     <NumberInput label="Result max value" placeholder="" allowEmpty
         bind:value={$twoNumbersQuestionGeneratorConfigStore.resultMax} 
     />

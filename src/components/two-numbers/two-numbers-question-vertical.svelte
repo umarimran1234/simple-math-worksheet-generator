@@ -7,7 +7,7 @@
 </script>
 
 <div class="verticalQuestionOutlineContainer">
-    <div class="questionIndex">{questionId}.</div>
+    <!-- <div class="questionIndex">{questionId}.</div> -->
     <div class="verticalQuestionContainer">
         <div class="questionRow">
             <div class="questionOperatorColumn">{@html operator}</div>
