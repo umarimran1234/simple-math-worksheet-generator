@@ -52,7 +52,7 @@ export type TwoNumbersQuestionStyleConfig = {
     numberBoxMargin: string,
     operatorBoxMargin: string,
     questionContainerMargin: string,
-    verticalDisplay: boolean,
+    columnForm: boolean,
     showAnswers: boolean
 }
 
@@ -153,7 +153,7 @@ export const AppConstants = {
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
                 questionContainerMargin: '10px 30px 10px 30px',
-                verticalDisplay: true,
+                columnForm: true,
                 showAnswers: false
             }
         },
@@ -175,7 +175,7 @@ export const AppConstants = {
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
                 questionContainerMargin: '20px 90px 15px 90px',
-                verticalDisplay: false,
+                columnForm: false,
                 showAnswers: false
             }            
         }

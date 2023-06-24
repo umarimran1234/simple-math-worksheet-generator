@@ -24,7 +24,7 @@
 						
 		{#each page as question, questionIndex}
 			{#if question.questionType === QuestionTypes.TWO_NUMBERS}
-				{#if twoNumbersQuestionStyleConfig.verticalDisplay == false}
+				{#if twoNumbersQuestionStyleConfig.columnForm == false}
 					<TwoNumbersQuestion
 						firstNumber={question.num1}
 						secondNumber={question.num2}

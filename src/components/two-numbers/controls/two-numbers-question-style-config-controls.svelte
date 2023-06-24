@@ -9,7 +9,7 @@
 </script>
 
 <div class="two-numbers-question-style-config-controls-content">
-    <Checkbox labelText="Vertical display" bind:checked={$twoNumbersQuestionStyleConfigStore.verticalDisplay} />
+    <Checkbox labelText="Column Form" bind:checked={$twoNumbersQuestionStyleConfigStore.columnForm} />
     <Checkbox labelText="Show Answers" bind:checked={$twoNumbersQuestionStyleConfigStore.showAnswers} />
     <TextInput labelText="Number Box Width" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxWidth} />
     <TextInput labelText="Number Box Height" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxHeight} />
