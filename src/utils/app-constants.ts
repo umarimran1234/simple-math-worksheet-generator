@@ -51,7 +51,9 @@ export type TwoNumbersQuestionStyleConfig = {
     numberBoxHeight: string,
     numberBoxMargin: string,
     operatorBoxMargin: string,
-    questionContainerMargin: string
+    questionContainerMargin: string,
+    columnForm: boolean,
+    showAnswers: boolean
 }
 
 export type PageConfig = {    
@@ -66,6 +68,7 @@ export type WorksheetConfig = {
     pageSize : WorkSheetSize,
     questionsPerPage: number,
     pageConfig: PageConfig,
+    twoNumbersQuestionsPerPage: number,
     twoNumbersQuestionStyleConfig: TwoNumbersQuestionStyleConfig
 }
 
@@ -74,9 +77,24 @@ export type TwoNumbersQuestionGeneratorConfig = {
     firstNumReverse: boolean,
     secondNumRange: string,
     secondNumReverse: boolean,
+    resultMin: number,
+    resultMax: number,
     allowNegative: boolean,
+    allowRemainder: boolean,
     randomOrder: boolean,
     questionOperator: string[],
+}
+
+export type NumberSequenceQuestionGeneratorConfig = {
+    start: number;
+    end: number;
+    noOfEmptyBoxes: number;
+    reverse: boolean;
+    numOfCols: number;
+    fontSize: string;
+    cellMinWidth: string;
+    numberOfQuestions: number;
+    questionsPerPage: number;
 }
 
 export const AppConstants = {
@@ -92,52 +110,73 @@ export const AppConstants = {
     DEFAULT_QUESTIONS_PER_PAGE: 20,
 
     DEFAULT_TWO_NUMBERS_QUESTION_GENERATOR_CONFIG: <TwoNumbersQuestionGeneratorConfig>{
-        firstNumRange: '2 - 5',
+        firstNumRange: '2 - 20',
         firstNumReverse: true,
-        secondNumRange: '1 - 5',
+        secondNumRange: '1 - 10',
         secondNumReverse: true,
+        resultMin: 0,
+        resultMax: 17,
         allowNegative: false,
-        randomOrder: false,
-        questionOperator: [MathOperators.PLUS],
+        allowRemainder: false,
+        randomOrder: true,
+        questionOperator: [MathOperators.PLUS, MathOperators.MINUS],
+    },
+
+    DEFAULT_NUM_SEQUENCE_QUESTION_GENERATOR_CONFIG: <NumberSequenceQuestionGeneratorConfig> {
+        start: 1,
+        end: 100,
+        noOfEmptyBoxes: 55,
+        reverse: false,
+        numOfCols: 10,
+        fontSize: '55px',
+        cellMinWidth: '29.2mm',
+        numberOfQuestions: 1,
+        questionsPerPage : 1
     },
 
     WORKSHEET_DEFAULT_CONFIG : {
         A4: <WorksheetConfig> {
             pageSize: WorkSheetSize.A4,
-            questionsPerPage: 20,
             pageConfig: <PageConfig>{                
                 contentContainerHeight: '276mm',
                 pagePadding: '0mm',
                 flexDirection: FlexDirectionOptions.ROW,
                 flexWrap: FlexWrapOptions.WRAP,
-                flexJustifyContent: FlexJustifyContentOptions.FLEX_START
+                flexJustifyContent: FlexJustifyContentOptions.FLEX_START,
+                contentAlignContent: 'center'
             },
+            twoNumbersQuestionsPerPage: 20,
             twoNumbersQuestionStyleConfig: <TwoNumbersQuestionStyleConfig> {
                 fontSize: '50px',
                 numberBoxWidth: '18mm',
                 numberBoxHeight: '18mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
-                questionContainerMargin: '10px 30px 10px 30px'
+                questionContainerMargin: '10px 30px 10px 30px',
+                columnForm: true,
+                showAnswers: false
             }
         },
         A4_LANDSCAPE: <WorksheetConfig> {
             pageSize: WorkSheetSize.A4_LANDSCAPE,
-            questionsPerPage: 8,
             pageConfig: <PageConfig>{                
                 contentContainerHeight: '200mm',
                 pagePadding: '0mm',
                 flexDirection: FlexDirectionOptions.ROW,
                 flexWrap: FlexWrapOptions.WRAP,
-                flexJustifyContent: FlexJustifyContentOptions.FLEX_START
+                flexJustifyContent: FlexJustifyContentOptions.FLEX_START,
+                contentAlignContent: 'center'
             },
+            twoNumbersQuestionsPerPage: 12,
             twoNumbersQuestionStyleConfig: <TwoNumbersQuestionStyleConfig>{
-                fontSize: '50px',
-                numberBoxWidth: '17mm',
-                numberBoxHeight: '17mm',
+                fontSize: '56px',
+                numberBoxWidth: '19mm',
+                numberBoxHeight: '19mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
-                questionContainerMargin: '30px 90px 30px 90px'
+                questionContainerMargin: '20px 90px 15px 90px',
+                columnForm: false,
+                showAnswers: false
             }            
         }
     }

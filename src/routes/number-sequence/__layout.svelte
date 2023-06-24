@@ -1,14 +1,15 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g10.css";
-
+    
     import { Accordion, AccordionItem } from "carbon-components-svelte";
-        
+
+    import { NavBar } from "$components/navigation";
+
     import { 
-        TwoNumbersWorksheetGeneratorForm,
-        TwoNumbersPageConfigControlPanel,
-        TwoNumbersWorksheetDataJsonDisplay,
-        TwoNumbersWorksheetQuestionCountDisplay
-    } from '$components/two-numbers';
+        NumberSequenceWorksheetGeneratorForm,
+        NumberSequencePageConfigControlPanel,
+        NumberSequenceQuestionStyleConfigControlPanel 
+    } from "$components/number-sequence/controls";
 </script>
 
 <body>
@@ -16,15 +17,15 @@
         <!-- side menu -->
         <aside class="sideNav">
             <!-- worksheet generator form -->
-            <TwoNumbersWorksheetGeneratorForm />
+            <NumberSequenceWorksheetGeneratorForm />
         </aside>
 
         <!--main content-->
         <main class="main-content">
             <div class="main-content-wrapper">
                 <div class="main-content-page-layout">
-                    <TwoNumbersPageConfigControlPanel />
-                    <TwoNumbersWorksheetQuestionCountDisplay />
+                    <NumberSequencePageConfigControlPanel />
+                    <NumberSequenceQuestionStyleConfigControlPanel />
                 </div>
 
                 <!-- display pages content -->
@@ -33,11 +34,11 @@
                 </div>
 
                 <div class="main-content-worksheet-in-json">
+                    <!--
                     <Accordion>
-                        <AccordionItem title="Worksheet in Json">
-                            <TwoNumbersWorksheetDataJsonDisplay />
-                        </AccordionItem>
+                        <AccordionItem title="Worksheet in Json" />
                     </Accordion>
+                -->
                 </div>
             </div>
         </main>
@@ -50,8 +51,8 @@
         height: 100vh;
     }
     .sideNav {
-        flex: 1 0 10%;
-        max-width: 400px;
+        flex: 1 0 13%;
+        max-width: 500px;
         overflow-y: auto;
     }
     .wrapper {
@@ -69,10 +70,11 @@
         margin-left: 10mm;
     }
 
-    @media print {
-        
+    @media print {        
         .sideNav {
             visibility: hidden;
+            width: 0%;
+            height: 0%;
         }
 
         .main-content-page-layout{
@@ -90,7 +92,13 @@
         }
 
         .main-content-wrapper {
-            margin: 0mm;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-content-printable-area {
+            margin: 0;
+            padding: 0;
         }
     }
 </style>

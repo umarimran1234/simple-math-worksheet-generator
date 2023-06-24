@@ -28,32 +28,38 @@ export const operationMap = new Map<string, Function>([
     [MathOperators.DIVIDE, divideAll],
 ]);
 
+export const requiresRemainderCheckMap = (operator) => MathOperators.DIVIDE === operator;
+
 export class SimpleMathQuestionUtils {
 
     static generateTwoNumbersQuestions(twoNumbersQuestionGeneratorConfig: TwoNumbersQuestionGeneratorConfig, 
         questionsPerPage: number, pageSize: WorkSheetSize): WorkSheetType[] {
 
-        console.log('twoNumbersQuestionGeneratorConfig', twoNumbersQuestionGeneratorConfig, 'questionsPerPage', questionsPerPage, 'pageSize', pageSize);
+        // console.log('twoNumbersQuestionGeneratorConfig', twoNumbersQuestionGeneratorConfig);
 
         let worksheetData = this.generateTwoNumbersQuestionsWithParam(
             twoNumbersQuestionGeneratorConfig.firstNumRange,
             twoNumbersQuestionGeneratorConfig.firstNumReverse,
             twoNumbersQuestionGeneratorConfig.secondNumRange,
             twoNumbersQuestionGeneratorConfig.secondNumReverse,
+            twoNumbersQuestionGeneratorConfig.resultMin,
+            twoNumbersQuestionGeneratorConfig.resultMax,
             twoNumbersQuestionGeneratorConfig.questionOperator,
             twoNumbersQuestionGeneratorConfig.allowNegative,
-            twoNumbersQuestionGeneratorConfig.randomOrder,
-            questionsPerPage, 
-            pageSize);
+            twoNumbersQuestionGeneratorConfig.allowRemainder,
+            twoNumbersQuestionGeneratorConfig.randomOrder);
 
-        console.log('generateTwoNumbersQuestions worksheetData: ', worksheetData);
+        // console.log('generateTwoNumbersQuestions worksheetData: ', worksheetData);
 
         return worksheetData;
     }
 
     private static generateTwoNumbersQuestionsWithParam(
-        firstNumRange: string, firstNumReverse: boolean, secondNumRange: string, secondNumReverse: boolean, operators: string[],
-        allowNegative: boolean, randomOrder: boolean, questionsPerPage: number, pageSize: string): WorkSheetType[] {
+        firstNumRange: string, firstNumReverse: boolean, 
+        secondNumRange: string, secondNumReverse: boolean, 
+        resultMin: number, resultMax: number, 
+        operators: string[],
+        allowNegative: boolean, allowRemainder: boolean, randomOrder: boolean): WorkSheetType[] {
 
         let questionArr: TwoNumbersQuestionType[] = [];
 
@@ -64,7 +70,11 @@ export class SimpleMathQuestionUtils {
             for (const num1 of num1Arr) {
                 for (const num2 of num2Arr) {
                     let answer = (operationMap.get(operator))([num1, num2]);
-                    if(!(!allowNegative && answer < 0)) {
+                    if( !(!allowNegative && answer < 0)
+                        && !(resultMin && resultMin > answer) 
+                        && !(resultMax && resultMax < answer) 
+                        && !(!allowRemainder && requiresRemainderCheckMap(operator) && (num1 % num2 > 0))  
+                    ) {
                         questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator, answer));
                     }
                 }
