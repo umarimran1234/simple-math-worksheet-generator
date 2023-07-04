@@ -2,7 +2,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
-const isProdEnv = process.env.NODE_ENV === 'production';
+const dev = process.argv.includes('dev');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -17,7 +17,7 @@ const config = {
 		adapter: adapter(),
 
 		paths: {
-			base: process.env.NODE_DEV === 'production' ? '/simple-math-worksheet-generator' : ''
+			base: dev ? '' : process.env.BASE_PATH,
 		},
 
 		alias: {
