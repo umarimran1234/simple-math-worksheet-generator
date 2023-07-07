@@ -2,38 +2,15 @@
     // import carbon components
     import { TextInput, Tag } from "carbon-components-svelte";
 
+    import TagToggle from "$components/common/tag-toggle.svelte";
+
     // import stores
     import { twoNumbersQuestionStyleConfigStore } from '$stores/two-numbers';
-
-    export let selectedColumnForm: boolean = undefined;
-    export let selectedShowAnswers: boolean = undefined;
-
-    export let columnFormTagColor = undefined;
-    export let showAnswersTagColor = undefined;
-
-    export let selectedColor: string = 'blue';
-    export let unselectedColor: string = 'gray';
-
-    function handleColumnFormSelect(e) {
-        selectedColumnForm = !selectedColumnForm;
-        $twoNumbersQuestionStyleConfigStore.columnForm = selectedColumnForm;
-        columnFormTagColor = getTagColor(selectedColumnForm);
-    }
-
-    function handleShowAnswersSelect(e) {
-        selectedShowAnswers = !selectedShowAnswers;
-        $twoNumbersQuestionStyleConfigStore.showAnswers = selectedShowAnswers;
-        showAnswersTagColor = getTagColor(selectedShowAnswers);
-    }
-
-    function getTagColor(selected: boolean) {
-        return selected ? selectedColor : unselectedColor;
-    }
 </script>
 
 <div class="two-numbers-question-style-config-controls-content">    
-    <Tag type={columnFormTagColor}  on:click={(e) => {e.preventDefault();handleColumnFormSelect(e)}}>Column Form</Tag>
-    <Tag type={showAnswersTagColor}  on:click={(e) => {e.preventDefault();handleShowAnswersSelect(e)}}>Show Answers</Tag>
+    <TagToggle text="Column Form" bind:selected={$twoNumbersQuestionStyleConfigStore.columnForm} />
+    <TagToggle text="Show Answers" bind:selected={$twoNumbersQuestionStyleConfigStore.showAnswers} />
 
     <TextInput labelText="Number Box Width" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxWidth} />
     <TextInput labelText="Number Box Height" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxHeight} />
