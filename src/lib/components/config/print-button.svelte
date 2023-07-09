@@ -1,4 +1,7 @@
 <script lang='ts'>
+    // import carbon icon svelte
+    import Printer from "carbon-icons-svelte/lib/Printer.svelte";
+
     // import carbon components
     import { Button } from "carbon-components-svelte";
 
@@ -40,5 +43,5 @@
 </script>
 
 <!-- print button -->
-<Button on:click={(e) => {e.preventDefault(); triggerPrint()} }>Print Worksheet</Button>
+<Button on:click={(e) => {e.preventDefault(); triggerPrint()}} icon={Printer} >Print Worksheet</Button>
 

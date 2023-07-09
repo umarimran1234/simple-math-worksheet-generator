@@ -3,7 +3,7 @@ import { AppConstants, WorkSheetSize } from '$utils/app-constants';
 
 
 function createQuestionsPerPageStore() {
-    const { subscribe, set } = writable<number>(AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.questionsPerPage);
+    const { subscribe, set } = writable<number>(AppConstants.WORKSHEET_DEFAULT_CONFIG.A4.questionsPerPage);
 
     return {
         subscribe,

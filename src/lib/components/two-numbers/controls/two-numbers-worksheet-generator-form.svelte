@@ -1,5 +1,7 @@
 <script lang="ts">
-    
+    // impport carbon icon svelte
+    import Run from "carbon-icons-svelte/lib/Run.svelte";
+
     // import carbon components
     import { Form, NumberInput, TextInput } from "carbon-components-svelte";
     import { Checkbox } from "carbon-components-svelte";
@@ -50,7 +52,7 @@
         bind:selected={$twoNumbersQuestionGeneratorConfigStore.questionOperator}/>
     
     <ButtonSet stacked>
-        <Button type="submit">Generate Worksheet</Button>
+        <Button type="submit" icon={Run}>Generate Worksheet</Button>
         <PrintButton />
     </ButtonSet>
 </Form>

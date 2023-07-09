@@ -145,7 +145,7 @@ export const AppConstants = {
                 flexJustifyContent: FlexJustifyContentOptions.FLEX_START,
                 contentAlignContent: 'center'
             },
-            twoNumbersQuestionsPerPage: 20,
+            twoNumbersQuestionsPerPage: 25,
             twoNumbersQuestionStyleConfig: <TwoNumbersQuestionStyleConfig> {
                 fontSize: '50px',
                 numberBoxWidth: '18mm',

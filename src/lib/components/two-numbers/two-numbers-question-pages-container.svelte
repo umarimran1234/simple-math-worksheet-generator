@@ -7,9 +7,9 @@
 	
     export let worksheets = [];
     
-	export let pageSize = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.pageSize;
-	export let pageConfig = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.pageConfig;
-	export let twoNumbersQuestionStyleConfig = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.twoNumbersQuestionStyleConfig;
+	export let pageSize = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4.pageSize;
+	export let pageConfig = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4.pageConfig;
+	export let twoNumbersQuestionStyleConfig = AppConstants.WORKSHEET_DEFAULT_CONFIG.A4.twoNumbersQuestionStyleConfig;
  
 </script>
 
