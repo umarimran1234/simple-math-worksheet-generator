@@ -12,12 +12,12 @@
     <TagToggle text="Column Form" bind:selected={$twoNumbersQuestionStyleConfigStore.columnForm} />
     <TagToggle text="Show Answers" bind:selected={$twoNumbersQuestionStyleConfigStore.showAnswers} />
 
-    <TextInput labelText="Number Box Width" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxWidth} />
-    <TextInput labelText="Number Box Height" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxHeight} />
-    <TextInput labelText="Question Font size" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.fontSize} />
-    <TextInput labelText="Question Number box margin" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxMargin} />
-    <TextInput labelText="Question Operation box margin" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.operatorBoxMargin} />
-    <TextInput labelText="Question container margin" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.questionContainerMargin} />
+    <TextInput size="sm"  labelText="Number Box Width" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxWidth} />
+    <TextInput size="sm"  labelText="Number Box Height" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxHeight} />
+    <TextInput size="sm"  labelText="Question Font size" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.fontSize} />
+    <TextInput size="sm"  labelText="Question Number box margin" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.numberBoxMargin} />
+    <TextInput size="sm"  labelText="Question Operation box margin" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.operatorBoxMargin} />
+    <TextInput size="sm"  labelText="Question container margin" placeholder="" bind:value={$twoNumbersQuestionStyleConfigStore.questionContainerMargin} />
 </div>
 
 <style>

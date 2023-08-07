@@ -31,16 +31,16 @@
 
 <Form on:submit={(e) => { e.preventDefault();handleGenerateTwoNumbersWorksheetsSubmit() }}>
                 
-    <TextInput labelText="1st number range" placeholder="" bind:value={$twoNumbersQuestionGeneratorConfigStore.firstNumRange} />
+    <TextInput size="sm"  labelText="1st number range" placeholder="" bind:value={$twoNumbersQuestionGeneratorConfigStore.firstNumRange} />
     <Checkbox labelText="Reverse" bind:checked={$twoNumbersQuestionGeneratorConfigStore.firstNumReverse} />
-    <TextInput labelText="2nd number range" placeholder="" bind:value={$twoNumbersQuestionGeneratorConfigStore.secondNumRange} />
+    <TextInput size="sm"  labelText="2nd number range" placeholder="" bind:value={$twoNumbersQuestionGeneratorConfigStore.secondNumRange} />
     <Checkbox labelText="Reverse" bind:checked={$twoNumbersQuestionGeneratorConfigStore.secondNumReverse} />
 
-    <NumberInput label="Result min value" placeholder="" allowEmpty
+    <NumberInput size="sm" label="Result min value" placeholder="" allowEmpty
         bind:value={$twoNumbersQuestionGeneratorConfigStore.resultMin} 
     />
 
-    <NumberInput label="Result max value" placeholder="" allowEmpty
+    <NumberInput size="sm" label="Result max value" placeholder="" allowEmpty
         bind:value={$twoNumbersQuestionGeneratorConfigStore.resultMax} 
     />
 

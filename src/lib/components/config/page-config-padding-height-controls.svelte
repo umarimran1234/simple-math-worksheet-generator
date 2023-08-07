@@ -8,8 +8,8 @@
 </script>
 
 <div class="page-config-height-and-padding-section">
-    <TextInput labelText="Page padding" placeholder="" bind:value={$pageConfigStore.pagePadding} />
-    <TextInput labelText="Page container height" placeholder="" bind:value={$pageConfigStore.contentContainerHeight} />
+    <TextInput size="sm"  labelText="Page padding" placeholder="" bind:value={$pageConfigStore.pagePadding} />
+    <TextInput size="sm"  labelText="Page container height" placeholder="" bind:value={$pageConfigStore.contentContainerHeight} />
 </div>
 
 <style>
