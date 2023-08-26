@@ -1,5 +1,5 @@
 <script lang="ts" >
-    import TwoNumbersAppPageContainer from "$components/two-numbers/TwoNumbersAppPageContainer.svelte";
+    import TwoNumbersContainer from "$components/two-numbers/TwoNumbersContainer.svelte";
 </script>
 
-<TwoNumbersAppPageContainer />
+<TwoNumbersContainer />

@@ -1,1 +1,1 @@
-export { default as TwoNumbersAppPageContainer } from './TwoNumbersAppPageContainer.svelte';
+export { default as TwoNumbersContainer } from './TwoNumbersContainer.svelte';
