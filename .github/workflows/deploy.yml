@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: 'master'
+    branches: 'smui-migration'
 
 jobs:
   build_site:
@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         # run: pnpm install
         run: pnpm install --no-frozen-lockfile
+
+      - name: Prepare SMUI themes
+        run: pnpm run prepare
 
       - name: build
         env:

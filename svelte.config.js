@@ -18,12 +18,6 @@ const config = {
 
 		paths: {
 			base: dev ? '' : process.env.BASE_PATH,
-		},
-
-		alias: {
-			$components: "src/lib/components",
-			$stores: "src/lib/stores",
-			$utils: "src/lib/utils"
 		}
 	}
 };

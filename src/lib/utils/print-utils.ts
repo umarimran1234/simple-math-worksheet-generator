@@ -1,16 +1,17 @@
-import { WorkSheetSize } from "./app-constants";
+import { PaperSize } from "$lib/constants/WorksheetPageConstants";
 
-export function triggerPrinter(pageSize: WorkSheetSize) : void {
-    let css_A4_landscape = '@page { size: A4 landscape; }';
-    let css_A4 = '@page { size: A4; }';
-    if (pageSize === WorkSheetSize.A4_LANDSCAPE) {
+export function triggerPrinter(paperSize: PaperSize): void {
+    let css_A4_landscape: string = '@page { size: A4 landscape; }';
+    let css_A4: string = '@page { size: A4; }';
+    
+    if (paperSize === PaperSize.A4_LANDSCAPE) {
         windowPrintWithOrientation(css_A4_landscape);
     } else {
         windowPrintWithOrientation(css_A4);
     }
 }
 
-function windowPrintWithOrientation(page_css) {
+function windowPrintWithOrientation(page_css: string) {
 
     var head = document.head || document.getElementsByTagName('head')[0],
         style = document.createElement('style');

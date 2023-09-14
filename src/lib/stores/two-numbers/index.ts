@@ -1,11 +1,17 @@
-export { twoNumbersQuestionGeneratorConfigStore } from "./question-generator-config-stores";
-export { twoNumbersQuestionStyleConfigStore } from "./question-style-stores";
-export { twoNumbersQuestionsPerPageStore } from "./questions-per-page-stores";
+export { twoNumbersQuestionGeneratorConfigStore } from "./TwoNumbersQuestionGeneratorConfigStores";
+
+export { 
+    twoNumbersQuestionConfigStore,
+    twoNumbersQuestionHorizontalMethodStyleConfigStore,
+    twoNumberQuestionColumnMethodStyleConfigStore,
+    twoNumberWorksheetConfigStore,
+    twoNumberWorksheetContainerStyleConfig
+} from "./TwoNumbersQuestionWorksheetConfigStores";
 
 export {
     twoNumbersWorksheetDataStore,
     twoNumbersWorksheetDataJsonStore,
-    twoNumbersWorksheetDataCountStore
-} from "./worksheet-data-stores";
+    twoNumbersWorksheetDataCountStore,
+    twoNumbersWorksheetDataWithPageSplitStore
+} from "./TwoNumbersWorksheetDataStores";
 
-export { twoNumbersWorksheetDataWithPageSplitStore } from "./worksheet-data-with-page-split-stores";

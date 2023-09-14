@@ -1,7 +1,10 @@
-// import { isMinusToken } from "typescript";
-import { QuestionTypes, MathOperators } from './app-constants';
-import type { TwoNumbersQuestionGeneratorConfig, WorkSheetSize } from 'src/utils/app-constants';
-import { parseRangeStr } from './number-range-parser';
+// import { QuestionTypes, MathOperators } from './app-constants';
+// import type { TwoNumbersQuestionGeneratorConfig, WorkSheetSize } from 'src/utils/app-constants';
+
+import { QuestionTypes } from '$lib/constants/AppConstants';
+import { MathOperators } from '$lib/constants/MathsConstants';
+import type { TwoNumbersQuestionGeneratorConfig  } from '$lib/constants/TwoNumbersQuestionConstants';
+import { parseRangeStr } from './number-ranage-parser-utils';
 
 export type TwoNumbersQuestionType = {
     questionType: string;
@@ -17,8 +20,8 @@ export type WorkSheetType = {
 }
 
 export const addAll = (arr: number[]) => arr.reduce((prev, curr) => prev + curr);
-export const minusAll = (arr: number[]) => arr.reduce((prev, curr) =>  prev - curr);
-export const multiplyAll = (arr: number[]) => arr.reduce((prev, curr) => prev * curr);  
+export const minusAll = (arr: number[]) => arr.reduce((prev, curr) => prev - curr);
+export const multiplyAll = (arr: number[]) => arr.reduce((prev, curr) => prev * curr);
 export const divideAll = (arr: number[]) => arr.reduce((prev, curr) => prev / curr);
 
 export const operationMap = new Map<string, Function>([
@@ -32,10 +35,9 @@ export const requiresRemainderCheckMap = (operator) => MathOperators.DIVIDE === 
 
 export class SimpleMathQuestionUtils {
 
-    static generateTwoNumbersQuestions(twoNumbersQuestionGeneratorConfig: TwoNumbersQuestionGeneratorConfig, 
-        questionsPerPage: number, pageSize: WorkSheetSize): WorkSheetType[] {
+    static generateTwoNumbersQuestions(twoNumbersQuestionGeneratorConfig: TwoNumbersQuestionGeneratorConfig): WorkSheetType[] {
 
-        // console.log('twoNumbersQuestionGeneratorConfig', twoNumbersQuestionGeneratorConfig);
+        console.log('twoNumbersQuestionGeneratorConfig', twoNumbersQuestionGeneratorConfig);
 
         let worksheetData = this.generateTwoNumbersQuestionsWithParam(
             twoNumbersQuestionGeneratorConfig.firstNumRange,
@@ -49,15 +51,15 @@ export class SimpleMathQuestionUtils {
             twoNumbersQuestionGeneratorConfig.allowRemainder,
             twoNumbersQuestionGeneratorConfig.randomOrder);
 
-        // console.log('generateTwoNumbersQuestions worksheetData: ', worksheetData);
+        console.log('generateTwoNumbersQuestions worksheetData: ', worksheetData);
 
         return worksheetData;
     }
 
     private static generateTwoNumbersQuestionsWithParam(
-        firstNumRange: string, firstNumReverse: boolean, 
-        secondNumRange: string, secondNumReverse: boolean, 
-        resultMin: number, resultMax: number, 
+        firstNumRange: string, firstNumReverse: boolean,
+        secondNumRange: string, secondNumReverse: boolean,
+        resultMin: number, resultMax: number,
         operators: string[],
         allowNegative: boolean, allowRemainder: boolean, randomOrder: boolean): WorkSheetType[] {
 
@@ -66,14 +68,14 @@ export class SimpleMathQuestionUtils {
         let num1Arr = this.parseRange(firstNumRange, firstNumReverse);
         let num2Arr = this.parseRange(secondNumRange, secondNumReverse);
 
-        for(const operator of operators) {
+        for (const operator of operators) {
             for (const num1 of num1Arr) {
                 for (const num2 of num2Arr) {
                     let answer = (operationMap.get(operator))([num1, num2]);
-                    if( !(!allowNegative && answer < 0)
-                        && !(resultMin && resultMin > answer) 
-                        && !(resultMax && resultMax < answer) 
-                        && !(!allowRemainder && requiresRemainderCheckMap(operator) && (num1 % num2 > 0))  
+                    if (!(!allowNegative && answer < 0)
+                        && !(resultMin && resultMin > answer)
+                        && !(resultMax && resultMax < answer)
+                        && !(!allowRemainder && requiresRemainderCheckMap(operator) && (num1 % num2 > 0))
                     ) {
                         questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator, answer));
                     }
@@ -86,16 +88,16 @@ export class SimpleMathQuestionUtils {
         }
 
         // return this.generateWorksheets(questionArr, questionsPerPage, pageSize);
-        return  [<WorkSheetType>{ questions: questionArr }];
+        return [<WorkSheetType>{ questions: questionArr }];
     }
 
     private static createTwoNumbersQuestionType(num1: number, num2: number, operator: string, answer: number): TwoNumbersQuestionType {
-        return <TwoNumbersQuestionType> {
-                questionType: QuestionTypes.TWO_NUMBERS,
-                num1: num1, 
-                num2: num2, 
-                operator: operator,
-                answer: answer
+        return <TwoNumbersQuestionType>{
+            questionType: QuestionTypes.TWO_NUMBERS,
+            num1: num1,
+            num2: num2,
+            operator: operator,
+            answer: answer
         }
     }
 

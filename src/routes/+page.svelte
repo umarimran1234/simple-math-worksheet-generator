@@ -1,5 +1,8 @@
-<script lang="ts" >
-    import TwoNumbersContainer from "$components/two-numbers/TwoNumbersContainer.svelte";
+<script lang="ts">
+    import { TwoNumbersAppPageContainer } from "$lib/components/two-numbers";
 </script>
 
-<TwoNumbersContainer />
+<TwoNumbersAppPageContainer />
+
+<style>    
+</style>
