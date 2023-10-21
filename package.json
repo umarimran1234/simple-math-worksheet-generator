@@ -1,6 +1,6 @@
 {
 	"name": "simple-math-worksheet-generator",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
@@ -14,8 +14,11 @@
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
 		"prepare": "pnpm smui-theme-light && pnpm smui-theme-dark",
-		"smui-theme-light": "smui-theme compile static/smui.css -i src/theme -i ./node_modules",
-		"smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark -i ./node_modules"
+		"smui-theme-light": "smui-theme compile static/smui.min.css -i src/theme -i ./node_modules",
+		"smui-theme-dark": "smui-theme compile static/smui-dark.min.css -i src/theme/dark -i ./node_modules",
+		"prepare-dev": "pnpm smui-theme-light-expanded && pnpm smui-theme-dark-expanded",
+		"smui-theme-light-expanded": "smui-theme compile static/smui.css -i src/theme -i ./node_modules -s expanded",
+		"smui-theme-dark-expanded": "smui-theme compile static/smui-dark.css -i src/theme/dark -i ./node_modules -s expanded"
 	},
 	"devDependencies": {
 		"@material/animation": "^14.0.0",
@@ -35,6 +38,7 @@
 		"@material/icon-button": "^14.0.0",
 		"@material/line-ripple": "^14.0.0",
 		"@material/list": "^14.0.0",
+		"@material/menu": "^14.0.0",
 		"@material/menu-surface": "^14.0.0",
 		"@material/notched-outline": "^14.0.0",
 		"@material/ripple": "^14.0.0",
@@ -45,6 +49,7 @@
 		"@material/textfield": "^14.0.0",
 		"@material/theme": "^14.0.0",
 		"@material/tokens": "^14.0.0",
+		"@material/tooltip": "^14.0.0",
 		"@material/top-app-bar": "^14.0.0",
 		"@material/touch-target": "^14.0.0",
 		"@material/typography": "^14.0.0",
@@ -59,11 +64,15 @@
 		"@smui/form-field": "7.0.0-beta.14",
 		"@smui/icon-button": "7.0.0-beta.14",
 		"@smui/list": "7.0.0-beta.14",
+		"@smui/menu": "7.0.0-beta.15",
+		"@smui/menu-surface": "7.0.0-beta.15",
 		"@smui/paper": "7.0.0-beta.15",
 		"@smui/select": "7.0.0-beta.15",
 		"@smui/switch": "7.0.0-beta.14",
 		"@smui/textfield": "7.0.0-beta.14",
+		"@smui/tooltip": "7.0.0-beta.15",
 		"@smui/top-app-bar": "7.0.0-beta.14",
+		"@smui/touch-target": "7.0.0-beta.15",
 		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/adapter-static": "^2.0.2",
 		"@sveltejs/kit": "^1.24.0",

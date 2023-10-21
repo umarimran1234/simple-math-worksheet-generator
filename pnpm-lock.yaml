@@ -56,6 +56,9 @@ devDependencies:
   '@material/list':
     specifier: ^14.0.0
     version: 14.0.0
+  '@material/menu':
+    specifier: ^14.0.0
+    version: 14.0.0
   '@material/menu-surface':
     specifier: ^14.0.0
     version: 14.0.0
@@ -84,6 +87,9 @@ devDependencies:
     specifier: ^14.0.0
     version: 14.0.0
   '@material/tokens':
+    specifier: ^14.0.0
+    version: 14.0.0
+  '@material/tooltip':
     specifier: ^14.0.0
     version: 14.0.0
   '@material/top-app-bar':
@@ -128,6 +134,12 @@ devDependencies:
   '@smui/list':
     specifier: 7.0.0-beta.14
     version: 7.0.0-beta.14(svelte@4.2.0)(typescript@5.2.2)
+  '@smui/menu':
+    specifier: 7.0.0-beta.15
+    version: 7.0.0-beta.15(svelte@4.2.0)(typescript@5.2.2)
+  '@smui/menu-surface':
+    specifier: 7.0.0-beta.15
+    version: 7.0.0-beta.15(svelte@4.2.0)(typescript@5.2.2)
   '@smui/paper':
     specifier: 7.0.0-beta.15
     version: 7.0.0-beta.15(svelte@4.2.0)(typescript@5.2.2)
@@ -140,9 +152,15 @@ devDependencies:
   '@smui/textfield':
     specifier: 7.0.0-beta.14
     version: 7.0.0-beta.14(svelte@4.2.0)(typescript@5.2.2)
+  '@smui/tooltip':
+    specifier: 7.0.0-beta.15
+    version: 7.0.0-beta.15(svelte@4.2.0)(typescript@5.2.2)
   '@smui/top-app-bar':
     specifier: 7.0.0-beta.14
     version: 7.0.0-beta.14(svelte@4.2.0)(typescript@5.2.2)
+  '@smui/touch-target':
+    specifier: 7.0.0-beta.15
+    version: 7.0.0-beta.15(svelte@4.2.0)(typescript@5.2.2)
   '@sveltejs/adapter-auto':
     specifier: ^2.1.0
     version: 2.1.0(@sveltejs/kit@1.25.0)

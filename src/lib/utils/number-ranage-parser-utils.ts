@@ -12,3 +12,12 @@ export const parseRangeStr = (rangeStr) =>
         }
         return a;
     }, []);
+
+
+export const parseRange = (rangeStr: string, reverse: boolean) => {
+    let numArr = parseRangeStr(rangeStr);
+    if (reverse) {
+        return numArr.reverse();
+    }
+    return numArr;
+}

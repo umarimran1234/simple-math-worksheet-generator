@@ -4,7 +4,7 @@ GitHub Pages: https://chiw.github.io/simple-math-worksheet-generator/
 
 This is a simple program to generate simple math worksheets (Plus/Minus/Multiply/Divide two numbers) in printable format. It is written in svelte, using svelte-kit.
 
-![Sample worksheet screnshot](sample-screenshot.JPG "Sample worksheet screenshot")
+![Sample worksheet screnshot](sample-screenshot-v2.png "Sample worksheet screenshot")
 
 # create-svelte
 

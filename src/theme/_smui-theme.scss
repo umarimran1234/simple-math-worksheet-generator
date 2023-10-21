@@ -4,22 +4,86 @@
 
 // Svelte Colors!
 @use '@material/theme/index' as theme with (
-  $primary: #ff3e00,
-  $secondary: #676778,
-  $surface: #fff,
-  $background: #fff,
-  $error: color-palette.$red-900
+  // $primary: #ff3e00,
+  // $secondary: #676778,
+  // $surface: #fff,
+  // $background: #fff,
+  // $error: color-palette.$red-900
+    /*$primary: #3f51b5,*/
+    $primary: #fff,
+    // $secondary: #f50057,
+    $secondary: #000,
+    $surface: #fff,
+    $background: #fafafa,
+    $error: #f44336
 );
+
+@use '@material/button/mixins' as mdc-button;
+@use '@material/typography/mdc-typography';
+@use '@material/typography/mixins' as typography;
+
+.button-shaped-round {
+  @include mdc-button.shape-radius(100%);
+  @include typography.typography('body2');
+  color: #2d2f2f !important;
+  text-transform: none !important;
+  /* font-weight: 400 !important;  */
+  /* font-size: var(--mdc-typography-body2-font-size, 0.875rem); */  
+}
 
 html,
 body {
   background-color: theme.$surface;
-  color: theme.$on-surface;
+  color: theme.$on-surface;  
 }
 
 a {
-  color: #40b3ff;
+  color: color-palette.$blue-600;
 }
 a:visited {
-  color: color.scale(#40b3ff, $lightness: -35%);
+  color: color.scale(color-palette.$blue-600, $lightness: -35%);
+}
+
+/* Add some fine tunings here */
+.mdc-chip-set--choice .mdc-chip--selected {
+  background-color: var(--mdc-theme-surface, #000) !important;
+}
+
+/* For chip selected */
+.mdc-chip--selected {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* Not to display checked icon when selected */
+.mdc-chip__checkmark-svg {
+  display: none !important;
+}
+
+/* text field focus floating label */
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: rgba(45, 47, 47, 0.87) !important;
+}
+
+/* text field focus bottom border */
+.smui-text-field--standard .mdc-line-ripple::after {
+  border-bottom-color: #2d2f2f !important;
+  /* @alternate */
+  border-bottom-color: var(--mdc-theme-primary, #2d2f2f) !important;
+}
+
+/* select focus floating label */
+.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
+  color: rgba(45, 47, 47, 0.87) !important;
+}
+
+/* select focus floating label */
+.mdc-floating-label .mdc-floating-label--float-above {
+  border-bottom-color: #2d2f2f !important;
+}
+
+/* select focus bottom border */
+.smui-select--standard:not(.mdc-select--disabled) .mdc-line-ripple::after {
+  border-bottom-color: #2d2f2f !important;
+  border-bottom-color: var(--mdc-theme-primary, #2d2f2f) !important;
 }

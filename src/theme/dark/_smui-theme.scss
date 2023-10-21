@@ -4,22 +4,88 @@
 
 // Svelte Colors! (Dark Theme)
 @use '@material/theme/index' as theme with (
-  $primary: #ff3e00,
-  $secondary: color.scale(#676778, $whiteness: -10%),
-  $surface: color.adjust(color-palette.$grey-900, $blue: +4),
-  $background: #000,
-  $error: color-palette.$red-700
+  // $primary: #ff3e00,
+  // $secondary: color.scale(#676778, $whiteness: -10%),
+  // $surface: color.adjust(color-palette.$grey-900, $blue: +4),
+  // $background: #000,
+  // $error: color-palette.$red-700
+    /*$primary: #3f51b5,*/
+    $primary: #2d2f2f,
+    // $secondary: #f50057,
+    $secondary: #fff,
+    $surface: #424242,
+    $background: #303030,
+    $error: #f44336
 );
+
+@use '@material/button/mixins' as mdc-button;
+@use '@material/typography/mdc-typography';
+@use '@material/typography/mixins' as typography;
+
+.button-shaped-round {
+  @include mdc-button.shape-radius(100%);
+  @include typography.typography('body2');
+  color: #fff !important;
+  text-transform: none !important;
+  /* font-weight: 400 !important; */
+  /* font-size: var(--mdc-typography-body2-font-size, 0.875rem); */  
+}
+
 
 html,
 body {
-  background-color: #000;
+  background-color: theme.$surface;
   color: theme.$on-surface;
 }
 
 a {
-  color: #40b3ff;
+  color: color-palette.$blue-600;
 }
 a:visited {
-  color: color.scale(#40b3ff, $lightness: -35%);
+  color: color.scale(color-palette.$blue-600, $lightness: -35%);
+}
+
+/* Add some fine tunings here */
+/* For chip set selected */
+.mdc-chip-set--choice .mdc-chip--selected {
+  background-color: var(--mdc-theme-surface, #fff) !important;
+}
+
+/* For chip selected */
+.mdc-chip--selected {
+  background: #fff !important;
+  color: theme.$primary !important;
+}
+
+/* Not to display checked icon when selected */
+.mdc-chip__checkmark-svg {
+  display: none !important;
+}
+
+/* text field focus floating label */
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* text field focus bottom border */
+.smui-text-field--standard .mdc-line-ripple::after {
+  border-bottom-color: #fff !important;
+  /* @alternate */
+  border-bottom-color: var(--mdc-theme-primary, #fff) !important;
+}
+
+/* select focus floating label */
+.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* select focus floating label */
+.mdc-floating-label .mdc-floating-label--float-above {
+  border-bottom-color: #fff !important;
+}
+
+/* select focus bottom border */
+.smui-select--standard:not(.mdc-select--disabled) .mdc-line-ripple::after {
+  border-bottom-color: #fff !important;
+  border-bottom-color: var(--mdc-theme-primary, #fff) !important;
 }
