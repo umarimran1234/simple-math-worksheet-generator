@@ -60,6 +60,10 @@ a:visited {
   display: none !important;
 }
 
+.mdc-text-field .mdc-text-field__input {
+  caret-color: var(--mdc-theme-primary, #2d2f2f) !important;
+}
+
 /* text field focus floating label */
 .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
   color: rgba(45, 47, 47, 0.87) !important;
