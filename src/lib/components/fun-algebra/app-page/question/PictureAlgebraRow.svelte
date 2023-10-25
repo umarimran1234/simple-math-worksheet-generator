@@ -100,4 +100,8 @@
     img.mcdonalds {
         height: 11mm;
     }
+
+    img.animals {
+        height: 11mm;
+    }
 </style>

@@ -56,11 +56,31 @@ import orangejuice from "$lib/images/mcdonalds/orangejuice.png";
 
 export const mcdonaldsImg = [applepie, bigmac, cola, fishburger, fries, icecream, mcnuggets, mcwings, milkshake, orangejuice];
 
+/**
+ * animals
+ */
+import bear from "$lib/images/animals/bear-128.png";
+import cat from "$lib/images/animals/cat-128.png";
+import chick from "$lib/images/animals/chick-128.png";
+import cock from "$lib/images/animals/cock-128.png";
+import dove from "$lib/images/animals/dove-128.png";
+import koala from "$lib/images/animals/koala-128.png";
+import koki from "$lib/images/animals/koki-128.png";
+import littlelion from "$lib/images/animals/littlelion-128.png";
+import littlesheep from "$lib/images/animals/littlesheep-128.png";
+import mouse from "$lib/images/animals/mouse-128.png";
+import panda from "$lib/images/animals/panda-128.png";
+import pig from "$lib/images/animals/pig-128.png";
+import rabbit from "$lib/images/animals/rabbit-128.png";
+import tiger from "$lib/images/animals/tiger-128.png";
+
+export const animalsImg = [bear, cat, chick, cock, dove, koala, koki, littlelion, littlesheep, mouse, panda, pig, rabbit, tiger];
 
 
 export const defaultImgCategoriesArr = [
     { category: 'fruits',  arr : fruitImgs},
-    { category: 'mcdonalds', arr : mcdonaldsImg }
+    { category: 'mcdonalds', arr : mcdonaldsImg },
+    { category: 'animals', arr : animalsImg }
 ];
 
 export const imgCategoryNames:string[] = defaultImgCategoriesArr.map((category) => category.category);
