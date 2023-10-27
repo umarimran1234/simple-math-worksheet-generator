@@ -18,9 +18,28 @@
     $error: #f44336
 );
 
+@use '@material/typography' as typography with (
+  $font-family: unquote('Roboto, "Noto Sans TC", sans-serif'),
+  $styles-headline1: (
+    font-family: unquote('Roboto, "Noto Sans TC", sans-serif'),
+  ),
+  $styles-headline2: (
+    font-family: unquote('Roboto, "Noto Sans TC", sans-serif'),
+  ),
+  $styles-headline3: (
+    font-family: unquote('Roboto, "Noto Sans TC", sans-serif'),
+  ),
+  $styles-headline4: (
+    font-family: unquote('Roboto, "Noto Sans TC", sans-serif'),
+  ),
+  $styles-button: (
+    text-transform: none,
+  )
+);
+
 @use '@material/button/mixins' as mdc-button;
 @use '@material/typography/mdc-typography';
-@use '@material/typography/mixins' as typography;
+// @use '@material/typography/mixins' as typography;
 
 .button-shaped-round {
   @include mdc-button.shape-radius(100%);
