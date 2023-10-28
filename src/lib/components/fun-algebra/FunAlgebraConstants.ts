@@ -1,12 +1,28 @@
 import { PaperSize } from "../common/worksheet/WorksheetPageConstants";
 import type { WorksheetContainerStyleConfig } from "../common/worksheet/WorksheetPageConstants";
 
-export type FunAlgebraQuestion = {
+export type FunAlgebraQuestion = FunAlgebraBasicLvl1Question | FunAlgebraBasicLvl2Question | FunAlgebraBasicLvl3Question;
+
+export type FunAlgebraBasicLvl1Question = {
     questionType: string,
     numA: number,
     ratioBToA: number,
     numB: number,
     ratioCToB: number,
+    numC: number
+}
+
+export type FunAlgebraBasicLvl2Question = {
+    questionType: string,
+    numA: number,
+    numB: number,
+    numC: number
+}
+
+export type FunAlgebraBasicLvl3Question = {
+    questionType: string,
+    numA: number,
+    numB: number,
     numC: number
 }
 
@@ -17,10 +33,10 @@ export type WorkSheet = {
 
 
 /**
- * KidMultiplicationQuestionGeneratorConfig
- * - config to generate two numbers multiplication
+ * FunAlgebraBasicLvl1QuestionGeneratorConfig
+ * - config to generate fun algebra basic lvl 1 multiplication
  */
-export type FunAlgebraQuestionGeneratorConfig = {
+export type FunAlgebraBasicLvl1QuestionGeneratorConfig = {
     /**
      * c = (ratioCToB) b
      * b = (ratioBToA) a
@@ -35,16 +51,47 @@ export type FunAlgebraQuestionGeneratorConfig = {
     randomOrder: boolean,
     questionTypes: string[] /* expected FunAlgebraQuestionType */
 
-    firstNumRange: '1 - 10',
+    firstNumRange: string,
     firstNumReverse: false,
-    secondNumRange: '1 - 10',
+    secondNumRange: string,
     secondNumReverse: false,
     resultMin: 1,    
     allowNegative: false,    
 }
 
+export type FunAlgebraBasicLvl2QuestionGeneratorConfig = {
+    /**
+     * 1st number (a): for a + a
+     * 2nd number (b): if b > a, then display b - a, else display a - b
+     * 3rd number (c): if c > b, then display c - b, else display b - c
+     * 
+     * ask a, b, c 
+     */
+
+    numARange: string,
+    numBRange: string,
+    numCRange: string
+}
+
+export type FunAlgebraBasicLvl3QuestionGeneratorConfig = {
+    /**
+     * a + b =
+     * b + c =
+     * a + c =
+     * 
+     * ask a, b, c
+     */
+
+    numARange: string,
+    numBRange: string,
+    numCRange: string
+}
+
+
 export const FunAlgebraQuestionType = {
-    BASIC_LVL_1: 'Basic Lvl 1'
+    BASIC_LVL_1: 'Basic Lvl 1',
+    BASIC_LVL_2: 'Basic Lvl 2',
+    BASIC_LVL_3: 'Basic Lvl 3'
 } as const;
 export type FunAlgebraQuestionType = typeof FunAlgebraQuestionType[keyof typeof FunAlgebraQuestionType];
 export const FUN_ALGEBRA_QUESTION_TYPE = Object.values(FunAlgebraQuestionType);
@@ -78,7 +125,9 @@ export type FunAlgebraQuestionWorksheetConfig = {
 }
 
 export type FunAlgebraQuestionConfig = {    
-    showAnswers: boolean,
+    show1stAnswer: boolean,
+    show2ndAnswer: boolean,
+    show3rdAnswer: boolean,
     questionFormat: FunAlgebraQuestionFormat
 }
 

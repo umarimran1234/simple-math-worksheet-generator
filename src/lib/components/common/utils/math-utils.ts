@@ -12,4 +12,10 @@ export const operationMap = new Map<string, Function>([
     [MathOperators.DIVIDE, divideAll],
 ]);
 
+export const calculate = (operator: string, numArr: number[]): number => {
+    return (operationMap.get(operator))(numArr);
+}
+
 export const requiresRemainderCheckMap = (operator) => MathOperators.DIVIDE === operator;
+
+export const getRandomIndex = (seed: number): number => Math.floor(Math.random() * seed);

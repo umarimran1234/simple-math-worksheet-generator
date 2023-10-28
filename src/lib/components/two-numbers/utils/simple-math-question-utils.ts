@@ -2,7 +2,7 @@ import { AppFunction } from '../../../constants';
 import type { WorkSheet, TwoNumbersQuestion, TwoNumbersQuestionGeneratorConfig } from '../TwoNumbersQuestionConstants';
 import { shuffleArray } from '../../common/utils/array-utils';
 import { parseRange } from '../../../utils/number-ranage-parser-utils';
-import { operationMap, requiresRemainderCheckMap } from '../../common/utils/math-utils';
+import { requiresRemainderCheckMap, calculate } from '../../common/utils/math-utils';
 
 
 export class SimpleMathQuestionUtils {
@@ -43,7 +43,7 @@ export class SimpleMathQuestionUtils {
         for (const operator of operators) {
             for (const num1 of num1Arr) {
                 for (const num2 of num2Arr) {
-                    let answer = (operationMap.get(operator))([num1, num2]);
+                    let answer = calculate(operator, [num1, num2]);
                     if (!(!allowNegative && answer < 0)
                         && !(resultMin && resultMin > answer)
                         && !(resultMax && resultMax < answer)

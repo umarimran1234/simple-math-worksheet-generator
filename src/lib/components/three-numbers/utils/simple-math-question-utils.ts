@@ -2,7 +2,7 @@ import { AppFunction } from '../../../constants';
 import type { WorkSheet, ThreeNumbersQuestion, ThreeNumbersQuestionGeneratorConfig } from '../ThreeNumbersQuestionConstants';
 import { shuffleArray } from '../../common/utils/array-utils';
 import { parseRange } from '../../../utils/number-ranage-parser-utils';
-import { operationMap } from '../../common/utils/math-utils';
+import { operationMap, calculate } from '../../common/utils/math-utils';
 
 
 export class SimpleMathQuestionUtils {
@@ -47,7 +47,7 @@ export class SimpleMathQuestionUtils {
             for (const num1 of num1Arr) {
                 for (const num2 of num2Arr) {
                     for (const num3 of num3Arr) {
-                        let answer = (operationMap.get(operator))([num1, num2, num3]);
+                        let answer = calculate(operator, [num1, num2, num3]);
                         if (!(!allowNegative && answer < 0)
                             && !(resultMin && resultMin > answer)
                             && !(resultMax && resultMax < answer)

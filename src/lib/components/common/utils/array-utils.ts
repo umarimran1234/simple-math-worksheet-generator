@@ -1,3 +1,5 @@
+import { getRandomIndex } from "./math-utils";
+
 export const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -6,4 +8,4 @@ export const shuffleArray = (array) => {
     return array;
 }
 
-export const getRandomIndex = (arr): number => Math.floor(Math.random() * arr.length);
+export const getArrRandomIndex = (arr): number => getRandomIndex(arr.length);

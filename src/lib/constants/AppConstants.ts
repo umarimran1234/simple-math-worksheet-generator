@@ -28,7 +28,9 @@ import {
 } from "../components/fun-multiplications/FunMultiplicationConstants";
 
 import {
-    type FunAlgebraQuestionGeneratorConfig,
+    type FunAlgebraBasicLvl1QuestionGeneratorConfig,
+    type FunAlgebraBasicLvl2QuestionGeneratorConfig,
+    type FunAlgebraBasicLvl3QuestionGeneratorConfig,
     type FunAlgebraQuestionWorksheetConfig,
     FunAlgebraQuestionFormat,
     FunAlgebraWorksheetSize,
@@ -379,7 +381,9 @@ export const AppConstants = {
         }
     },
 
-    DEFAULT_FUN_ALGEBRA_QUESTION_GENERATOR_CONFIG: <FunAlgebraQuestionGeneratorConfig>{
+    DEFAULT_FUN_ALGEBRA_QUESTION_TYPES_TO_GENERATE_CONFIG: [FunAlgebraQuestionType.BASIC_LVL_1],
+
+    DEFAULT_FUN_ALGEBRA_BASIC_LVL_1_QUESTION_GENERATOR_CONFIG: <FunAlgebraBasicLvl1QuestionGeneratorConfig>{
         numA: 1,
         ratioBToA: '1-3', /* expected 1-3 for kid level */
         ratioCToB: '1-3', /* expected 1-3 for kid level */
@@ -395,12 +399,26 @@ export const AppConstants = {
         allowNegative: false
     },
 
+    DEFAULT_FUN_ALGEBRA_BASIC_LVL_2_QUESTION_GENERATOR_CONFIG: <FunAlgebraBasicLvl2QuestionGeneratorConfig>{        
+        numARange: '1 - 5',
+        numBRange: '1 - 5',
+        numCRange: '1 - 5'
+    },
+
+    DEFAULT_FUN_ALGEBRA_BASIC_LVL_3_QUESTION_GENERATOR_CONFIG: <FunAlgebraBasicLvl3QuestionGeneratorConfig>{
+        numARange: '1 - 5',
+        numBRange: '1 - 5',
+        numCRange: '1 - 5'
+    },
+
     FUN_ALGEBRA_WORKSHEET_DEFAULT_CONFIG: {
         A4: <FunAlgebraQuestionWorksheetConfig>{
             questionConfig: {
                 showFirstNum: true,
                 showSecondNum: false,
-                showAnswers: false,
+                show1stAnswer: false,
+                show2ndAnswer: false,
+                show3rdAnswer: false,
                 questionFormat: FunAlgebraQuestionFormat.HORIZONTAL_METHOD,
 
             },
@@ -438,7 +456,9 @@ export const AppConstants = {
             questionConfig: {
                 showFirstNum: true,
                 showSecondNum: false,
-                showAnswers: false,
+                show1stAnswer: false,
+                show2ndAnswer: false,
+                show3rdAnswer: false,
                 questionFormat: FunAlgebraQuestionFormat.HORIZONTAL_METHOD,
             },
             horizonalMethodStyleConfig: {

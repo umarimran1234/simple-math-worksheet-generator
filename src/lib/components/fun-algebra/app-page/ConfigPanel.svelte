@@ -21,12 +21,14 @@
 
     import { 
         FunAlgebraQuestionFormat, FUN_ALGEBRA_QUESTION_FORMAT, 
-        FunAlgebraWorksheetSize, FUN_ALGEBRA_WORKSHEET_SIZE
+        FunAlgebraWorksheetSize, FUN_ALGEBRA_WORKSHEET_SIZE,
+        FunAlgebraQuestionType
     } from '../FunAlgebraConstants';
 
     import { AppConstants } from '$lib/constants/AppConstants';
 
-    import { 
+    import {
+        questionTypestToGenerateConfigStore, 
         questionConfigStore,
         horizontalMethodStyleConfigStore,
         columnMethodStyleConfigStore,
@@ -95,11 +97,28 @@
                     <Option value={choice}>{choice}</Option>
                 {/each}
             </Select> -->
-                    
-            <FormField>
-                <Switch bind:checked={$questionConfigStore.showAnswers} />
-                <span slot="label">Show answers</span>
-            </FormField>
+            
+            {#if $questionTypestToGenerateConfigStore.length === 1 && $questionTypestToGenerateConfigStore.includes(FunAlgebraQuestionType.BASIC_LVL_1)}
+                <FormField>
+                    <Switch bind:checked={$questionConfigStore.show1stAnswer} />
+                    <span slot="label">Show answer</span>
+                </FormField>
+            {:else}
+                <FormField>
+                    <Switch bind:checked={$questionConfigStore.show1stAnswer} />
+                    <span slot="label">Show 1st answer</span>
+                </FormField>
+
+                <FormField>
+                    <Switch bind:checked={$questionConfigStore.show2ndAnswer} />
+                    <span slot="label">Show 2nd answer</span>
+                </FormField>
+
+                <FormField>
+                    <Switch bind:checked={$questionConfigStore.show3rdAnswer} />
+                    <span slot="label">Show 3rd answer</span>
+                </FormField>
+            {/if}
         </details>
     
         <details class="mdc-typography--subtitle1" style="padding-top:0.5em" bind:open={layoutSettingsOpen}>

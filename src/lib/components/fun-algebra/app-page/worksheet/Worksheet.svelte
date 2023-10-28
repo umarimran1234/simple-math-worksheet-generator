@@ -10,6 +10,8 @@
     import { MathOperators } from "$lib/constants/MathsConstants";
 	import PictureAlgebraRow from "../question/PictureAlgebraRow.svelte";
 	import AlgebraBasicLevel1Question from "../question/AlgebraBasicLevel1Question.svelte";
+    import AlgebraBasicLevel2Question from "../question/AlgebraBasicLevel2Question.svelte";
+    import AlgebraBasicLevel3Question from "../question/AlgebraBasicLevel3Question.svelte";
 		
     export let worksheetPages:any = [];
 
@@ -50,8 +52,31 @@
                     ratioCToB={question.ratioCToB}
                     cNum={question.numC}
 
-                    showAnswer={questionConfig.showAnswers}
+                    showAnswer={questionConfig.show1stAnswer}
                      />
+            {:else if question.questionType === FunAlgebraQuestionType.BASIC_LVL_2 }
+                <AlgebraBasicLevel2Question
+                    questionNo={questionIndex + 1}
+                    numA = {question.numA}
+                    numB = {question.numB}
+                    numC = {question.numC}
+
+                    numAShowAnser = {questionConfig.show1stAnswer}
+                    numBShowAnser = {questionConfig.show2ndAnswer}
+                    numCShowAnser = {questionConfig.show3rdAnswer}
+                    />
+            {:else if question.questionType === FunAlgebraQuestionType.BASIC_LVL_3 }
+                <AlgebraBasicLevel3Question
+                    questionNo={questionIndex + 1}
+                    numA = {question.numA}
+                    numB = {question.numB}
+                    numC = {question.numC}
+                    
+                    numAShowAnser = {questionConfig.show1stAnswer}
+                    numBShowAnser = {questionConfig.show2ndAnswer}
+                    numCShowAnser = {questionConfig.show3rdAnswer}
+                    />
+            {:else}
             {/if}            
         {/each}
     </WorksheetPage>    

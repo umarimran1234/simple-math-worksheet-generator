@@ -1,5 +1,5 @@
 
-import { getRandomIndex } from "./array-utils";
+import { getArrRandomIndex } from "./array-utils";
 /**
  * numberblocks (for fun-multiplications)
  */
@@ -89,8 +89,8 @@ const getCategory = (category: string) => defaultImgCategoriesArr.filter((record
 
 const getCategoriesWithIncludeList = (categoriesToInclude: string[]) => defaultImgCategoriesArr.filter((record) => !categoriesToInclude.some((catToInclude: string) => record.category === catToInclude));
 
-export const getRandomCategory = (): string => defaultImgCategoriesArr[getRandomIndex(defaultImgCategoriesArr)].category;
+export const getRandomCategory = (): string => defaultImgCategoriesArr[getArrRandomIndex(defaultImgCategoriesArr)].category;
 
-export const getRandomIndexByCategory = (category: string): number => getRandomIndex(getCategory(category));
+export const getRandomIndexByCategory = (category: string): number => getArrRandomIndex(getCategory(category));
 
 export const getImageByCategory = (category: string, index: number) => getCategory(category)?.at(index);

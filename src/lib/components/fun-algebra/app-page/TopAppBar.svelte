@@ -6,13 +6,26 @@
     import Tooltip, { Wrapper } from '@smui/tooltip';
 
     // import stores (generate worksheet)    
-    import { questionGeneratorConfigStore, worksheetDataStore } from '../stores';
+    import { 
+      questionTypestToGenerateConfigStore,
+      randomQuestionConfigStore, 
+      basicLvl1QuestionGeneratorConfigStore,
+      basicLvl2QuestionGeneratorConfigStore,
+      basicLvl3QuestionGeneratorConfigStore,
+      worksheetDataStore 
+    } from '../stores';
 
-    import { generateFunAlgebraWorksheet } from '../utils/fun-algebra-utils';
+    import { generateAllFunAlgebraWorksheet } from '../utils/fun-algebra-utils';
 
     function generateWorksheet() {
         worksheetDataStore.update((worksheetData) =>  
-            generateFunAlgebraWorksheet($questionGeneratorConfigStore)
+            generateAllFunAlgebraWorksheet(
+              $questionTypestToGenerateConfigStore, 
+              $randomQuestionConfigStore, 
+              $basicLvl1QuestionGeneratorConfigStore,
+              $basicLvl2QuestionGeneratorConfigStore,
+              $basicLvl3QuestionGeneratorConfigStore
+            )
         )
     }
 
