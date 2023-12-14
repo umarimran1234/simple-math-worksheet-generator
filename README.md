@@ -47,11 +47,17 @@ You can preview the production build with `npm run preview`.
 
 
 ## pnpm
-```
+```bash
 # install node (for the case node is not installed and would like to use pnpm as node version manager)
 pnpm env use --global lts
 
 pnpm install
 
 pnpm run dev -- --open
+```
+
+## devcontainer
+```
+This project has devcontainer configuration. The configuration is generated in vscode.
+You may use the devcontainer under WSL2 (with docker installed) under vscode
 ```
