@@ -1,6 +1,6 @@
 # simple-math-worksheet-generator
 
-GitHub Pages: https://chiw.github.io/simple-math-worksheet-generator/
+GitHub Pages: <https://chiw.github.io/simple-math-worksheet-generator/>
 
 This is a simple program to generate simple math worksheets (Plus/Minus/Multiply/Divide two numbers) in printable format. It is written in svelte, using svelte-kit.
 
@@ -45,8 +45,8 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
-
 ## pnpm
+
 ```bash
 # install node (for the case node is not installed and would like to use pnpm as node version manager)
 pnpm env use --global lts
@@ -57,7 +57,8 @@ pnpm run dev -- --open
 ```
 
 ## devcontainer
-```
+
+```text
 This project has devcontainer configuration. The configuration is generated in vscode.
 You may use the devcontainer under WSL2 (with docker installed) under vscode
 ```
