@@ -113,16 +113,17 @@ export const AppConstants = {
     DEFAULT_QUESTIONS_PER_PAGE: 20,
 
     DEFAULT_TWO_NUMBERS_QUESTION_GENERATOR_CONFIG: <TwoNumbersQuestionGeneratorConfig>{
-        firstNumRange: '2 - 20',
-        firstNumReverse: true,
-        secondNumRange: '1 - 10',
-        secondNumReverse: true,
+        firstNumRange: '0 - 1000',
+        firstNumReverse: false,
+        secondNumRange: '0 - 1000',
+        secondNumReverse: false,
         resultMin: 0,
-        resultMax: 17,
+        resultMax: 2000,
         allowNegative: false,
         allowRemainder: false,
         randomOrder: true,
         questionOperator: [MathOperators.PLUS, MathOperators.MINUS],
+        numberOfQuestions: 100,
     },
 
     TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG: {

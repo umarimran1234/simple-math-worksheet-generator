@@ -21,12 +21,12 @@
         bind:value={$questionGeneratorConfigStore.firstNumRange} label="1st Number range" />
 
 
-    <FormField>
+    <!-- <FormField>
         <Checkbox bind:checked={$questionGeneratorConfigStore.firstNumReverse} />
         <span slot="label">
             Reverse
         </span>
-    </FormField>
+    </FormField> -->
  </div>
 
 
@@ -35,12 +35,12 @@
         bind:value={$questionGeneratorConfigStore.secondNumRange} label="2nd Number range" />
 
 
-    <FormField>
+    <!-- <FormField>
         <Checkbox bind:checked={$questionGeneratorConfigStore.secondNumReverse} />
         <span slot="label">
             Reverse
         </span>
-    </FormField>
+    </FormField> -->
  </div>
 
  <div>
@@ -51,7 +51,7 @@
         bind:value={$questionGeneratorConfigStore.resultMax} label="Result max value" type="number" />
     </div>
     
-    <div>
+<div>
     <FormField>
         <Checkbox bind:checked={$questionGeneratorConfigStore.allowNegative} />
         <span slot="label">Allow negative</span>
@@ -62,10 +62,15 @@
         <span slot="label">Allow remainder</span>
     </FormField>
 
-    <FormField>
+    <!-- <FormField>
         <Checkbox bind:checked={$questionGeneratorConfigStore.randomOrder} />
         <span slot="label">Random Order</span>
-    </FormField>
+    </FormField> -->
+ </div>
+
+ <div>
+    <Textfield style="margin-left:0.5em"
+        bind:value={$questionGeneratorConfigStore.numberOfQuestions} label="Max Number of questions" type="number" />
  </div>
 
 <Set chips={MATH_OPERATORS} let:chip filter bind:selected={$questionGeneratorConfigStore.questionOperator}>

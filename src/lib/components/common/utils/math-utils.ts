@@ -19,3 +19,5 @@ export const calculate = (operator: string, numArr: number[]): number => {
 export const requiresRemainderCheckMap = (operator) => MathOperators.DIVIDE === operator;
 
 export const getRandomIndex = (seed: number): number => Math.floor(Math.random() * seed);
+
+export const getRandomInt = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1)) + min;

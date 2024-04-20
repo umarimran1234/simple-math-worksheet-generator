@@ -9,3 +9,7 @@ export const shuffleArray = (array) => {
 }
 
 export const getArrRandomIndex = (arr): number => getRandomIndex(arr.length);
+
+export const sortNumberArray = (arr: number[]) => {
+    return arr.sort(function(a, b) { return a - b } );
+}
