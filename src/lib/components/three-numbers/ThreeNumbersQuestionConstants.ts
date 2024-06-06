@@ -6,8 +6,10 @@ export type ThreeNumbersQuestion = {
     num1: number;
     num2: number;
     num3: number;
-    operator: string;
+    firstOperator: string;
+    secondOperator: string;
     answer: number;
+    blankBoxIndex: number;
 }
 
 export type WorkSheet = {
@@ -31,7 +33,11 @@ export type ThreeNumbersQuestionGeneratorConfig = {
     allowNegative: boolean,
     allowRemainder: boolean,
     randomOrder: boolean,
+    maxNumberOfQuestions: number,
     questionOperator: string[],
+    allowFirstNumBlank: boolean,
+    allowSecondNumBlank: boolean,
+    allowThirdNumBlank: boolean
 }
 
 export const ThreeNumbersQuestionFormat = {
@@ -54,7 +60,7 @@ export const THREE_NUMBERS_WORKSHEET_SIZE = Object.values(ThreeNumbersWorksheetS
  * - Three numbers question maths worksheet config 
  */
 export type ThreeNumbersQuestionWorksheetConfig = {
-    questionConfig: TwoNumbersQuestionConfig,
+    questionConfig: ThreeNumbersQuestionConfig,
     horizonalMethodStyleConfig: ThreeNumbersQuestionHorizontalMethodStyleConfig,
     columnMethodStyleConfig: ThreeNumberQuestionColumnMethodStyleConfig,
     worksheetConfig: ThreeNumberWorksheetConfig,

@@ -41,8 +41,11 @@
                         firstNumber={question.num1}
 						secondNumber={question.num2}
                         thirdNumber={question.num3}
-						operator={question.operator}
-                        answer={questionConfig.showAnswers ? question.answer : ''}
+						firstOperator={question.firstOperator}
+                        secondOperator={question.secondOperator}
+                        answer={question.answer}
+                        blankBoxIndex={question.blankBoxIndex}
+                        showAnswer={questionConfig.showAnswers}
 						
                         width={horizonalMethodStyleConfig.numberBoxWidth}
 						height={horizonalMethodStyleConfig.numberBoxHeight}
@@ -51,38 +54,6 @@
 						operatorBoxMargin={horizonalMethodStyleConfig.operatorBoxMargin}
 						questionContainerMargin={horizonalMethodStyleConfig.questionContainerMargin}
                     />
-                {:else}                    
-                    {#if MathOperators.DIVIDE === question.operator }                    
-                        <DivisionQuestionVertical 
-                            questionId={String(questionIndex+1)}
-                            dividend={question.num1}
-                            divisor={question.num2}
-
-                            showQuestionId={columnMethodStyleConfig.showQuestionId}
-                            questionIdFontSize={columnMethodStyleConfig.questionIdFontSize}
-                            questionIdWidth={columnMethodStyleConfig.questionIdWidth}
-                            questionFontSize={columnMethodStyleConfig.questionFontSize}
-                            questionContainerMargin={columnMethodStyleConfig.questionContainerMargin}
-                            questionContainerPadding={columnMethodStyleConfig.questionContainerPadding}
-                            questionRowNumberWidth={columnMethodStyleConfig.questionRowNumberWidth}
-                        />
-                    {:else}
-                        <QuestionVertical 
-                            questionId={String(questionIndex+1)}
-                            firstNumber={question.num1}
-                            secondNumber={question.num2}
-                            operator={question.operator}
-                            answer={questionConfig.showAnswers ? question.answer : ''}
-
-                            showQuestionId={columnMethodStyleConfig.showQuestionId}
-                            questionIdFontSize={columnMethodStyleConfig.questionIdFontSize}
-                            questionIdWidth={columnMethodStyleConfig.questionIdWidth}
-                            questionFontSize={columnMethodStyleConfig.questionFontSize}
-                            questionContainerMargin={columnMethodStyleConfig.questionContainerMargin}
-                            questionContainerPadding={columnMethodStyleConfig.questionContainerPadding}
-                            questionRowNumberWidth={columnMethodStyleConfig.questionRowNumberWidth}
-                        />
-                    {/if}
                 {/if}
             {/if}
         {/each}

@@ -29,12 +29,24 @@
         <div class="questionRow">
             <div class="questionOperatorColumn">{@html operator}</div>
             <div class="questionNumberStackColumn">
-                <div class="questionNumber" style="--questionRowNumberWidth:{questionRowNumberWidth}">{firstNumber}</div>
-                <div class="questionNumber" style="--questionRowNumberWidth:{questionRowNumberWidth}">{secondNumber}</div>
+                <div class="questionNumber" style="--questionRowNumberWidth:{questionRowNumberWidth}">
+                    {#each firstNumber as digit}
+                        <div class="questionNumberDigit" style="--questionRowNumberDigitWidth:{"5mm"};--questionRowNumberDigitBorderStyle:{"none"}">{digit}</div>
+                    {/each}
+                </div>
+                <div class="questionNumber" style="--questionRowNumberWidth:{questionRowNumberWidth}">
+                    {#each secondNumber as digit}
+                        <div class="questionNumberDigit" style="--questionRowNumberDigitWidth:{"5mm"};--questionRowNumberDigitBorderStyle:{"none"}">{digit}</div>
+                    {/each}
+                </div>
             </div>
         </div>
         <div class="answerRow">
-            <div class="answerCell">{answer}</div>
+            <div class="answerCell" style="--questionRowNumberWidth:{questionRowNumberWidth}">
+                {#each answer as digit}
+                    <div class="questionNumberDigit" style="--questionRowNumberDigitWidth:{"5mm"};--questionRowNumberDigitBorderStyle:{"none"}">{digit}</div>
+                {/each}
+            </div>
         </div>
     </div>
 </div>
@@ -78,6 +90,14 @@
         justify-content: flex-end;
     }
 
+    .answerCell {
+        width: var(--questionRowNumberWidth);
+        text-align: right;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
     .questionOperatorColumn {
         display: flex;
         align-items: flex-end;
@@ -94,5 +114,15 @@
     .questionNumber {
         width: var(--questionRowNumberWidth);
         text-align: right;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .questionNumberDigit {
+        width: var(--questionRowNumberDigitWidth);
+        text-align: center;        
+        border: 1px;
+        border-style: var(--questionRowNumberDigitBorderStyle);
     }
 </style>

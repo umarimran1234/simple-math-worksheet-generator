@@ -16,6 +16,11 @@ export const calculate = (operator: string, numArr: number[]): number => {
     return (operationMap.get(operator))(numArr);
 }
 
+export const calculateThreeNumbers = (num1: number, firstOperator: string, num2: number, secondOperator: string, num3: number): number => {
+    let twoNumsResult = calculate(firstOperator, [num1, num2]);
+    return calculate(secondOperator, [twoNumsResult, num3]);
+}
+
 export const requiresRemainderCheckMap = (operator) => MathOperators.DIVIDE === operator;
 
 export const getRandomIndex = (seed: number): number => Math.floor(Math.random() * seed);

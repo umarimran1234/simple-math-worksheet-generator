@@ -58,8 +58,8 @@
                     {#if MathOperators.DIVIDE === question.operator }                    
                         <DivisionQuestionVertical 
                             questionId={String(questionIndex+1)}
-                            dividend={question.num1}
-                            divisor={question.num2}
+                            dividend={question.num1.toString()}
+                            divisor={question.num2.toString()}
 
                             showQuestionId={columnMethodStyleConfig.showQuestionId}
                             questionIdFontSize={columnMethodStyleConfig.questionIdFontSize}
@@ -72,10 +72,10 @@
                     {:else}
                         <QuestionVertical 
                             questionId={String(questionIndex+1)}
-                            firstNumber={question.num1}
-                            secondNumber={question.num2}
+                            firstNumber={question.num1.toString()}
+                            secondNumber={question.num2.toString()}
                             operator={question.operator}
-                            answer={questionConfig.showAnswers ? question.answer : ''}
+                            answer={questionConfig.showAnswers ? question.answer.toString() : ''}
 
                             showQuestionId={columnMethodStyleConfig.showQuestionId}
                             questionIdFontSize={columnMethodStyleConfig.questionIdFontSize}

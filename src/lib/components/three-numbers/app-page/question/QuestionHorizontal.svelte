@@ -5,8 +5,11 @@
 	export let firstNumber = '';
 	export let secondNumber = '';
 	export let thirdNumber = '';
-	export let operator = '';
+	export let firstOperator = '';
+	export let secondOperator = '';
 	export let answer = '';
+	export let blankBoxIndex: number = 0;
+	export let showAnswer: boolean = false;
 
 	export let numberBoxMargin = '0';
 	export let operatorBoxMargin = '0';
@@ -15,23 +18,23 @@
 
 <div class="questionContainer" style="--fontSize:{fontSize};--questionContainerMargin:{questionContainerMargin}">
 	<div class="numberBox" style="--height:{height};--width:{width};--numberBoxMargin:{numberBoxMargin}">
-		{firstNumber}
+		{ (blankBoxIndex == 1 && !showAnswer) ? '' : firstNumber }
 	</div>
 	<div class="operatorBox" style="--height:{height};--operatorBoxMargin:{operatorBoxMargin}">
-		{@html operator}
+		{@html firstOperator}
 	</div>
 	<div class="numberBox" style="--height:{height};--width:{width};--numberBoxMargin:{numberBoxMargin}">
-		{secondNumber}
+		{ (blankBoxIndex == 2 && !showAnswer) ? '' : secondNumber }
 	</div>
 	<div class="operatorBox" style="--height:{height};--operatorBoxMargin:{operatorBoxMargin}">
-		{@html operator}
+		{@html secondOperator}
 	</div>
 	<div class="numberBox" style="--height:{height};--width:{width};--numberBoxMargin:{numberBoxMargin}">
-		{thirdNumber}
+		{ (blankBoxIndex == 3 && !showAnswer) ? '' : thirdNumber }
 	</div>
 	<div class="operatorBox" style="--height:{height};--operatorBoxMargin:{operatorBoxMargin}">=</div>
 	<div class="numberBox" style="--height:{height};--width:{width};--numberBoxMargin:{numberBoxMargin}">
-		{answer}
+		{ (blankBoxIndex == 0 && !showAnswer) ? '' : answer }
 	</div>
 </div>
 

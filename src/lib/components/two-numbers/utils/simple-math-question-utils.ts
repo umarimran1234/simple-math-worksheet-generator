@@ -130,7 +130,7 @@ export class SimpleMathQuestionUtils {
         let filteredNum2Arr = this.prefilterNum2Arr(sortedNum2Arr, resultMin, resultMax, operator);
         
         while(questionArr.length < numberOfQuestions && tryCount < maxTry) {
-            console.log('generateTwoNumbersQuestionsByType questionArr.length: ', questionArr.length, ' numberOfQuestions: ', numberOfQuestions);
+            // console.log('generateTwoNumbersQuestionsByType questionArr.length: ', questionArr.length, ' numberOfQuestions: ', numberOfQuestions);
             let twoNumbersQuestion: TwoNumbersQuestion = this.generateTwoNumbersQuestion(filteredNum1Arr, filteredNum2Arr, resultMin, resultMax, operator, allowNegative, allowRemainder);
             if(this.isValidQuestion(twoNumbersQuestion, resultMin, resultMax)) {
                 questionArr.push(twoNumbersQuestion);
@@ -179,10 +179,10 @@ export class SimpleMathQuestionUtils {
 
         let maxTry = 100;
         let num1 = num1Arr[getArrRandomIndex(num1Arr)];
-        console.log('generateTwoNumbersQuestion num1: ', num1);
+        // console.log('generateTwoNumbersQuestion num1: ', num1);
 
         let num2 = this.getSecondNum(num2Arr, num1, resultMin, resultMax, operator, allowNegative, allowRemainder, maxTry);
-        console.log('generateTwoNumbersQuestion num2: ', num2);
+        // console.log('generateTwoNumbersQuestion num2: ', num2);
         
         let answer = calculate(operator, [num1, num2]);
         return this.createTwoNumbersQuestionType(num1, num2, operator, answer);
@@ -198,7 +198,7 @@ export class SimpleMathQuestionUtils {
         let num2 = num2Arr[getArrRandomIndex(num2Arr)];
         while (tryCount > 0) {
             if(this.isValid2ndNum(num1, num2, resultMin, resultMax, operator, allowNegative, allowRemainder)) {
-                console.log('getSecondNum valid num2: ', num2);
+                // console.log('getSecondNum valid num2: ', num2);
                 tryCount = 0;
             } else {
                 console.log('getSecondNum invalid num2: ', num2);

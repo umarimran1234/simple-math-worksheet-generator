@@ -19,65 +19,49 @@
  <div>
     <Textfield style="margin-left:0.5em"
         bind:value={$questionGeneratorConfigStore.firstNumRange} label="1st Number range" />
-
-
-    <FormField>
-        <Checkbox bind:checked={$questionGeneratorConfigStore.firstNumReverse} />
-        <span slot="label">
-            Reverse
-        </span>
-    </FormField>
  </div>
 
 
  <div>
     <Textfield style="margin-left:0.5em"
         bind:value={$questionGeneratorConfigStore.secondNumRange} label="2nd Number range" />
-
-
-    <FormField>
-        <Checkbox bind:checked={$questionGeneratorConfigStore.secondNumReverse} />
-        <span slot="label">
-            Reverse
-        </span>
-    </FormField>
  </div>
 
  <div>
     <Textfield style="margin-left:0.5em"
         bind:value={$questionGeneratorConfigStore.thirdNumRange} label="3rd Number range" />
-
-
-    <FormField>
-        <Checkbox bind:checked={$questionGeneratorConfigStore.thirdNumReverse} />
-        <span slot="label">
-            Reverse
-        </span>
-    </FormField>
  </div>
 
  <div>
-    <Textfield style="margin-left:0.5em" 
-        bind:value={$questionGeneratorConfigStore.resultMin} label="Result min value" type="number" />
-    
     <Textfield style="margin-left:0.5em"
         bind:value={$questionGeneratorConfigStore.resultMax} label="Result max value" type="number" />
-    </div>
-    
-    <div>
+</div>
+
+ <div>
+    <Textfield style="margin-left:0.5em"
+        bind:value={$questionGeneratorConfigStore.maxNumberOfQuestions} label="Max Number of questions" type="number" />
+ </div>
+
+ <div>
     <FormField>
-        <Checkbox bind:checked={$questionGeneratorConfigStore.allowNegative} />
-        <span slot="label">Allow negative</span>
+        <Checkbox bind:checked={$questionGeneratorConfigStore.allowFirstNumBlank} />
+        <span slot="label">
+            Allow 1st number blank
+        </span>
     </FormField>
 
     <FormField>
-        <Checkbox bind:checked={$questionGeneratorConfigStore.allowRemainder} />
-        <span slot="label">Allow remainder</span>
+        <Checkbox bind:checked={$questionGeneratorConfigStore.allowSecondNumBlank} />
+        <span slot="label">
+            Allow 2nd number blank
+        </span>
     </FormField>
 
     <FormField>
-        <Checkbox bind:checked={$questionGeneratorConfigStore.randomOrder} />
-        <span slot="label">Random Order</span>
+        <Checkbox bind:checked={$questionGeneratorConfigStore.allowThirdNumBlank} />
+        <span slot="label">
+            Allow 3rd number blank
+        </span>
     </FormField>
  </div>
 
