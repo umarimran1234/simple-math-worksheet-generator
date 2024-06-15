@@ -149,9 +149,9 @@ export const AppConstants = {
                 showAnswers: false
             },            
             horizonalMethodStyleConfig: {
-                fontSize: '50px',
-                numberBoxWidth: '18mm',
-                numberBoxHeight: '18mm',
+                fontSize: '40px',
+                numberBoxWidth: '16mm',
+                numberBoxHeight: '16mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
                 questionContainerMargin: '10px 30px 10px 30px',
