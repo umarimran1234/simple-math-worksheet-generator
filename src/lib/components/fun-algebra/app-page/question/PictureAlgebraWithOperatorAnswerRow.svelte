@@ -1,6 +1,7 @@
 <script lang="ts">
     
-    import { getImageByCategory } from "$lib/components/common/utils/image-utils";
+    import EmojiIcon from "$lib/components/common/emoji-icons/emoji-icon.svelte";
+    import { getEmojiByCategory } from "$lib/components/common/utils/emoji-icon-utils";
     
     export let imgCategory: string = '';
 
@@ -24,8 +25,7 @@
 <div class="pictureAlgebraWithOperatorAnswerRowContainer">
     
     <div class="pictureAlgebraAnswer">
-        <img src={ getImageByCategory(imgCategory, num1ImgIndex) } 
-            alt={getImageByCategory(imgCategory, num1ImgIndex)} class={imgCategory} />
+        <EmojiIcon emoji={ getEmojiByCategory(imgCategory, num1ImgIndex) } />
         <div class="operator">=</div>
         <div class="numberBox" style="--numberBoxHeight:{numberBoxHeight};--numberBoxWidth:{numberBoxWidth};--numberBoxMargin:{numberBoxMargin}">
             {num1ShowAnswer ? num1 : ''}
@@ -33,8 +33,7 @@
     </div>
 
     <div class="pictureAlgebraAnswer">
-        <img src={ getImageByCategory(imgCategory, num2ImgIndex) } 
-            alt={getImageByCategory(imgCategory, num2ImgIndex)} class={imgCategory} />
+        <EmojiIcon emoji={ getEmojiByCategory(imgCategory, num2ImgIndex) } />
         <div class="operator">=</div>
         <div class="numberBox" style="--numberBoxHeight:{numberBoxHeight};--numberBoxWidth:{numberBoxWidth};--numberBoxMargin:{numberBoxMargin}">
             {num2ShowAnswer ? num2 : ''}
@@ -42,8 +41,7 @@
     </div>
 
     <div class="pictureAlgebraAnswer">
-        <img src={ getImageByCategory(imgCategory, num3ImgIndex) } 
-            alt={getImageByCategory(imgCategory, num3ImgIndex)} class={imgCategory} />
+        <EmojiIcon emoji={ getEmojiByCategory(imgCategory, num3ImgIndex) } />
         <div class="operator">=</div>
         <div class="numberBox" style="--numberBoxHeight:{numberBoxHeight};--numberBoxWidth:{numberBoxWidth};--numberBoxMargin:{numberBoxMargin}">
             {num3ShowAnswer ? num3 : ''}

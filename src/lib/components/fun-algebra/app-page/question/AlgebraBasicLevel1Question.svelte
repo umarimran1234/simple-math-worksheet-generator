@@ -1,7 +1,7 @@
 <script lang="ts">
     import PictureAlgebraRow from "./PictureAlgebraRow.svelte";
 
-    import { getRandomCategory, getRandomIndexByCategory } from "$lib/components/common/utils/image-utils";
+    import { getRandomCategory, getRandomIndexByCategory } from "$lib/components/common/utils/emoji-icon-utils";
 
     export let questionNo:number = 1;
 
@@ -16,19 +16,18 @@
     export let showAnswer: boolean = false;
     
 
-    let imgCategory = getRandomCategory();
+    let emojiCategory = getRandomCategory();
     
-    let aNumImgIndex = getRandomIndexByCategory(imgCategory);
-    let bNumImgIndex = getRandomIndexByCategory(imgCategory);
-    let cNumImgIndex = getRandomIndexByCategory(imgCategory);
+    let aNumEmojiIndex = getRandomIndexByCategory(emojiCategory);
+    let bNumEmojiIndex = getRandomIndexByCategory(emojiCategory);
+    let cNumEmojiIndex = getRandomIndexByCategory(emojiCategory);
 
-    while(bNumImgIndex === aNumImgIndex) {        
-        bNumImgIndex = getRandomIndexByCategory(imgCategory);
+    while(bNumEmojiIndex === aNumEmojiIndex) {        
+        bNumEmojiIndex = getRandomIndexByCategory(emojiCategory);
     }
 
-
-    while (cNumImgIndex === aNumImgIndex || cNumImgIndex === bNumImgIndex) {
-        cNumImgIndex = getRandomIndexByCategory(imgCategory);
+    while (cNumEmojiIndex === aNumEmojiIndex || cNumEmojiIndex === bNumEmojiIndex) {
+        cNumEmojiIndex = getRandomIndexByCategory(emojiCategory);
     }
 
     // console.log('imgCategory =', imgCategory);
@@ -49,21 +48,23 @@
 
     <!-- show c = (m) b -->
     <PictureAlgebraRow
-        imgCategory = {imgCategory}
-        leftNum={1} leftImgIndex="{cNumImgIndex}" showLeftBox={false}
-        rightNum={ratioCToB} rightImgIndex="{bNumImgIndex}" showRightBox={false}
+        emojiCategory = {emojiCategory}
+        leftNum={1} leftImgIndex="{cNumEmojiIndex}" showLeftBox={false}
+        rightNum={ratioCToB} rightImgIndex="{bNumEmojiIndex}" showRightBox={false}
         />
+
     <!-- show b = (n) a -->
     <PictureAlgebraRow 
-        imgCategory = {imgCategory}
-        leftNum={1} leftImgIndex="{bNumImgIndex}" showLeftBox={false}
-        rightNum={ratioBToA} rightImgIndex="{aNumImgIndex}" showRightBox={false}
+        emojiCategory = {emojiCategory}
+        leftNum={1} leftImgIndex="{bNumEmojiIndex}" showLeftBox={false}
+        rightNum={ratioBToA} rightImgIndex="{aNumEmojiIndex}" showRightBox={false}
         />
+
     <!-- show c = (answer) a -->
     <PictureAlgebraRow 
-        imgCategory = {imgCategory}
-        leftNum={1} leftImgIndex="{cNumImgIndex}" showLeftBox={false}
-        rightNum={aNum} rightImgIndex="{aNumImgIndex}" showRightBox={true}
+        emojiCategory = {emojiCategory}
+        leftNum={1} leftImgIndex="{cNumEmojiIndex}" showLeftBox={false}
+        rightNum={aNum} rightImgIndex="{aNumEmojiIndex}" showRightBox={true}
         rightBoxAnswer={cNum}
         showRightBoxAnswer={showAnswer}
         />

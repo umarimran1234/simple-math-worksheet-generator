@@ -3,7 +3,7 @@
     import PictureAlgebraWithOperatorAnswerRow from "./PictureAlgebraWithOperatorAnswerRow.svelte";
     
 
-    import { getRandomCategory, getRandomIndexByCategory } from "$lib/components/common/utils/image-utils";
+    import { getRandomCategory, getRandomIndexByCategory } from "$lib/components/common/utils/emoji-icon-utils";
 
     import { MathOperators } from "$lib/constants";
     import { calculate } from "$lib/components/common/utils/math-utils";

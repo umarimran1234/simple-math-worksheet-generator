@@ -1,8 +1,10 @@
 <script lang="ts">
     
-    import { getImageByCategory } from "$lib/components/common/utils/image-utils";
+    import EmojiIcon from "$lib/components/common/emoji-icons/emoji-icon.svelte";
+    import { getEmojiByCategory } from "$lib/components/common/utils/emoji-icon-utils";
     
-    export let imgCategory: string = 'fruits';
+    // export let imgCategory: string;
+    export let emojiCategory: string;
 
     export let leftNum: number = 1;        
     export let leftImgIndex = 1;
@@ -34,7 +36,7 @@
 
     <div class="pictureAlgebraLeftSection">
         {#each Array(leftNum) as _, index (index)}            
-            <img src={ getImageByCategory(imgCategory, leftImgIndex) } alt={getImageByCategory(imgCategory, leftImgIndex)} class={imgCategory} />
+            <EmojiIcon emoji={ getEmojiByCategory(emojiCategory, leftImgIndex) } />
         {/each}
     </div>
 
@@ -48,7 +50,7 @@
 
     <div class="pictureAlgebraRightSection">
         {#each Array(rightNum) as _, index (index)}            
-            <img src={ getImageByCategory(imgCategory, rightImgIndex) } alt={ getImageByCategory(imgCategory, rightImgIndex) } class={imgCategory} />
+            <EmojiIcon emoji={ getEmojiByCategory(emojiCategory, rightImgIndex) } />
         {/each}
     </div>
 </div>

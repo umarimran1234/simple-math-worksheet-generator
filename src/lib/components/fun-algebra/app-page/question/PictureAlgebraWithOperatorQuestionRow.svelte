@@ -1,6 +1,7 @@
 <script lang="ts">
     
-    import { getImageByCategory } from "$lib/components/common/utils/image-utils";
+    import EmojiIcon from "$lib/components/common/emoji-icons/emoji-icon.svelte";
+    import { getEmojiByCategory } from "$lib/components/common/utils/emoji-icon-utils";
     
     export let imgCategory: string = '';
 
@@ -22,13 +23,11 @@
 
 <div class="pictureAlgebraRowContainer">    
 
-    <img src={ getImageByCategory(imgCategory, num1ImgIndex) } 
-         alt={ getImageByCategory(imgCategory, num1ImgIndex) } class={imgCategory} />
+    <EmojiIcon emoji={ getEmojiByCategory(imgCategory, num1ImgIndex) } />
 
     <div class="operator">{@html operator}</div>
 
-    <img src={ getImageByCategory(imgCategory, num2ImgIndex) } 
-         alt={ getImageByCategory(imgCategory, num2ImgIndex) } class={imgCategory} />
+    <EmojiIcon emoji={ getEmojiByCategory(imgCategory, num2ImgIndex) } />
 
     <div class="operator">=</div>
 
