@@ -30,6 +30,7 @@ export type TwoNumbersQuestionGeneratorConfig = {
     randomOrder: boolean,
     questionOperator: string[],
     numberOfQuestions: number,
+    allCombintationsMode: boolean
 }
 
 export const TwoNumbersQuestionFormat = {

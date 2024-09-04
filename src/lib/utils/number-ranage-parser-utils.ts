@@ -21,3 +21,8 @@ export const parseRange = (rangeStr: string, reverse: boolean) => {
     }
     return numArr;
 }
+
+export const findRangeCombinations = (rangeStr1: string, rangeStr2: string) => {
+    
+    return (rangeStr1 ? parseRangeStr(rangeStr1).length : 0) * (rangeStr2 ? parseRangeStr(rangeStr2).length : 0);
+}

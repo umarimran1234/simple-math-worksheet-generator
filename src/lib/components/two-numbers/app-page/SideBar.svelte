@@ -14,6 +14,20 @@
 
     // import stores
     import { questionGeneratorConfigStore } from '../stores';
+	import { derived } from 'svelte/store';
+	import { SimpleMathQuestionUtils } from '../utils/simple-math-question-utils';
+
+    const canUseAllCombintationsMode = derived(
+        questionGeneratorConfigStore, 
+        ($questionGeneratorConfigStore) => {
+            let flag = SimpleMathQuestionUtils.canUseAllCombintationsMode($questionGeneratorConfigStore);
+            if(!flag) {
+                $questionGeneratorConfigStore.allCombintationsMode = false;
+            }
+            return flag;
+        } 
+    );
+
 </script>
 
  <div>
@@ -62,15 +76,26 @@
         <span slot="label">Allow remainder</span>
     </FormField>
 
-    <!-- <FormField>
+    
+    <FormField>
         <Checkbox bind:checked={$questionGeneratorConfigStore.randomOrder} />
         <span slot="label">Random Order</span>
-    </FormField> -->
+    </FormField>
+    
+    {#if $canUseAllCombintationsMode}
+        <FormField>
+            <Checkbox bind:checked={$questionGeneratorConfigStore.allCombintationsMode} />
+            <span slot="label">All combinations</span>
+        </FormField>
+    {/if}
+
  </div>
 
  <div>
-    <Textfield style="margin-left:0.5em"
-        bind:value={$questionGeneratorConfigStore.numberOfQuestions} label="Max Number of questions" type="number" />
+    {#if !$canUseAllCombintationsMode || !$questionGeneratorConfigStore.allCombintationsMode }
+        <Textfield style="margin-left:0.5em"
+            bind:value={$questionGeneratorConfigStore.numberOfQuestions} label="Max Number of questions" type="number" />
+    {/if}
  </div>
 
 <Set chips={MATH_OPERATORS} let:chip filter bind:selected={$questionGeneratorConfigStore.questionOperator}>

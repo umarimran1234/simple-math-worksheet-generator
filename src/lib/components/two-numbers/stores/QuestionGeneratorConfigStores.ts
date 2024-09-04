@@ -1,7 +1,8 @@
-import { writable } from 'svelte/store';
+import { writable, derived } from 'svelte/store';
 
 import { AppConstants } from '$lib/constants/AppConstants';
-import type { TwoNumbersQuestionGeneratorConfig } from '$lib/constants/TwoNumbersQuestionConstants';
+import type { TwoNumbersQuestionGeneratorConfig } from '../TwoNumbersQuestionConstants';
+
 
 function createGeneratorConfigStore() {
     const { subscribe, set } = writable<TwoNumbersQuestionGeneratorConfig>(AppConstants.DEFAULT_TWO_NUMBERS_QUESTION_GENERATOR_CONFIG);

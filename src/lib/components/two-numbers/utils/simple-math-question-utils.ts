@@ -1,16 +1,30 @@
 import { AppFunction } from '../../../constants';
 import type { WorkSheet, TwoNumbersQuestion, TwoNumbersQuestionGeneratorConfig } from '../TwoNumbersQuestionConstants';
 import { shuffleArray, getArrRandomIndex, sortNumberArray } from '../../common/utils/array-utils';
-import { parseRange } from '../../../utils/number-ranage-parser-utils';
+import { findRangeCombinations, parseRange } from '../../../utils/number-ranage-parser-utils';
 import { requiresRemainderCheckMap, calculate, getRandomInt } from '../../common/utils/math-utils';
 import { MathOperators } from '../../../constants';
 
 
 export class SimpleMathQuestionUtils {
 
+    static canUseAllCombintationsMode(twoNumbersQuestionGeneratorConfig: TwoNumbersQuestionGeneratorConfig): boolean {
+        let rangeCombinations = findRangeCombinations(
+            twoNumbersQuestionGeneratorConfig.firstNumRange, 
+            twoNumbersQuestionGeneratorConfig.secondNumRange) 
+            * twoNumbersQuestionGeneratorConfig.questionOperator.length;
+
+        console.log('rangeCombinations ', rangeCombinations);
+
+        return rangeCombinations < 20000;
+    }
+
     static generateTwoNumbersQuestions(twoNumbersQuestionGeneratorConfig: TwoNumbersQuestionGeneratorConfig): WorkSheet[] {
 
         console.log('twoNumbersQuestionGeneratorConfig', twoNumbersQuestionGeneratorConfig);
+
+        // let rangeCombinations = findRangeCombinations(twoNumbersQuestionGeneratorConfig.firstNumRange, twoNumbersQuestionGeneratorConfig.secondNumRange);
+        // console.log('rangeCombinations ', rangeCombinations);
 
         let num1Arr: number[] = sortNumberArray(parseRange(
             twoNumbersQuestionGeneratorConfig.firstNumRange, twoNumbersQuestionGeneratorConfig.firstNumReverse));
@@ -31,6 +45,23 @@ export class SimpleMathQuestionUtils {
         //     twoNumbersQuestionGeneratorConfig.allowRemainder,
         //     twoNumbersQuestionGeneratorConfig.randomOrder);
 
+        if(twoNumbersQuestionGeneratorConfig.allCombintationsMode) {
+            console.log('use sequential generator');
+
+            let worksheetData = this.generateTwoNumbersQuestionsWithParam(
+            num1Arr,
+            num2Arr,
+            twoNumbersQuestionGeneratorConfig.resultMin,
+            twoNumbersQuestionGeneratorConfig.resultMax,
+            twoNumbersQuestionGeneratorConfig.questionOperator,
+            twoNumbersQuestionGeneratorConfig.allowNegative,
+            twoNumbersQuestionGeneratorConfig.allowRemainder,
+            twoNumbersQuestionGeneratorConfig.randomOrder);
+
+            console.log('generateTwoNumbersQuestions worksheetData: ', worksheetData);
+            return worksheetData;
+        }
+
         let worksheetData = this.generateTwoNumbersQuestionsWithParamAndNumberOfQuestions(
             num1Arr,
             num2Arr,
@@ -48,36 +79,36 @@ export class SimpleMathQuestionUtils {
         return worksheetData;
     }
 
-    // private static generateTwoNumbersQuestionsWithParam(
-    //     num1Arr: number[], num2Arr: number[],
-    //     resultMin: number, resultMax: number,
-    //     operators: string[],
-    //     allowNegative: boolean, allowRemainder: boolean, randomOrder: boolean): WorkSheet[] {
+    private static generateTwoNumbersQuestionsWithParam(
+        num1Arr: number[], num2Arr: number[],
+        resultMin: number, resultMax: number,
+        operators: string[],
+        allowNegative: boolean, allowRemainder: boolean, randomOrder: boolean): WorkSheet[] {
 
-    //     let questionArr: TwoNumbersQuestion[] = [];
+        let questionArr: TwoNumbersQuestion[] = [];
 
-    //     for (const operator of operators) {
-    //         for (const num1 of num1Arr) {
-    //             for (const num2 of num2Arr) {
-    //                 let answer = calculate(operator, [num1, num2]);
-    //                 if (!(!allowNegative && answer < 0)
-    //                     && !(resultMin && resultMin > answer)
-    //                     && !(resultMax && resultMax < answer)
-    //                     && !(!allowRemainder && requiresRemainderCheckMap(operator) && (num1 % num2 > 0))
-    //                 ) {
-    //                     questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator, answer));
-    //                 }
-    //             }
-    //         }
-    //     }
+        for (const operator of operators) {
+            for (const num1 of num1Arr) {
+                for (const num2 of num2Arr) {
+                    let answer = calculate(operator, [num1, num2]);
+                    if (!(!allowNegative && answer < 0)
+                        && !(resultMin && resultMin > answer)
+                        && !(resultMax && resultMax < answer)
+                        && !(!allowRemainder && requiresRemainderCheckMap(operator) && (num1 % num2 > 0))
+                    ) {
+                        questionArr.push(this.createTwoNumbersQuestionType(num1, num2, operator, answer));
+                    }
+                }
+            }
+        }
 
-    //     if (randomOrder) {
-    //         shuffleArray(questionArr);
-    //     }
+        if (randomOrder) {
+            shuffleArray(questionArr);
+        }
 
-    //     // return this.generateWorksheets(questionArr, questionsPerPage, pageSize);
-    //     return [<WorkSheet>{ questions: questionArr }];
-    // }
+        // return this.generateWorksheets(questionArr, questionsPerPage, pageSize);
+        return [<WorkSheet>{ questions: questionArr }];
+    }
 
     private static generateTwoNumbersQuestionsWithParamAndNumberOfQuestions(
         sortedNum1Arr: number[], sortedNum2Arr: number[],
