@@ -6,6 +6,7 @@ import type {
     TwoNumbersQuestionConfig, 
     TwoNumbersQuestionHorizontalMethodStyleConfig,
     TwoNumberQuestionColumnMethodStyleConfig,
+    TwoNumberQuestionColumnMethodWithGridLineStyleConfig,
     TwoNumberWorksheetConfig
 } from '../TwoNumbersQuestionConstants'
 
@@ -103,6 +104,16 @@ function createColumnMethodStyleConfigStore() {
     };
 }
 
+function createColumnMethodWithGridLineStyleConfigStore() {
+    const { subscribe, set, update } = writable<TwoNumberQuestionColumnMethodWithGridLineStyleConfig>(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.columnMethodWithGridLineStyleConfig);
+
+    return {
+        subscribe,
+        set: (config: TwoNumberQuestionColumnMethodWithGridLineStyleConfig) => set(config),
+        reset: () => set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.columnMethodWithGridLineStyleConfig)
+    };
+}
+
 function createWorksheetConfigStore() {
     const { subscribe, set, update } = writable<TwoNumberWorksheetConfig>(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.worksheetConfig);
 
@@ -127,5 +138,6 @@ function createWorksheetContainerStyleConfigStore() {
 export const questionConfigStore = createQuestionConfigStore();
 export const horizontalMethodStyleConfigStore = createHorizontalMethodStyleConfigStore();
 export const columnMethodStyleConfigStore = createColumnMethodStyleConfigStore();
+export const columnMethodWithGridLineStyleConfigStore = createColumnMethodWithGridLineStyleConfigStore();
 export const worksheetConfigStore = createWorksheetConfigStore();
 export const worksheetContainerStyleConfig = createWorksheetContainerStyleConfigStore();

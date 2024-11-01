@@ -8,6 +8,7 @@ export type ThreeNumbersQuestion = {
     num3: number;
     firstOperator: string;
     secondOperator: string;
+    twoNumsResult: number;
     answer: number;
     blankBoxIndex: number;
 }
@@ -70,7 +71,9 @@ export type ThreeNumbersQuestionWorksheetConfig = {
 
 export type ThreeNumbersQuestionConfig = {
     questionFormat: ThreeNumbersQuestionFormat,
-    showAnswers: boolean
+    showAnswers: boolean,
+    questionGridColumns: number,
+    roughPaperMode: boolean
 }
 
 export type ThreeNumberWorksheetConfig =  {

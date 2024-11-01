@@ -124,7 +124,7 @@ export class SimpleMathQuestionUtils {
             }
         }
 
-        return this.createThreeNumbersQuestionType(num1, num2, num3, firstOperator, secondOperator, threeNumsResult, blankBoxIndex);
+        return this.createThreeNumbersQuestionType(num1, num2, num3, firstOperator, secondOperator, twoNumsResult, threeNumsResult, blankBoxIndex);
     }
 
     private static filterSecondNumArr(secondNumArr: number[], num1: number, operator: string): number[] {
@@ -142,7 +142,7 @@ export class SimpleMathQuestionUtils {
 
     
 
-    private static createThreeNumbersQuestionType(num1: number, num2: number, num3: number, firstOperator: string, secondOperator: string, answer: number, blankBoxIndex: number): ThreeNumbersQuestion {
+    private static createThreeNumbersQuestionType(num1: number, num2: number, num3: number, firstOperator: string, secondOperator: string, twoNumsResult: number, answer: number, blankBoxIndex: number): ThreeNumbersQuestion {
         return <ThreeNumbersQuestion>{
             questionType: AppFunction.THREE_NUMBERS.id,
             num1: num1,
@@ -150,6 +150,7 @@ export class SimpleMathQuestionUtils {
             num3: num3,
             firstOperator: firstOperator,
             secondOperator: secondOperator,
+            twoNumsResult: twoNumsResult,
             answer: answer,
             blankBoxIndex: blankBoxIndex
         }

@@ -10,6 +10,7 @@
     import { TwoNumbersQuestionFormat } from "$lib/components/two-numbers/TwoNumbersQuestionConstants";
     import { AppFunction, AppConstants } from "$lib/constants/AppConstants";
     import { MathOperators } from "$lib/constants/MathsConstants";
+	import QuestionVerticalGridlines from "../question/QuestionVerticalGridlines.svelte";
 		
     export let worksheetPages:any = [];
 
@@ -17,6 +18,7 @@
 
     export let questionConfig = defaultTwoNumbersQuestionWorksheetConfig.questionConfig;
     export let columnMethodStyleConfig = defaultTwoNumbersQuestionWorksheetConfig.columnMethodStyleConfig;
+    export let columnMethodWithGridLineStyleConfig = defaultTwoNumbersQuestionWorksheetConfig.columnMethodWithGridLineStyleConfig;
     export let horizonalMethodStyleConfig = defaultTwoNumbersQuestionWorksheetConfig.horizonalMethodStyleConfig;    
     export let worksheetConfig = defaultTwoNumbersQuestionWorksheetConfig.worksheetConfig;
     export let worksheetCointainerStyleConfig = defaultTwoNumbersQuestionWorksheetConfig.worksheetCointainerStyleConfig;
@@ -70,21 +72,39 @@
                             questionRowNumberWidth={columnMethodStyleConfig.questionRowNumberWidth}
                         />
                     {:else}
-                        <QuestionVertical 
-                            questionId={String(questionIndex+1)}
-                            firstNumber={question.num1.toString()}
-                            secondNumber={question.num2.toString()}
-                            operator={question.operator}
-                            answer={questionConfig.showAnswers ? question.answer.toString() : ''}
+                        {#if questionConfig.showGridLines}
+                            <QuestionVerticalGridlines 
+                                questionId={String(questionIndex+1)}
+                                firstNumber={question.num1.toString()}
+                                secondNumber={question.num2.toString()}
+                                operator={question.operator}
+                                answer={questionConfig.showAnswers ? question.answer.toString() : ''}
 
-                            showQuestionId={columnMethodStyleConfig.showQuestionId}
-                            questionIdFontSize={columnMethodStyleConfig.questionIdFontSize}
-                            questionIdWidth={columnMethodStyleConfig.questionIdWidth}
-                            questionFontSize={columnMethodStyleConfig.questionFontSize}
-                            questionContainerMargin={columnMethodStyleConfig.questionContainerMargin}
-                            questionContainerPadding={columnMethodStyleConfig.questionContainerPadding}
-                            questionRowNumberWidth={columnMethodStyleConfig.questionRowNumberWidth}
-                        />
+                                showQuestionId={columnMethodWithGridLineStyleConfig.showQuestionId}
+                                questionIdFontSize={columnMethodWithGridLineStyleConfig.questionIdFontSize}
+                                questionIdWidth={columnMethodWithGridLineStyleConfig.questionIdWidth}
+                                questionFontSize={columnMethodWithGridLineStyleConfig.questionFontSize}
+                                questionContainerMargin={columnMethodWithGridLineStyleConfig.questionContainerMargin}
+
+                                questionGridColumns={questionConfig.questionGridColumns}
+                            />                        
+                        {:else}
+                            <QuestionVertical 
+                                questionId={String(questionIndex+1)}
+                                firstNumber={question.num1.toString()}
+                                secondNumber={question.num2.toString()}
+                                operator={question.operator}
+                                answer={questionConfig.showAnswers ? question.answer.toString() : ''}
+
+                                showQuestionId={columnMethodStyleConfig.showQuestionId}
+                                questionIdFontSize={columnMethodStyleConfig.questionIdFontSize}
+                                questionIdWidth={columnMethodStyleConfig.questionIdWidth}
+                                questionFontSize={columnMethodStyleConfig.questionFontSize}
+                                questionContainerMargin={columnMethodStyleConfig.questionContainerMargin}
+                                questionContainerPadding={columnMethodStyleConfig.questionContainerPadding}
+                                questionRowNumberWidth={columnMethodStyleConfig.questionRowNumberWidth}
+                            />
+                        {/if}
                     {/if}
                 {/if}
             {/if}

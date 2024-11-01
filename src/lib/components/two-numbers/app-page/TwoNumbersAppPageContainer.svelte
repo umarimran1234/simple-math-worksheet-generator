@@ -13,6 +13,7 @@
         questionConfigStore,
         horizontalMethodStyleConfigStore,
         columnMethodStyleConfigStore,
+        columnMethodWithGridLineStyleConfigStore,
         worksheetConfigStore,
         worksheetContainerStyleConfig,
 
@@ -38,6 +39,7 @@
                 worksheetPages={$worksheetDataWithPageSplitStore}
                 questionConfig={$questionConfigStore}
                 columnMethodStyleConfig={$columnMethodStyleConfigStore}
+                columnMethodWithGridLineStyleConfig={$columnMethodWithGridLineStyleConfigStore}
                 horizonalMethodStyleConfig={$horizontalMethodStyleConfigStore}
                 worksheetConfig={$worksheetConfigStore}
                 worksheetCointainerStyleConfig={$worksheetContainerStyleConfig}

@@ -1,7 +1,8 @@
 <script lang="ts">
     
     import QuestionHorizontal from "../question/QuestionHorizontal.svelte";
-    import QuestionVertical from "../question/QuestionVertical.svelte";
+    // import QuestionVertical from "../question/QuestionVertical.svelte";
+    import QuestionVerticalGridlines from "../question/QuestionVerticalGridlines.svelte";
     import DivisionQuestionVertical from "../question/DivisionQuestionVertical.svelte";
 
     import WorksheetPage from "$lib/components/common/worksheet/WorksheetPage.svelte";
@@ -37,7 +38,7 @@
         {#each page as question, questionIndex }
             {#if question.questionType === AppFunction.THREE_NUMBERS.id}
                 {#if questionConfig.questionFormat === ThreeNumbersQuestionFormat.HORIZONTAL_METHOD}
-                    <QuestionHorizontal 
+                    <!-- <QuestionHorizontal 
                         firstNumber={question.num1}
 						secondNumber={question.num2}
                         thirdNumber={question.num3}
@@ -53,6 +54,28 @@
 						numberBoxMargin={horizonalMethodStyleConfig.numberBoxMargin}
 						operatorBoxMargin={horizonalMethodStyleConfig.operatorBoxMargin}
 						questionContainerMargin={horizonalMethodStyleConfig.questionContainerMargin}
+                    /> -->
+
+                    <QuestionVerticalGridlines
+                        firstNumber={question.num1.toString()}
+						secondNumber={question.num2.toString()}
+                        thirdNumber={question.num3.toString()}
+						firstOperator={question.firstOperator}
+                        secondOperator={question.secondOperator}
+                        twoNumsResult={question.twoNumsResult.toString()}
+                        answer={question.answer.toString()}
+                        blankBoxIndex={question.blankBoxIndex}
+                        showAnswer={questionConfig.showAnswers}
+						
+                        width={horizonalMethodStyleConfig.numberBoxWidth}
+						height={horizonalMethodStyleConfig.numberBoxHeight}
+						fontSize={horizonalMethodStyleConfig.fontSize}
+						numberBoxMargin={horizonalMethodStyleConfig.numberBoxMargin}
+						operatorBoxMargin={horizonalMethodStyleConfig.operatorBoxMargin}
+						questionContainerMargin={horizonalMethodStyleConfig.questionContainerMargin}
+
+                        questionGridColumns={questionConfig.questionGridColumns}
+                        roughPaperMode={questionConfig.roughPaperMode}
                     />
                 {/if}
             {/if}

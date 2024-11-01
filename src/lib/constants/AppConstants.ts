@@ -163,7 +163,9 @@ export const AppConstants = {
                 showFirstNumber: true,
                 showSecondNumber: true,
                 showOperator: true,
-                showAnswers: false
+                showAnswers: false,
+                showGridLines: false,
+                questionGridColumns: 5,
             },            
             horizonalMethodStyleConfig: {
                 fontSize: '40px',
@@ -181,6 +183,13 @@ export const AppConstants = {
                 questionContainerMargin: '3mm',
                 questionContainerPadding: '2mm',
                 questionRowNumberWidth: '24mm'
+            },
+            columnMethodWithGridLineStyleConfig: {
+                showQuestionId: false,
+                questionIdFontSize: '3mm',
+                questionIdWidth: '12mm',
+                questionFontSize: '7mm',
+                questionContainerMargin: '3mm'
             },
             worksheetConfig: {
                 worksheetSize: TwoNumbersWorksheetSize.A4,
@@ -201,7 +210,9 @@ export const AppConstants = {
                 showFirstNumber: true,
                 showSecondNumber: true,
                 showOperator: true,
-                showAnswers: false
+                showAnswers: false,
+                showGridLines: false,
+                questionGridColumns: 5,
             },            
             horizonalMethodStyleConfig: {
                 fontSize: '30px',
@@ -219,6 +230,13 @@ export const AppConstants = {
                 questionContainerMargin: '3mm',
                 questionContainerPadding: '2mm',
                 questionRowNumberWidth: '24mm'
+            },
+            columnMethodWithGridLineStyleConfig: {
+                showQuestionId: false,
+                questionIdFontSize: '3mm',
+                questionIdWidth: '12mm',
+                questionFontSize: '7mm',
+                questionContainerMargin: '3mm'
             },
             worksheetConfig: {
                 worksheetSize: TwoNumbersWorksheetSize.A4_LANDSCAPE,
@@ -258,12 +276,14 @@ export const AppConstants = {
         A4: <ThreeNumbersQuestionWorksheetConfig>{
             questionConfig: {
                 questionFormat: ThreeNumbersQuestionFormat.HORIZONTAL_METHOD,
-                showAnswers: false
+                showAnswers: false,
+                questionGridColumns: 4,
+                roughPaperMode: false
             },
             horizonalMethodStyleConfig: {
                 fontSize: '25px',
-                numberBoxWidth: '16mm',
-                numberBoxHeight: '16mm',
+                numberBoxWidth: '9mm',
+                numberBoxHeight: '9mm',
                 numberBoxMargin: '20px 1px 5px 1px',
                 operatorBoxMargin: '20px 1px 5px 1px',
                 questionContainerMargin: '10px 30px 10px 30px',
@@ -279,7 +299,7 @@ export const AppConstants = {
             },
             worksheetConfig: {
                 worksheetSize: ThreeNumbersWorksheetSize.A4,
-                questionsPerPage: 20
+                questionsPerPage: 10
             },
             worksheetCointainerStyleConfig: {
                 contentContainerHeight: '276mm',
@@ -293,7 +313,9 @@ export const AppConstants = {
         A4_LANDSCAPE: <ThreeNumbersQuestionWorksheetConfig>{
             questionConfig: {
                 questionFormat: TwoNumbersQuestionFormat.HORIZONTAL_METHOD,
-                showAnswers: false
+                showAnswers: false,
+                questionGridColumns: 4,
+                roughPaperMode: false
             },
             horizonalMethodStyleConfig: {
                 fontSize: '25px',

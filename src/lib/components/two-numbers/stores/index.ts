@@ -4,6 +4,7 @@ export {
     questionConfigStore,
     horizontalMethodStyleConfigStore,
     columnMethodStyleConfigStore,
+    columnMethodWithGridLineStyleConfigStore,
     worksheetConfigStore,
     worksheetContainerStyleConfig
 } from "./QuestionWorksheetConfigStores";

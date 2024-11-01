@@ -96,10 +96,17 @@
                 {/each}
             </Select> -->
 
+            <Textfield bind:value={$questionConfigStore.questionGridColumns} label="Question Grid Columns" type="number" />
+            
+            <FormField>
+                <Switch bind:checked={$questionConfigStore.roughPaperMode} />
+                <span slot="label">Rough Paper Mode</span>
+            </FormField>
+
             <FormField>
                 <Switch bind:checked={$questionConfigStore.showAnswers} />
                 <span slot="label">Show answers</span>
-            </FormField>        
+            </FormField>
         </details>
     
         <details class="mdc-typography--subtitle1" style="padding-top:0.5em" bind:open={layoutSettingsOpen}>

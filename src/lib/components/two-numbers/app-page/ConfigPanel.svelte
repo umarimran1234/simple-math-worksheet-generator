@@ -31,6 +31,7 @@
         questionConfigStore,
         horizontalMethodStyleConfigStore,
         columnMethodStyleConfigStore,
+        columnMethodWithGridLineStyleConfigStore,
         worksheetConfigStore,
         worksheetContainerStyleConfig,
         worksheetDataCountStore
@@ -52,6 +53,7 @@
             questionConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.questionConfig);
             horizontalMethodStyleConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.horizonalMethodStyleConfig);
             columnMethodStyleConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.columnMethodStyleConfig);
+            columnMethodWithGridLineStyleConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.columnMethodWithGridLineStyleConfig);
             worksheetConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.worksheetConfig);
             worksheetContainerStyleConfig.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4.worksheetCointainerStyleConfig);
         } else {
@@ -59,6 +61,7 @@
             questionConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.questionConfig);
             horizontalMethodStyleConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.horizonalMethodStyleConfig);
             columnMethodStyleConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.columnMethodStyleConfig);
+            columnMethodWithGridLineStyleConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.columnMethodWithGridLineStyleConfig);
             worksheetConfigStore.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.worksheetConfig);
             worksheetContainerStyleConfig.set(AppConstants.TWO_NUMBERS_WORKSHEET_DEFAULT_CONFIG.A4_LANDSCAPE.worksheetCointainerStyleConfig);
         }
@@ -117,6 +120,11 @@
                 <Switch bind:checked={$questionConfigStore.showAnswers} />
                 <span slot="label">Show answers</span>
             </FormField>
+
+            <FormField>
+                <Switch bind:checked={$questionConfigStore.showGridLines} />
+                <span slot="label">Show gridlines</span>
+            </FormField>
         </details>
     
         <details class="mdc-typography--subtitle1" style="padding-top:0.5em" bind:open={layoutSettingsOpen}>
@@ -157,7 +165,7 @@
                     <Textfield bind:value={$horizontalMethodStyleConfigStore.operatorBoxMargin} label="Question operation box margin" />
                     <Textfield bind:value={$horizontalMethodStyleConfigStore.questionContainerMargin} label="Question container margin" />
                 </div>
-            {:else if $questionConfigStore.questionFormat === TwoNumbersQuestionFormat.COLUMN_METHOD}
+            {:else if ($questionConfigStore.questionFormat === TwoNumbersQuestionFormat.COLUMN_METHOD && !$questionConfigStore.showGridLines)}
                 <div>                    
                     <Textfield bind:value={$columnMethodStyleConfigStore.questionIdFontSize} label="Question ID font size" />
                     <Textfield bind:value={$columnMethodStyleConfigStore.questionIdWidth} label="Question ID width" />
@@ -167,6 +175,18 @@
                     <Textfield bind:value={$columnMethodStyleConfigStore.questionRowNumberWidth} label="Question row number width" />
                     <FormField>
                         <Switch bind:checked={$columnMethodStyleConfigStore.showQuestionId} />
+                        <span slot="label">Show question ID</span>
+                    </FormField>
+                </div>
+            {:else if ($questionConfigStore.questionFormat === TwoNumbersQuestionFormat.COLUMN_METHOD && $questionConfigStore.showGridLines)}
+                <div>         
+                    <Textfield bind:value={$columnMethodWithGridLineStyleConfigStore.questionIdFontSize} label="Question ID font size" />
+                    <Textfield bind:value={$columnMethodWithGridLineStyleConfigStore.questionIdWidth} label="Question ID width" />
+                    <Textfield bind:value={$columnMethodWithGridLineStyleConfigStore.questionFontSize} label="Question font size" />
+                    <Textfield bind:value={$columnMethodWithGridLineStyleConfigStore.questionContainerMargin} label="Question container margin" />
+                    <Textfield bind:value={$questionConfigStore.questionGridColumns} label="Question Grid Columns" type="number" />
+                    <FormField>
+                        <Switch bind:checked={$columnMethodWithGridLineStyleConfigStore.showQuestionId} />
                         <span slot="label">Show question ID</span>
                     </FormField>
                 </div>

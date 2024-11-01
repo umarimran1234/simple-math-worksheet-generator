@@ -56,6 +56,7 @@ export type TwoNumbersQuestionWorksheetConfig = {
     questionConfig: TwoNumbersQuestionConfig,
     horizonalMethodStyleConfig: TwoNumbersQuestionHorizontalMethodStyleConfig,
     columnMethodStyleConfig: TwoNumberQuestionColumnMethodStyleConfig,
+    columnMethodWithGridLineStyleConfig: TwoNumberQuestionColumnMethodWithGridLineStyleConfig, 
     worksheetConfig: TwoNumberWorksheetConfig,
     worksheetCointainerStyleConfig: WorksheetContainerStyleConfig
 }
@@ -66,7 +67,9 @@ export type TwoNumbersQuestionConfig = {
     showFirstNumber: boolean,
     showSecondNumber: boolean,
     showOperator: boolean,
-    showAnswers: boolean
+    showAnswers: boolean,
+    showGridLines: boolean,
+    questionGridColumns: number
 }
 
 export type TwoNumberWorksheetConfig =  {
@@ -97,4 +100,15 @@ export type TwoNumberQuestionColumnMethodStyleConfig = {
     questionContainerMargin: string,
     questionContainerPadding: string,
     questionRowNumberWidth: string
+}
+
+/**
+ * Two numbers question CSS style config (Column method)
+ */
+export type TwoNumberQuestionColumnMethodWithGridLineStyleConfig = {
+    showQuestionId: boolean,
+    questionIdFontSize: string,
+    questionIdWidth: string,
+    questionFontSize: string,
+    questionContainerMargin: string
 }
