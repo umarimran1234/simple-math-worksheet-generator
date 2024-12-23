@@ -66,34 +66,40 @@ export type AppFunctionType = {
 export const AppFunction = {
     TWO_NUMBERS : <AppFunctionType>{ 
         id: "twoNumbers", 
-        label: "Two numbers",
+        label: "Two numbers Worksheets Grade 1",
         route: "/two-numbers"
     },
     THREE_NUMBERS : <AppFunctionType>{
         id: "threeNumbers", 
-        label: "Three numbers",
+        label: "Three Numbers Worksheets Grade 2",
         route: "/three-numbers"
     },
     TWO_NUMS_ADD_ALGEBRA : <AppFunctionType>{
         id: "twoNumsAddAlgebra", 
-        label: "Two numbers algebra",
+        label: "Two Numbers Algebra Worksheets Grade 3 ",
         route: "/two-nums-add-algebra"
     },
     FUN_MULTIPLICATION: <AppFunctionType>{ 
         id: "funMultiplication", 
-        label: "Fun multiplication 1-10",
+        label: "Fun Multiplication Worksheets Grade 3 ",
         route: "/fun-multiplications"
     },
     FUN_ALGEBRA: <AppFunctionType>{
         id: "funAlgebra",
-        label: "Fun algebra",
+        label: "Fun Algebra Worksheets Grade 4",
         route: "/fun-algebra"
     },
     CLOCK: <AppFunctionType>{
         id: "clock",
-        label: "Clock",
+        label: "Clock Worksheets Grade 4",
         route: "/clock"
-    }
+    },
+    GRADE5: <AppFunctionType>{
+        id: "grade",
+        label: "Grade 5 and above",
+        route: "/grade5"
+    },
+    
 } as const
 
 export const AppFunctionSelectList: AppFunctionType[] = [
@@ -102,7 +108,8 @@ export const AppFunctionSelectList: AppFunctionType[] = [
     AppFunction.TWO_NUMS_ADD_ALGEBRA,
     AppFunction.FUN_MULTIPLICATION,
     AppFunction.FUN_ALGEBRA,
-    AppFunction.CLOCK
+    AppFunction.CLOCK,
+    AppFunction.GRADE5
 ];
 
 export const getAppFunctionById = (appFunctionId: string): AppFunctionType => {
