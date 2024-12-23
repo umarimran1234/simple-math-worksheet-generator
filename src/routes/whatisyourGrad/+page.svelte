@@ -1,5 +1,5 @@
 
-<section class="bg-gray-50 dark:bg-gray-900 h-screen flex items-center justify-center">
+<section class="bg-gray-50 dark:bg-gray-900 h-screen p-12 flex items-center justify-center">
     <div class="flex flex-col md:flex-row  w-full  items-center justify-center   ">
     
 
