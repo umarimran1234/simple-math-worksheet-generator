@@ -34,7 +34,7 @@
                 <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.313c-0.771,2.978-2.637,5.523-5.14,7.018c0.001-0.001,6.543,5.669,6.543,5.669 C43.109,35.172,46,30.014,46,24C46,22.147,45.742,20.354,45.252,18.677C44.5,22.443,43.611,20.083,43.611,20.083z"/>
               </svg>
               
-              Sign up with Google
+              saSign up with Google
             </button>
             <button class="w-full flex items-center  gap-5  bg-transparent border-2 text-black  font-medium rounded-lg text-sm px-5 py-2.5">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24px" height="24px">
